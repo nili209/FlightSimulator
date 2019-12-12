@@ -5,9 +5,9 @@
 #include "FlightSimulator.cpp"
 #include "FlightSimulator.h"
 queue<string> lexer(string file_name);
-void separateBySpaces(queue<string> &token, int index_comma, int index_bracket, int npos, string part_by_space);
+void separateBySpaces(queue<string> &token, int index_bracket, int npos, string part_by_space);
 void separateByComma(queue<string> &token, int index_comma, int npos, string part_by_brackets);
-void getQueue(queue<string> &token,string line);
+void createQueue(queue<string> &token, string line);
 int main(int argc, char *argv[]) {
   char *file_name = argv[1];
   queue<string> token;
@@ -28,12 +28,12 @@ queue<string> lexer(string file_name) {
       size_t last = line.size();
       line =  line.substr(first, line.size() - first+1);
     }
-    getQueue(token, line);
+    createQueue(token, line);
   }
   f.close();
   return token;
 }
-void getQueue(queue<string> &token,string line) {
+void createQueue(queue<string> &token, string line) {
   string pusher;
   string even = "";
   int index_comma = 0, index_bracket = 0, index_space = 0, npos = (int) std::string::npos;
@@ -43,7 +43,7 @@ void getQueue(queue<string> &token,string line) {
     string part_by_brackets = line.substr(0, index_bracket);
     even = part_by_brackets[index_bracket - 2];
     //separated by space
-    separateBySpaces(token, index_comma, index_space, npos, part_by_brackets);
+    separateBySpaces(token, index_space, npos, part_by_brackets);
     //in the ()
     if (even.compare("=") == 0) {
       string inside_brackets = line.substr(index_bracket, line.size() - part_by_brackets.size());
@@ -59,12 +59,11 @@ void getQueue(queue<string> &token,string line) {
   }
   //there is no bracket
   if ((index_bracket = line.find(OPEN_BRACKETS)) == npos) {
-    separateBySpaces(token, index_comma, index_space, npos, line);
+    separateBySpaces(token, index_space, npos, line);
     line.erase(0, index_bracket + 1);
   }
-  //return token;
 }
-void separateBySpaces(queue<string> &token, int index_comma, int index_space, int npos, string part_by_brackets) {
+void separateBySpaces(queue<string> &token, int index_space, int npos, string part_by_brackets) {
   string pusher = "";
   //separate by space
   while ((index_space = part_by_brackets.find(SPACE)) != npos) {
