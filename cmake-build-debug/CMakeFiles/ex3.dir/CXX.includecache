@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shiraz/CLionProjects/ex3/Command.h
+
+/home/shiraz/CLionProjects/ex3/Flight.cpp
+unordered_map
+-
+list
+-
+Command.h
+/home/shiraz/CLionProjects/ex3/Command.h
+VarClass.h
+/home/shiraz/CLionProjects/ex3/VarClass.h
+iostream
+-
+string
+-
+fstream
+-
+queue
+-
+
+/home/shiraz/CLionProjects/ex3/VarClass.h
+
+/home/shiraz/CLionProjects/ex3/main.cpp
+iostream
+-
+string
+-
+fstream
+-
+queue
+-
+Flight.cpp
+/home/shiraz/CLionProjects/ex3/Flight.cpp
+
