@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
   FlightSimulator f = FlightSimulator();
   queue<string> token;
   token = f.lexer(file_name);
-  //f.parser(token);
+  //f.parser(token);l
   return 0;
 
 }
