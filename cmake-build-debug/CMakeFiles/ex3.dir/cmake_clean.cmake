@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ex3.dir/FlightSimulator.cpp.o"
-  "CMakeFiles/ex3.dir/VarClass.cpp.o"
   "CMakeFiles/ex3.dir/main.cpp.o"
   "ex3"
   "ex3.pdb"

@@ -84,21 +84,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/shiraz/CLionProjects/ex3/Command.h">
-			<Option target="ex3"/>
-		</Unit>
-		<Unit filename="/home/shiraz/CLionProjects/ex3/FlightSimulator.cpp">
-			<Option target="ex3"/>
-		</Unit>
-		<Unit filename="/home/shiraz/CLionProjects/ex3/FlightSimulator.h">
-			<Option target="ex3"/>
-		</Unit>
-		<Unit filename="/home/shiraz/CLionProjects/ex3/VarClass.cpp">
-			<Option target="ex3"/>
-		</Unit>
-		<Unit filename="/home/shiraz/CLionProjects/ex3/VarClass.h">
-			<Option target="ex3"/>
-		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/main.cpp">
 			<Option target="ex3"/>
 		</Unit>

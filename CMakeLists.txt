@@ -3,4 +3,4 @@ project(ex3)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(ex3 main.cpp Command.h VarClass.cpp VarClass.h)
+add_executable(ex3 main.cpp)

@@ -123,60 +123,6 @@ ex3/fast:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/build
 .PHONY : ex3/fast
 
-FlightSimulator.o: FlightSimulator.cpp.o
-
-.PHONY : FlightSimulator.o
-
-# target to build an object file
-FlightSimulator.cpp.o:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/FlightSimulator.cpp.o
-.PHONY : FlightSimulator.cpp.o
-
-FlightSimulator.i: FlightSimulator.cpp.i
-
-.PHONY : FlightSimulator.i
-
-# target to preprocess a source file
-FlightSimulator.cpp.i:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/FlightSimulator.cpp.i
-.PHONY : FlightSimulator.cpp.i
-
-FlightSimulator.s: FlightSimulator.cpp.s
-
-.PHONY : FlightSimulator.s
-
-# target to generate assembly for a file
-FlightSimulator.cpp.s:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/FlightSimulator.cpp.s
-.PHONY : FlightSimulator.cpp.s
-
-VarClass.o: VarClass.cpp.o
-
-.PHONY : VarClass.o
-
-# target to build an object file
-VarClass.cpp.o:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/VarClass.cpp.o
-.PHONY : VarClass.cpp.o
-
-VarClass.i: VarClass.cpp.i
-
-.PHONY : VarClass.i
-
-# target to preprocess a source file
-VarClass.cpp.i:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/VarClass.cpp.i
-.PHONY : VarClass.cpp.i
-
-VarClass.s: VarClass.cpp.s
-
-.PHONY : VarClass.s
-
-# target to generate assembly for a file
-VarClass.cpp.s:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/VarClass.cpp.s
-.PHONY : VarClass.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -213,12 +159,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ex3"
 	@echo "... edit_cache"
-	@echo "... FlightSimulator.o"
-	@echo "... FlightSimulator.i"
-	@echo "... FlightSimulator.s"
-	@echo "... VarClass.o"
-	@echo "... VarClass.i"
-	@echo "... VarClass.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,25 +1,27 @@
 //
 // Created by shiraz on 12.12.2019.
 //
-#include <unordered_map>
-#include <list>
+#ifndef ex3__FLIGHTSIMULATOR_CPP_
+#define ex3__FLIGHTSIMULATOR_CPP_
 #include "Command.h"
-#include "VarClass.h"
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <queue>
-#define SPACE " "
-#define OPEN_BRACKETS '('
-#define COMMA ','
-using namespace std;
+#include "OpenServerCommand.cpp"
+#include "ConnectCommand.cpp"
+#include "DefineVarCommand.cpp"
+#include "PrintCommand.cpp"
+#include "SleepCommand.cpp"
 class FlightSimulator {
- private:
-  unordered_map<string, Command*> commands;
-  unordered_map<string, VarClass*> symbolTableSimulator;
-  unordered_map<string, VarClass*> symbolTableProgram;
  public:
-  FlightSimulator(){};
+  unordered_map<string, Command*> commands;
+  FlightSimulator(){
+    resetCommands();
+  };
+  void resetCommands() {
+    commands.insert({OPEN_DATA_SERVER, new OpenServerCommand()});
+    commands.insert({CONNECT_CONTROL_CLIENT, new ConnectCommand()});
+    commands.insert({VAR, new DefineVarCommand()});
+    commands.insert({PRINT, new PrintCommand()});
+    commands.insert({SLEEP, new SleepCommand()});
+  }
   queue<string> lexer(string file_name) {
     queue<string> token;
     string line;
@@ -109,6 +111,18 @@ class FlightSimulator {
       part_by_brackets.erase(0, index_comma + 1);
     }
   }
-  void parser(queue<string> queue);
+  void parser(queue<string> &token){
+    int i = 0;
+    while(!token.empty()) {
+      i++;
+      string current = token.front();
+      Command *c = commands.at(current);
+      if(c != NULL) {
+        c->execute(token, commands);
+      }
+    }
+
+  }
 
 };
+#endif
