@@ -7,16 +7,34 @@
 #include "Var.cpp"
 class DefineVarCommand : public Command {
   virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands) {
+    //the word var
     token.pop();
     string var_name = token.front();
+    //the name of the var
     token.pop();
-    string direction = token.front();
-    token.pop();
-    token.pop();
-    string sim = token.front();
-    token.pop();
-    Var *var = new Var(sim, direction);
-    commands.insert({var_name, var});
+    string action = token.front();
+    //the actinon is =
+    if (action.compare("=") == 0) {
+      //pop =
+      token.pop();
+      //pop the var or value after the =
+      token.pop();
+      //if after the = is a var:
+      //insert var_name and the var that comes after the = to commands
+      //else - if after the = is a value:
+      //just update the value of the curren var
+
+      //the action is direction
+    } else {
+      //direction or =
+      token.pop();
+      //the word sim
+      token.pop();
+      string sim = token.front();
+      token.pop();
+      Var *var = new Var(sim, action);
+      commands.insert({var_name, var});
+    }
    cout<<"I am executing in Define Var Command"<<endl;
   }
 };

@@ -9,7 +9,12 @@ class PrintCommand : public Command {
     cout<<"I am executing in Print Command"<<endl;
     //the word "print"
     token.pop();
-    string printer = token.front().substr(1, token.front().size() - 2);
+    string printer;
+    if (token.front()[0] == '"') {
+      printer = token.front().substr(1, token.front().size() - 2);
+    } else {
+      printer = token.front();
+    }
     cout<<printer<<endl;
     //the message
     token.pop();

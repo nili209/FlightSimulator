@@ -24,6 +24,10 @@ queue
 iostream
 /home/shiraz/CLionProjects/ex3/iostream
 
+/home/shiraz/CLionProjects/ex3/ConditionParser.cpp
+Command.h
+/home/shiraz/CLionProjects/ex3/Command.h
+
 /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
@@ -47,6 +51,20 @@ PrintCommand.cpp
 /home/shiraz/CLionProjects/ex3/PrintCommand.cpp
 SleepCommand.cpp
 /home/shiraz/CLionProjects/ex3/SleepCommand.cpp
+ConditionParser.cpp
+/home/shiraz/CLionProjects/ex3/ConditionParser.cpp
+IfCommand.cpp
+/home/shiraz/CLionProjects/ex3/IfCommand.cpp
+LoopCommand.cpp
+/home/shiraz/CLionProjects/ex3/LoopCommand.cpp
+
+/home/shiraz/CLionProjects/ex3/IfCommand.cpp
+ConditionParser.cpp
+/home/shiraz/CLionProjects/ex3/ConditionParser.cpp
+
+/home/shiraz/CLionProjects/ex3/LoopCommand.cpp
+ConditionParser.cpp
+/home/shiraz/CLionProjects/ex3/ConditionParser.cpp
 
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
 Command.h

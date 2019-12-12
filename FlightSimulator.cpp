@@ -9,6 +9,9 @@
 #include "DefineVarCommand.cpp"
 #include "PrintCommand.cpp"
 #include "SleepCommand.cpp"
+#include "ConditionParser.cpp"
+#include "IfCommand.cpp"
+#include "LoopCommand.cpp"
 class FlightSimulator {
  public:
   unordered_map<string, Command*> commands;
@@ -21,6 +24,8 @@ class FlightSimulator {
     commands.insert({VAR, new DefineVarCommand()});
     commands.insert({PRINT, new PrintCommand()});
     commands.insert({SLEEP, new SleepCommand()});
+    commands.insert({LOOP, new LoopCommand()});
+    commands.insert({IF, new IfCommand()});
   }
   queue<string> lexer(string file_name) {
     queue<string> token;

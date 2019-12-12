@@ -20,7 +20,8 @@
 #define VAR "var"
 #define PRINT "Print"
 #define SLEEP "Sleep"
-
+#define IF "if"
+#define LOOP "while"
 using namespace std;
 
 class Command {

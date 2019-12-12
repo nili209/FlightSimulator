@@ -22,6 +22,10 @@ class Var : public Command {
       //go to the symbol table of simulator and change the value;
     }
     //value
+    //it was a cpecipic case that in the lexer it inserted a space with no reason
+    if (token.front().compare("") == 0) {
+      token.pop();
+    }
     token.pop();
   }
 };
