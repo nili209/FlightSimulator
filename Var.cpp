@@ -1,5 +1,5 @@
 //
-// Created by shiraz on 12.12.2019.
+// Created by shiraz and nili on 12.12.2019.
 //
 #ifndef ex3__VAR_CPP_
 #define ex3__VAR_CPP_
@@ -17,12 +17,12 @@ class Var : public Command {
     //"="
     token.pop();
     //shunting yard return value of expression = value
-    //simulator neeede to be changed
+    //simulator needed to be changed
     if (direction.compare("->") == 0 ) {
       //go to the symbol table of simulator and change the value;
     }
     //value
-    //it was a cpecipic case that in the lexer it inserted a space with no reason
+    //it was a specific case that in the lexer it inserted a space with no reason
     if (token.front().compare("") == 0) {
       token.pop();
     }

@@ -1,5 +1,5 @@
 //
-// Created by shiraz on 12.12.2019.
+// Created by shiraz and nili on 12.12.2019.
 //
 #ifndef ex3__DEFINEVARCOMMAND_CPP_
 #define ex3__DEFINEVARCOMMAND_CPP_
@@ -31,6 +31,7 @@ class DefineVarCommand : public Command {
       //the word sim
       token.pop();
       string sim = token.front();
+      //the name of the var of the simulator
       token.pop();
       Var *var = new Var(sim, action);
       commands.insert({var_name, var});

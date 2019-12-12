@@ -6,7 +6,6 @@ int main(int argc, char *argv[]) {
   FlightSimulator f = FlightSimulator();
   queue<string> token;
   token = f.lexer(file_name);
-  string arr[2] = {"a","b"};
   f.parser(token);
   return 0;
 

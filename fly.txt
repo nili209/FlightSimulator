@@ -42,7 +42,7 @@ while rpm <= 750 {
 	Print(rpm)
 }
 Sleep(5000)
-Print("let's fly")
+Print("engine is warming...")
 var h0 = heading
 breaks = 0
 throttle = 1

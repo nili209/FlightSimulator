@@ -1,5 +1,5 @@
 //
-// Created by shiraz on 12.12.2019.
+// Created by shiraz and nili on 12.12.2019.
 //
 #ifndef ex3__SLEEPCOMMAND_CPP_
 #define ex3__SLEEPCOMMAND_CPP_
@@ -13,7 +13,9 @@ class SleepCommand : public Command {
     token.pop();
     //time to sleep
     int time_to_sleep = atof(token.front().c_str());
+    //sleep
     this_thread::sleep_for(chrono::milliseconds(time_to_sleep));
+    //time to sleep
     token.pop();
   }
 };
