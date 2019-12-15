@@ -12,6 +12,20 @@
 #include <fstream>
 #include <queue>
 #include "iostream"
+// Server side C/C++ program to demonstrate Socket programming
+#include <sys/socket.h>
+#include <thread>
+#include <string>
+#include <iostream>
+#include <unistd.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <string>
+#include <iostream>
+#include <unistd.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#define LINE_SIZE 736
 #define SPACE " "
 #define OPEN_BRACKETS '('
 #define COMMA ','

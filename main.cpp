@@ -9,4 +9,3 @@ int main(int argc, char *argv[]) {
   f.parser(token);
   return 0;
 }
-
