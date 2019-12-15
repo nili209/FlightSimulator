@@ -14,8 +14,8 @@
 #include "LoopCommand.cpp"
 class FlightSimulator {
  public:
-  unordered_map<string, Command*> commands;
-  FlightSimulator(){
+  unordered_map<string, Command *> commands;
+  FlightSimulator() {
     resetCommands();
   };
   void resetCommands() {
@@ -33,17 +33,210 @@ class FlightSimulator {
     ifstream f;
     f.open(file_name, ios::in);
     //reading line by line
+    int i;
     while (getline(f, line)) {
+      i++;
       //dispose tabs
       size_t first = line.find_first_not_of('\t');
-      if (string::npos != first){
+      if (string::npos != first) {
         size_t last = line.size();
-        line =  line.substr(first, line.size() - first+1);
+        line = line.substr(first, line.size() - first + 1);
       }
-      createQueue(token, line);
+      trying(token, line);
+      // createQueue(token, line);
     }
     f.close();
     return token;
+  }
+  bool checkIfAssign(string &line, int i) {
+    char next = line[i + 1];
+    char last = line[i - 1];
+    //>=, <= , !=, ==
+    if (last == '>' || last == '<' || last == '!' || last == '=') {
+      return false;
+    }
+    //==
+    if (next == '=') {
+      return false;
+    }
+    return true;
+  }
+  void trying(queue<string> &token, string line) {
+    string current = "", pusher;
+    int index = 0;
+    for (int i = 0; i < line.length(); i++) {
+      switch (line[i]) {
+        //this is ->
+        case '-' : {
+          //it can be just a minus sign
+          if (line[i + 1] != '>') {
+            dealWithOperator(token, line, current, i);
+          } else {
+            dealWithArrow(token, line, current, i, "-");
+          }
+          break;
+        }//this is <-
+        case '<' : {
+          //it can be just a bigger sign
+          if (line[i + 1] != '-') {
+            dealWithOperator(token, line, current, i);
+          } else {
+            dealWithArrow(token, line, current, i, "<");
+          }
+          break;
+        }
+        case '>': {
+          dealWithOperator(token, line, current, i);
+          break;
+        }
+        case '!': {
+          dealWithOperator(token, line, current, i);
+          break;
+        }
+        case '=' : {
+          if (current.compare("") != 0) {
+            //until the '='
+            pusher = current;
+            token.push(pusher);
+            cout << pusher << endl;
+            current = "";
+          }
+          //if this = does not mean to assign somthing
+          if (line[i + 1] == '=') {
+            current += line[i];
+            current += line[i + 1];
+            i++;
+            pusher = current;
+            token.push(pusher);
+            cout << pusher << endl;
+            current = "";
+            break;
+          }
+          //push the '='
+          pusher = line[i];
+          token.push(pusher);
+          cout << pusher << endl;
+          //after the '='
+          pusher = line.substr(i + 1, line.length() - i);
+          if (pusher[0] == ' ') {
+            pusher = pusher.substr(1, pusher.length() - 1);
+          }
+          token.push(pusher);
+          cout << pusher << endl;
+          i = line.length();
+          current = "";
+          break;
+        }
+        case '(' : {
+          dealWithBrackets(token, line, current, i);
+          break;
+        }
+        case ',' : {
+          if (current.compare("") != 0) {
+            //until the ','
+            pusher = current;
+            token.push(pusher);
+            cout << pusher << endl;
+            current = "";
+          }
+          break;
+        }
+        case ' ': {
+          if (current.compare("") != 0) {
+            pusher = current;
+            token.push(pusher);
+            cout << pusher << endl;
+            current = "";
+          }
+          break;
+        }
+        default: {
+          if (line[i] != ')') {
+            current += line[i];
+          }
+          break;
+        }
+      }
+    }
+    if (current.compare("") != 0) {
+      pusher = current;
+      token.push(pusher);
+      cout << pusher << endl;
+    }
+
+  }
+  void dealWithArrow(queue<string> &token,const string &line,string &current,int &i, string direction) const {
+    string pusher;
+    //there was no space between the var name and the -> : the name var should be pushed into token
+    if (current.compare(direction) != 0 && current.compare("") != 0) {
+      pusher = current;
+      token.push(pusher);
+      cout << pusher << endl;
+      current = "";
+    }
+    //current = ->
+    current += line[i];
+    current += line[i + 1];
+    i++;
+    //push ->
+    pusher = current;
+    token.push(pusher);
+    cout << pusher << endl;
+    current = "";
+  }
+  void dealWithBrackets(queue<string> &token, string &line, string &current, int &i) const {
+    string pusher;
+    if (current.compare("") != 0) {
+      //until the '('
+      pusher = current;
+      token.push(pusher);
+      cout << pusher << endl;
+      if (line[i + 1] == '"') {
+        current = "";
+        while (line[i + 2] != '"') {
+          current += line[i + 1];
+          i++;
+        }
+        current += line[i + 1];
+        current += line[i + 2];
+        if (line[i + 3] == ',') {
+          line = line.substr(i + 3, line.length() - i - 4);
+          i = 0;
+        } else {
+          i += 2;
+        }
+        pusher = current;
+        token.push(pusher);
+        cout << pusher << endl;
+      } else {
+        //reset the line to be the phrase inside the ()
+        line = line.substr(i + 1, line.length() - i - 2);
+        i = -1;
+      }
+      current = "";
+    }
+  }
+  void dealWithOperator(queue<string> &token, const string &line, string &current, int &i) const {
+    string pusher;
+    if (current.compare("") != 0) {
+      pusher = current;
+      token.push(pusher);
+      cout << pusher << endl;
+      current = "";
+    }
+    current += line[i];
+    //this is not -=, just -
+    if (line[i + 1] != '=') {
+      pusher = current;
+      //this is -=
+    } else {
+      current += line[i + 1];
+      i++;
+      pusher = current;
+    }
+    token.push(pusher);
+    cout << pusher << endl;
+    current = "";
   }
   void createQueue(queue<string> &token, string line) {
     string pusher;
@@ -116,13 +309,13 @@ class FlightSimulator {
       part_by_brackets.erase(0, index_comma + 1);
     }
   }
-  void parser(queue<string> &token){
+  void parser(queue<string> &token) {
     int i = 0;
-    while(!token.empty()) {
+    while (!token.empty()) {
       i++;
       string current = token.front();
       Command *c = commands.at(current);
-      if(c != NULL) {
+      if (c != NULL) {
         c->execute(token, commands);
       }
     }

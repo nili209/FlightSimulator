@@ -8,6 +8,5 @@ int main(int argc, char *argv[]) {
   token = f.lexer(file_name);
   f.parser(token);
   return 0;
-
 }
 
