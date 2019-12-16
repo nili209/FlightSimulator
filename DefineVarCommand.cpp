@@ -8,9 +8,8 @@
 #include "Singleton.h"
 class DefineVarCommand : public Command {
  public:
-
   Singleton* singleton = Singleton::getSingleton();
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) {
+  virtual void execute(queue<string> &token) {
     //the word var
     token.pop();
     string var_name = token.front();
@@ -26,7 +25,6 @@ class DefineVarCommand : public Command {
       token.pop();
       //if after the = is a var:
       //insert var_name and the var that comes after the = to commands
-      symbol_table_program.insert({var_name, symbol_table_program.at(other_var_name)});
       singleton->symbol_table_program.insert({var_name, singleton->symbol_table_program.at(other_var_name)});
       //the action is direction
     } else {
@@ -38,9 +36,7 @@ class DefineVarCommand : public Command {
       //the name of the var of the simulator
       token.pop();
       Var *var = new Var(sim, action);
-      symbol_table_program.insert({var_name, var});
       singleton->symbol_table_program.insert({var_name, var});
-      commands.insert({var_name, var});
       singleton->commands.insert({var_name, var});
     }
    cout<<"I am executing in Define Var Command"<<endl;

@@ -34,6 +34,6 @@ using namespace std;
 
 class Command {
  public:
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) = 0;
+  virtual void execute(queue<string> &token) = 0;
 };
 #endif

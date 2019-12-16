@@ -17,8 +17,6 @@
 class FlightSimulator {
  public:
   Singleton* singleton;
-  unordered_map<string, Command *> commands;
-  unordered_map<string, Command *> symbol_table_program;
   FlightSimulator() {
     singleton = Singleton::getSingleton();
     resetCommands();
@@ -31,14 +29,6 @@ class FlightSimulator {
     singleton->commands.insert({SLEEP, new SleepCommand()});
     singleton->commands.insert({LOOP, new LoopCommand()});
     singleton->commands.insert({IF, new IfCommand()});
-
-    commands.insert({OPEN_DATA_SERVER, new OpenServerCommand()});
-    commands.insert({CONNECT_CONTROL_CLIENT, new ConnectCommand()});
-    commands.insert({VAR, new DefineVarCommand()});
-    commands.insert({PRINT, new PrintCommand()});
-    commands.insert({SLEEP, new SleepCommand()});
-    commands.insert({LOOP, new LoopCommand()});
-    commands.insert({IF, new IfCommand()});
   }
   queue<string> lexer(string file_name) {
     queue<string> token;
@@ -243,9 +233,9 @@ class FlightSimulator {
     while (!token.empty()) {
       i++;
       string current = token.front();
-      Command *c = commands.at(current);
+      Command *c = singleton->commands.at(current);
       if (c != NULL) {
-        c->execute(token, commands, symbol_table_program);
+        c->execute(token);
       }
     }
   }

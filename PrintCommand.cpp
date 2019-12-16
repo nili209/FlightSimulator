@@ -9,7 +9,7 @@
 class PrintCommand : public Command {
  public:
   Singleton* singleton = Singleton::getSingleton();
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) {
+  virtual void execute(queue<string> &token) {
     string printer;
     float value;
     cout<<"I am executing in Print Command"<<endl;

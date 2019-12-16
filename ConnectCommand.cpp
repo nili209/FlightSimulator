@@ -8,7 +8,7 @@
 
 class ConnectCommand : public Command {
  public:
-  virtual void execute(queue<string> &token, unordered_map<string, Command *> &commands, unordered_map<string, Command *> &symbol_table_program) {
+  virtual void execute(queue<string> &token) {
     cout << "I am executing in Connect Control Command" << endl;
     //name of command
     token.pop();

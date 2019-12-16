@@ -7,10 +7,10 @@
 class LoopCommand : public ConditionParser {
  public:
   Singleton* singleton = Singleton::getSingleton();
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) {
+  virtual void execute(queue<string> &token) {
     cout<<"I am executing in Loop Command"<<endl;
     //initialize the queue of commands and check condition
-    ConditionParser::execute(token, commands, symbol_table_program);
+    ConditionParser::execute(token);
     int j = 0;
     while (condition) {
       j++;
@@ -22,11 +22,11 @@ class LoopCommand : public ConditionParser {
         string current = copy_queue.front();
         Command *c = singleton->commands.at(current);
         if(c != NULL) {
-          c->execute(copy_queue, commands, symbol_table_program);
+          c->execute(copy_queue);
         }
       }
       //check the condition state
-      ConditionParser::execute(token, commands, symbol_table_program);
+      ConditionParser::execute(token);
     }
   }
 

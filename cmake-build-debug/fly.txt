@@ -42,6 +42,9 @@ starter = 1
 autostart = 1
 Print("engine is warming...")
 Print(rpm)
+if rpm == 0 {
+    Print(rpm)
+}
 while rpm==750 {
 	Print(magnetos)
 }
@@ -50,7 +53,7 @@ Print("let's fly")
 var h0=heading
 breaks =0
 throttle= 1
-while (alt == 1000) {
+while (alt > 1000) {
 	rudder =(h0 - heading)/80
 	aileron =-roll / 70
 	elevator = pitch / 50

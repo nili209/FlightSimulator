@@ -8,7 +8,7 @@
 #include <chrono>
 #include "Var.cpp"
 class SleepCommand : public Command {
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) {
+  virtual void execute(queue<string> &token) {
     cout<<"I am executing in Sleep Command"<<endl;
     //the word "Sleep"
     token.pop();

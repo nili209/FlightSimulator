@@ -16,7 +16,7 @@ class Var : public Command {
     return this->value;
   }
   Var(string sim1, string direction1) : sim(sim1), direction(direction1){};
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) {
+  virtual void execute(queue<string> &token) {
     cout<<"I am executing in Var"<<endl;
     //name of var
     string var_name = token.front();
@@ -41,17 +41,11 @@ class Var : public Command {
       }
       //this is a var
     } else {
-      symbol_table_program.at(var_name) = other_var;
       singleton->symbol_table_program.at(var_name) = other_var;
     }
     //shunting yard return value of expression = value
     //simulator needed to be changed
 
-    //value
-//    //it was a specific case that in the lexer it inserted a space with no reason
-//    if (token.front().compare("") == 0) {
-//      token.pop();
-//    }
     token.pop();
   }
 };

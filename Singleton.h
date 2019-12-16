@@ -15,8 +15,6 @@ class Singleton {
   static unordered_map<string, Command*> commands;
   static unordered_map<string, Command*> symbol_table_program;
   static Singleton* getSingleton();
-  static unordered_map<string, Command*> getCommands();
-  static unordered_map<string, Command*> getSymbolTableProgram();
 };
 Singleton*::Singleton::singleton = 0;
 unordered_map<string, Command*> Singleton::commands;

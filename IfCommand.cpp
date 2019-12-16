@@ -8,10 +8,10 @@
 class IfCommand : public ConditionParser {
  public:
   Singleton* singleton = Singleton::getSingleton();
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) {
+  virtual void execute(queue<string> &token) {
     cout<<"I am executing in If Command"<<endl;
     //initialize the queue of commands and check condition
-    ConditionParser::execute(token, commands, symbol_table_program);
+    ConditionParser::execute(token);
     if (condition) {
       int i = 0;
       while(!condition_commands.empty()) {
@@ -20,7 +20,7 @@ class IfCommand : public ConditionParser {
         string current = condition_commands.front();
         Command *c = singleton->commands.at(current);
         if(c != NULL) {
-          c->execute(condition_commands, commands, symbol_table_program);
+          c->execute(condition_commands);
         }
       }
     }

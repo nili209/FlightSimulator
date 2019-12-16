@@ -14,7 +14,8 @@ class ConditionParser : public Command {
   string con;
   queue<string> condition_commands;
   bool condition = false;
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command*> &symbol_table_program) {
+  Singleton* singleton = Singleton::getSingleton();
+  virtual void execute(queue<string> &token) {
     if (token.front().compare(LOOP) == 0 || token.front().compare(IF) == 0) {
       //initialize the queue of commands
       //pop if/while
@@ -42,17 +43,16 @@ class ConditionParser : public Command {
       //'}'
       token.pop();
     }
-    unordered_map<string, Command*> symbol = Singleton::getSingleton()->symbol_table_program;
 
     cout<<"I am executing in Condition Parser"<<endl;
     float value1, value2;
     try{
-        value1 = ((Var*)symbol.at(first_var))->getValue();
+        value1 = ((Var*)singleton->symbol_table_program.at(first_var))->getValue();
     } catch (exception e) {
       value1 = atof(first_var.c_str());
     }
     try{
-      value2 = ((Var*)symbol.at(second_var))->getValue();
+      value2 = ((Var*)singleton->symbol_table_program.at(second_var))->getValue();
     } catch (exception e) {
       value2 = atof(second_var.c_str());
     }
