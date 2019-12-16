@@ -5,28 +5,31 @@
 #define ex3__DEFINEVARCOMMAND_CPP_
 #include "Command.h"
 #include "Var.cpp"
+#include "Singleton.h"
 class DefineVarCommand : public Command {
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands) {
+ public:
+  Singleton* singleton = Singleton::getSingleton();
+  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) {
     //the word var
     token.pop();
     string var_name = token.front();
     //the name of the var
     token.pop();
     string action = token.front();
-    //the actinon is =
+    //the action is =
     if (action.compare("=") == 0) {
       //pop =
       token.pop();
       //pop the var or value after the =
+      string other_var_name = token.front();
       token.pop();
       //if after the = is a var:
       //insert var_name and the var that comes after the = to commands
-      //else - if after the = is a value:
-      //just update the value of the curren var
-
+      symbol_table_program.insert({var_name, symbol_table_program.at(other_var_name)});
+      singleton->symbol_table_program.insert({var_name, singleton->symbol_table_program.at(other_var_name)});
       //the action is direction
     } else {
-      //direction or =
+      //direction
       token.pop();
       //the word sim
       token.pop();
@@ -34,7 +37,10 @@ class DefineVarCommand : public Command {
       //the name of the var of the simulator
       token.pop();
       Var *var = new Var(sim, action);
+      symbol_table_program.insert({var_name, var});
+      singleton->symbol_table_program.insert({var_name, var});
       commands.insert({var_name, var});
+      singleton->commands.insert({var_name, var});
     }
    cout<<"I am executing in Define Var Command"<<endl;
   }

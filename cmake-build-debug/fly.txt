@@ -24,9 +24,13 @@ var rpm <-sim("/engines/engine/rpm")
 Print("waiting 2 minutes for gui")
 Sleep(1200)
 Print("let's start")
+Print(warp)
 warp=32000
+Print(warp)
 Sleep(1000)
-magnetos= 3
+Print(magnetos)
+magnetos= warp
+Print(magnetos)
 throttle =0.2
 mixture = 0.949
 masterbat = 1
@@ -38,15 +42,15 @@ starter = 1
 autostart = 1
 Print("engine is warming...")
 Print(rpm)
-while rpm!=750 {
-	Print(rpm)
+while rpm==750 {
+	Print(magnetos)
 }
 Sleep(500)
 Print("let's fly")
 var h0=heading
 breaks =0
 throttle= 1
-while (alt< 1000) {
+while (alt == 1000) {
 	rudder =(h0 - heading)/80
 	aileron =-roll / 70
 	elevator = pitch / 50

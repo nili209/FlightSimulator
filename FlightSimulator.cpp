@@ -12,13 +12,26 @@
 #include "ConditionParser.cpp"
 #include "IfCommand.cpp"
 #include "LoopCommand.cpp"
+#include "Singleton.h"
+
 class FlightSimulator {
  public:
+  Singleton* singleton;
   unordered_map<string, Command *> commands;
+  unordered_map<string, Command *> symbol_table_program;
   FlightSimulator() {
+    singleton = Singleton::getSingleton();
     resetCommands();
   };
   void resetCommands() {
+    singleton->commands.insert({OPEN_DATA_SERVER, new OpenServerCommand()});
+    singleton->commands.insert({CONNECT_CONTROL_CLIENT, new ConnectCommand()});
+    singleton->commands.insert({VAR, new DefineVarCommand()});
+    singleton->commands.insert({PRINT, new PrintCommand()});
+    singleton->commands.insert({SLEEP, new SleepCommand()});
+    singleton->commands.insert({LOOP, new LoopCommand()});
+    singleton->commands.insert({IF, new IfCommand()});
+
     commands.insert({OPEN_DATA_SERVER, new OpenServerCommand()});
     commands.insert({CONNECT_CONTROL_CLIENT, new ConnectCommand()});
     commands.insert({VAR, new DefineVarCommand()});
@@ -232,7 +245,7 @@ class FlightSimulator {
       string current = token.front();
       Command *c = commands.at(current);
       if (c != NULL) {
-        c->execute(token, commands);
+        c->execute(token, commands, symbol_table_program);
       }
     }
   }

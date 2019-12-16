@@ -7,21 +7,15 @@
 #include <unordered_map>
 #include "Command.h"
 #include <list>
-#include <iostream>
 #include <string>
 #include <fstream>
 #include <queue>
 #include "iostream"
-// Server side C/C++ program to demonstrate Socket programming
 #include <sys/socket.h>
 #include <thread>
-#include <string>
 #include <iostream>
 #include <unistd.h>
 #include <netinet/in.h>
-#include <sys/socket.h>
-#include <string>
-#include <iostream>
 #include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -40,6 +34,6 @@ using namespace std;
 
 class Command {
  public:
-  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands) = 0;
+  virtual void execute(queue<string> &token, unordered_map<string, Command*> &commands, unordered_map<string, Command *> &symbol_table_program) = 0;
 };
-#endif //ex3_COMMAND_H_
+#endif

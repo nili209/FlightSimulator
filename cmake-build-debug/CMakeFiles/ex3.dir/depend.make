@@ -10,6 +10,7 @@ CMakeFiles/ex3.dir/main.cpp.o: ../IfCommand.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../LoopCommand.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../OpenServerCommand.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../PrintCommand.cpp
+CMakeFiles/ex3.dir/main.cpp.o: ../Singleton.h
 CMakeFiles/ex3.dir/main.cpp.o: ../SleepCommand.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../Var.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../main.cpp

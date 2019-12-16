@@ -13,8 +13,6 @@ Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 list
 -
-iostream
--
 string
 -
 fstream
@@ -23,20 +21,44 @@ queue
 -
 iostream
 /home/shiraz/CLionProjects/ex3/iostream
+sys/socket.h
+-
+thread
+-
+iostream
+-
+unistd.h
+-
+netinet/in.h
+-
+unistd.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
 
 /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
+Var.cpp
+/home/shiraz/CLionProjects/ex3/Var.cpp
+Singleton.h
+/home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
+Var.cpp
+/home/shiraz/CLionProjects/ex3/Var.cpp
 
 /home/shiraz/CLionProjects/ex3/DefineVarCommand.cpp
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Var.cpp
 /home/shiraz/CLionProjects/ex3/Var.cpp
+Singleton.h
+/home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/FlightSimulator.cpp
 Command.h
@@ -57,6 +79,8 @@ IfCommand.cpp
 /home/shiraz/CLionProjects/ex3/IfCommand.cpp
 LoopCommand.cpp
 /home/shiraz/CLionProjects/ex3/LoopCommand.cpp
+Singleton.h
+/home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/IfCommand.cpp
 ConditionParser.cpp
@@ -67,10 +91,24 @@ ConditionParser.cpp
 /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
 
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
+cstring
+-
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
+Var.cpp
+/home/shiraz/CLionProjects/ex3/Var.cpp
 
 /home/shiraz/CLionProjects/ex3/PrintCommand.cpp
+Command.h
+/home/shiraz/CLionProjects/ex3/Command.h
+Var.cpp
+/home/shiraz/CLionProjects/ex3/Var.cpp
+Singleton.h
+/home/shiraz/CLionProjects/ex3/Singleton.h
+
+/home/shiraz/CLionProjects/ex3/Singleton.h
+string
+-
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 
@@ -81,10 +119,14 @@ thread
 -
 chrono
 -
+Var.cpp
+/home/shiraz/CLionProjects/ex3/Var.cpp
 
 /home/shiraz/CLionProjects/ex3/Var.cpp
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
+Singleton.h
+/home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/main.cpp
 string

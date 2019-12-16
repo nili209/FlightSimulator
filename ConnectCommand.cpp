@@ -4,9 +4,11 @@
 #ifndef ex3__CONNECTCOMANND_CPP_
 #define ex3__CONNECTCOMANND_CPP_
 #include "Command.h"
+#include "Var.cpp"
 
 class ConnectCommand : public Command {
-  virtual void execute(queue<string> &token, unordered_map<string, Command *> &commands) {
+ public:
+  virtual void execute(queue<string> &token, unordered_map<string, Command *> &commands, unordered_map<string, Command *> &symbol_table_program) {
     cout << "I am executing in Connect Control Command" << endl;
     //name of command
     token.pop();
