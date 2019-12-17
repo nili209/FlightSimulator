@@ -23,6 +23,8 @@ var alt <- sim("/instrumentation/altimeter/indicated-altitude-ft")
 var rpm <- sim("/engines/engine/rpm")
 Print("waiting 2 minutes for gui")
 Sleep(1200)
+var nili = 4
+Print(nili)
 Print("let's start")
 warp = 32000
 Sleep(1000)
