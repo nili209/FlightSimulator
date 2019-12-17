@@ -104,10 +104,48 @@ class FlightSimulator {
     f.close();
     return token;
   }
+  int isOperator(string line, int index) {
+    char current = line[index];
+    char next = line[index+1];
+    int returnValue = 0;
+    if (current == '=' || current == '!' || current == '>' || current == '<') {
+      returnValue++;
+      if (next == '=') {
+        returnValue++;
+      }
+    }
+    return returnValue;
+  }
+  void searchForOperator(queue<string> &token, string line) {
+    string tempLine = line;
+    string firstPart;
+    string secondPart;
+    int condition_index;
+    for (int i = 0; i < tempLine.length(); i++) {
+      //if isOperator == 0 this means that the char is not an operator
+      if (isOperator(tempLine, i) > 0) {
+        firstPart = tempLine.substr(0, i);
+        condition_index = i;
+      }
+      if(tempLine[i] == '{') {
+        if(isOperator(tempLine, condition_index) == 1) {
+          secondPart = tempLine.substr(condition_index+1, i-1);
+        } else if (isOperator(tempLine, condition_index) == 2) {
+          secondPart = tempLine.substr(condition_index+2, i-1);
+        }
+      }
+    }
+
+  }
   void createQueue(queue<string> &token, string line) {
     string current = "", pusher;
     int index = 0;
     for (int i = 0; i < line.length(); i++) {
+      if (!token.empty()) {
+        if (token.front().compare(LOOP) == 0 || token.front().compare(IF) == 0) {
+          searchForOperator(token, line);
+        }
+      }
       switch (line[i]) {
         //this is ->
         case '-' : {
@@ -280,6 +318,9 @@ class FlightSimulator {
     token.push(pusher);
     cout << pusher << endl;
     current = "";
+    //push the expression after the operator
+    //keep reading until the {
+
   }
   void parser(queue<string> &token) {
     int i = 0;

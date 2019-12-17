@@ -54,7 +54,7 @@ starter = 1
 autostart = 1
 Print("engine is warming...")
 Print(rpm)
-while rpm >= 750 {
+while 3+8<alt+1 {
 	Print(rpm)
 }
 Sleep(5000)

@@ -148,7 +148,7 @@ void separateByComma(char *buffer) {
     str.erase(0, index_comma + 1);
   }
 }
-  int readFromSim(int client_socket) {//reading from client
+int readFromSim(int client_socket) {//reading from client
     while (true) {
       char buffer[LINE_SIZE] = {0};
       int valread = read(client_socket, buffer, LINE_SIZE);
@@ -167,54 +167,54 @@ void separateByComma(char *buffer) {
       //parameter of command
       int port = atof(token.front().c_str());
       token.pop();
-      int socketfd;
-      sockaddr_in address;
-      createAndBindSocket(port, socketfd, address);
-      //making socket listen to the port
-      if (listen(socketfd, 5) == -1) { //can also set to SOMAXCON (max connections)
-        std::cerr << "Error during listening command" << std::endl;
-        exit(1);
-      } else {
-        std::cout << "Server is now listening ..." << std::endl;
-      }
-      int client_socket = acceptAndRead(socketfd, address);
-
-    }
-
-    int acceptAndRead(int socketfd, sockaddr_in &address) const {// accepting a client
-      int client_socket = accept(socketfd, (struct sockaddr *) &address,
-                                 (socklen_t *) &address);
-      if (client_socket == -1) {
-        cerr << "Error accepting client" << endl;
-        exit(1);
-      }
-      close(socketfd); //closing the listening socket
-      thread thread_in(readFromSim, client_socket);
-      thread_in.join();
-      return readFromSim(client_socket);
-
-    }
-
-    void createAndBindSocket(int port, int &socketfd, sockaddr_in &address) const {
-      socketfd = socket(AF_INET, SOCK_STREAM, 0);//create socket
-      if (socketfd == -1) {
-        //error
-        cerr << "Could not create a socket" << endl;
-        exit(1);
-      }
-      //bind socket to IP address
-// we first need to create the sockaddr obj.
-//in means IP4
-      address.sin_family = AF_INET;
-      address.sin_addr.s_addr = INADDR_ANY; //give me any IP allocated for my machine
-      address.sin_port = htons(port);
-      //we need to convert our number
-// to a number that the network understands.
-//the actual bind command
-      if (bind(socketfd, (struct sockaddr *) &address, sizeof(address)) == -1) {
-        cerr << "Could not bind the socket to an IP" << endl;
-        exit(1);
-      }
+//      int socketfd;
+//      sockaddr_in address;
+//      createAndBindSocket(port, socketfd, address);
+//      //making socket listen to the port
+//      if (listen(socketfd, 5) == -1) { //can also set to SOMAXCON (max connections)
+//        std::cerr << "Error during listening command" << std::endl;
+//        exit(1);
+//      } else {
+//        std::cout << "Server is now listening ..." << std::endl;
+//      }
+//      int client_socket = acceptAndRead(socketfd, address);
+//
+//    }
+//
+//    int acceptAndRead(int socketfd, sockaddr_in &address) const {// accepting a client
+//      int client_socket = accept(socketfd, (struct sockaddr *) &address,
+//                                 (socklen_t *) &address);
+//      if (client_socket == -1) {
+//        cerr << "Error accepting client" << endl;
+//        exit(1);
+//      }
+//      close(socketfd); //closing the listening socket
+//      thread thread_in(readFromSim, client_socket);
+//      thread_in.join();
+//      return readFromSim(client_socket);
+//
+//    }
+//
+//    void createAndBindSocket(int port, int &socketfd, sockaddr_in &address) const {
+//      socketfd = socket(AF_INET, SOCK_STREAM, 0);//create socket
+//      if (socketfd == -1) {
+//        //error
+//        cerr << "Could not create a socket" << endl;
+//        exit(1);
+//      }
+//      //bind socket to IP address
+//// we first need to create the sockaddr obj.
+////in means IP4
+//      address.sin_family = AF_INET;
+//      address.sin_addr.s_addr = INADDR_ANY; //give me any IP allocated for my machine
+//      address.sin_port = htons(port);
+//      //we need to convert our number
+//// to a number that the network understands.
+////the actual bind command
+//      if (bind(socketfd, (struct sockaddr *) &address, sizeof(address)) == -1) {
+//        cerr << "Could not bind the socket to an IP" << endl;
+//        exit(1);
+//      }
     }
   };
 #endif
