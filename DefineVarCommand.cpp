@@ -25,6 +25,7 @@ class DefineVarCommand : public Command {
       string other_var_name = token.front();
       token.pop();
       float num;
+      is_digit = false;
       try {
         singleton->symbol_table_program.at(other_var_name);
         //this is a number or expression
@@ -37,13 +38,14 @@ class DefineVarCommand : public Command {
         Var *v = new Var("", "");
         v->setValue(num);
         singleton->symbol_table_program.insert({var_name, v});
-
       } else {
         //if after the = is a var:
-        //insert var_name and the var that comes after the = to commands
-        singleton->symbol_table_program.insert({var_name, singleton->symbol_table_program.at(other_var_name)});
+        //update the value to be the value of other var
+        Var *v1 = new Var("", "");
+        Var *other = (Var*)singleton->symbol_table_program.at(other_var_name);
+        v1->setValue(other->getValue());
+        singleton->symbol_table_program.insert({var_name, v1});
       }
-
       //the action is direction
     } else {
       //direction
@@ -53,11 +55,27 @@ class DefineVarCommand : public Command {
       string sim = token.front();
       //the name of the var of the simulator
       token.pop();
-      Var *var = new Var(sim, action);
-      singleton->symbol_table_program.insert({var_name, var});
-      singleton->commands.insert({var_name, var});
+      //we didnot found the var in the map
+      if (!insert_to_map(sim, var_name)) {
+        Var *var = new Var(sim, action);
+        singleton->symbol_table_program.insert({var_name, var});
+        singleton->commands.insert({var_name, var});
+      }
     }
     cout << "I am executing in Define Var Command" << endl;
+  }
+  bool insert_to_map(string sim, string var_name) {
+    unordered_map<string, Command *> map = singleton->symbol_table_simulator;
+    for (auto it = map.begin(); it != map.end(); ++it) {
+      Var *v = (Var*) it->second;
+      string other_sim = v->getSim();
+      //we found the var
+      if (sim.compare(other_sim) == 0) {
+        singleton->symbol_table_program.insert({var_name, v});
+        return true;
+      }
+    }
+    return false;
   }
 };
 #endif

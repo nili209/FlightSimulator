@@ -3,6 +3,7 @@
 //
 #ifndef ex3__VAR_CPP_
 #define ex3__VAR_CPP_
+
 #include "Command.h"
 #include "Singleton.h"
 class Var : public Command {
@@ -10,8 +11,10 @@ class Var : public Command {
   string sim, direction;
   float value = 0;
  public:
+  string getSim() {
+    return this->sim;
+  }
   Singleton* singleton = Singleton::getSingleton();
-  ///unordered_map<string, Var *> symbol_table_program;
   float getValue() {
     return this->value;
   }
@@ -37,13 +40,10 @@ class Var : public Command {
     }
     //this is a value
     if (other_var == NULL) {
-      if (direction.compare("->") == 0 ) {
         this->value = value1;
-        //go to the symbol table of simulator and change the value;
-        //"set /controls/engines/current-engine/throttle 1”
-      }
+    }
       //this is a var
-    } else {
+    else {
       Var *var = (Var*)other_var;
       float value = var->getValue();
       Var *current_var = (Var*)singleton->symbol_table_program.at(var_name);
@@ -51,7 +51,15 @@ class Var : public Command {
     }
     //shunting yard return value of expression = value
     //simulator needed to be changed
-
+//  if (direction.compare("->") == 0 ) {
+//    string message = "set " + path+ " " + to_string(value) + "\r\n";
+//    ssize_t return_val;
+//    // Send message to the server
+//    returl_val = write(sockfd, message.c_str(), message.length());
+//
+//    //go to the symbol table of simulator and change the value;
+//    //"set /controls/engines/current-engine/throttle 1”
+// }
     token.pop();
   }
 };

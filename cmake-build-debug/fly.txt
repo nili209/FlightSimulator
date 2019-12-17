@@ -31,6 +31,12 @@ Sleep(1000)
 magnetos = warp
 Print(magnetos)
 warp = 4
+var shiraz = warp
+Print("shiraz")
+Print(shiraz)
+warp = 5
+Print("shiraz")
+Print(shiraz)
 Print(magnetos)
 Print(warp)
 magnetos = 8
