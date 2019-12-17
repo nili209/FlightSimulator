@@ -8,7 +8,7 @@
 #include "Singleton.h"
 class DefineVarCommand : public Command {
  public:
-  Singleton* singleton = Singleton::getSingleton();
+  Singleton *singleton = Singleton::getSingleton();
   virtual void execute(queue<string> &token) {
     //the word var
     token.pop();
@@ -39,7 +39,7 @@ class DefineVarCommand : public Command {
       singleton->symbol_table_program.insert({var_name, var});
       singleton->commands.insert({var_name, var});
     }
-   cout<<"I am executing in Define Var Command"<<endl;
+    cout << "I am executing in Define Var Command" << endl;
   }
 };
 #endif

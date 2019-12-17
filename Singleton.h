@@ -25,4 +25,5 @@ Singleton *Singleton::getSingleton() {
   }
   return singleton;
 }
+
 #endif //EX3__SINGLETON_H_

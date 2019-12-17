@@ -11,9 +11,12 @@ class Var : public Command {
   float value = 0;
  public:
   Singleton* singleton = Singleton::getSingleton();
-  unordered_map<string, Var *> symbol_table_program;
+  ///unordered_map<string, Var *> symbol_table_program;
   float getValue() {
     return this->value;
+  }
+  void setValue(float num) {
+    this->value = num;
   }
   Var(string sim1, string direction1) : sim(sim1), direction(direction1){};
   virtual void execute(queue<string> &token) {
@@ -41,7 +44,10 @@ class Var : public Command {
       }
       //this is a var
     } else {
-      singleton->symbol_table_program.at(var_name) = other_var;
+      Var *var = (Var*)other_var;
+      float value = var->getValue();
+      Var *current_var = (Var*)singleton->symbol_table_program.at(var_name);
+      current_var->value = value;
     }
     //shunting yard return value of expression = value
     //simulator needed to be changed
