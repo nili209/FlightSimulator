@@ -15,7 +15,7 @@ class Singleton {
   Singleton(){
   };
  public:
-  static void reset(unordered_map<string, Command*>& map, unordered_map<int, string>&index_map);
+  static void reset(unordered_map<string, Command*>& map, unordered_map<int, string>&index_map, unordered_map<string, float>&var_value1);
   static unordered_map<string, Command*> commands;
   static unordered_map<string, Command*> symbol_table_program;
   static unordered_map<string, Command*> symbol_table_simulator;
@@ -36,8 +36,9 @@ Singleton *Singleton::getSingleton() {
   }
   return singleton;
 }
-void Singleton:: reset(unordered_map<string, Command*>& map, unordered_map<int, string>& index_map){
+void Singleton:: reset(unordered_map<string, Command*>& map, unordered_map<int, string>& index_map, unordered_map<string, float>&var_value1){
   symbol_table_simulator = map;
   index = index_map;
+  var_values = var_value1;
 }
 #endif //EX3__SINGLETON_H_
