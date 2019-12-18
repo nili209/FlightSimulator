@@ -15,6 +15,8 @@
 #include "Singleton.h"
 
 class FlightSimulator {
+ private:
+  bool is_in_brackets = false;
  public:
   Singleton* singleton;
   FlightSimulator() {
@@ -24,55 +26,80 @@ class FlightSimulator {
   };
   void resetSimulatorMap() {
     unordered_map<string, Command*> map;
+    unordered_map<int, string> index_map;
     Var *v1 = new Var("/instrumentation/airspeed-indicator/indicated-speed-kt", "<-" );
     map.insert({"airspeed-indicator_indicated-speed-kt", v1});
+    index_map.insert({0, "airspeed-indicator_indicated-speed-kt"});
     Var *v2 = new Var("//instrumentation/heading-indicator/offset-deg", "<-" );
     map.insert({"heading-indicator_offset-deg", v2});
+    index_map.insert({1, "heading-indicator_offset-deg"});
     Var *v3 = new Var("/instrumentation/altimeter/indicated-altitude-ft", "<-" );
     map.insert({"altimeter_indicated-altitude-ft", v3});
+    index_map.insert({2, "altimeter_indicated-altitude-ft"});
     Var *v4 = new Var("/instrumentation/altimeter/pressure-alt-ft", "<-" );
     map.insert({"altimeter_pressure-alt-ft", v4});
+    index_map.insert({3, "altimeter_pressure-alt-ft"});
     Var *v5 = new Var("/instrumentation/attitude-indicator/indicated-pitch-deg", "<-" );
     map.insert({"attitude-indicator_indicated-pitch-deg", v5});
+    index_map.insert({4, "attitude-indicator_indicated-pitch-deg"});
     Var *v6 = new Var("/instrumentation/attitude-indicator/indicated-roll-deg", "<-" );
     map.insert({"attitude-indicator_indicated-roll-deg", v6});
+    index_map.insert({5, "attitude-indicator_indicated-roll-deg"});
     Var *v7 = new Var("/instrumentation/attitude-indicator/internal-pitch-deg", "<-" );
     map.insert({"attitude-indicator_internal-pitch-deg", v7});
+    index_map.insert({6, "attitude-indicator_internal-pitch-deg"});
     Var *v8 = new Var("/instrumentation/attitude-indicator/internal-roll-deg", "<-" );
     map.insert({"attitude-indicator_internal-roll-deg", v8});
+    index_map.insert({7, "attitude-indicator_internal-roll-deg"});
     Var *v9 = new Var("/instrumentation/encoder/indicated-altitude-ft", "<-" );
     map.insert({"encoder_indicated-altitude-ft", v9});
+    index_map.insert({8, "encoder_indicated-altitude-ft"});
     Var *v10 = new Var("/instrumentation/encoder/pressure-alt-ft", "<-" );
     map.insert({"encoder_pressure-alt-ft", v10});
+    index_map.insert({9, "encoder_pressure-alt-ft"});
     Var *v11 = new Var("/instrumentation/gps/indicated-altitude-ft", "<-" );
     map.insert({"gps_indicated-altitude-ft", v11});
+    index_map.insert({10, "gps_indicated-altitude-ft"});
     Var *v12 = new Var("/instrumentation/gps/indicated-ground-speed-kt", "<-" );
     map.insert({"gps_indicated-ground-speed-kt", v12});
+    index_map.insert({11, "gps_indicated-ground-speed-kt"});
     Var *v13 = new Var("/instrumentation/gps/indicated-vertical-speed", "<-" );
     map.insert({"gps_indicated-vertical-speed", v13});
+    index_map.insert({12, "gps_indicated-vertical-speed"});
     Var *v14 = new Var("/instrumentation/heading-indicator/indicated-heading-deg", "<-" );
     map.insert({"indicated-heading-deg", v14});
+    index_map.insert({13, "indicated-heading-deg"});
     Var *v15 = new Var("/instrumentation/magnetic-compass/indicated-heading-deg", "<-" );
     map.insert({"magnetic-compass_indicated-heading-deg", v15});
+    index_map.insert({14, "magnetic-compass_indicated-heading-deg"});
     Var *v16 = new Var("/instrumentation/slip-skid-ball/indicated-slip-skid", "<-" );
     map.insert({"slip-skid-ball_indicated-slip-skid", v16});
+    index_map.insert({15, "slip-skid-ball_indicated-slip-skid"});
     Var *v17 = new Var("/instrumentation/turn-indicator/indicated-turn-rate", "<-" );
     map.insert({"turn-indicator_indicated-turn-rate", v17});
+    index_map.insert({16, "turn-indicator_indicated-turn-rate"});
     Var *v18 = new Var("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", "<-" );
     map.insert({"vertical-speed-indicator_indicated-speed-fpm", v18});
+    index_map.insert({17, "vertical-speed-indicator_indicated-speed-fpm"});
     Var *v19 = new Var("/controls/flight/aileron", "<-" );
     map.insert({"flight_aileron", v19});
+    index_map.insert({18, "flight_aileron"});
     Var *v20 = new Var("/controls/flight/elevator", "<-" );
     map.insert({"flight_elevator", v20});
+    index_map.insert({19, "flight_elevator"});
     Var *v21 = new Var("/controls/flight/rudder", "<-" );
     map.insert({"flight_rudder", v21});
+    index_map.insert({20, "flight_rudder"});
     Var *v22 = new Var("/controls/flight/flaps", "<-" );
     map.insert({"flight_flaps", v22});
+    index_map.insert({21, "flight_flaps"});
     Var *v23 = new Var("/controls/engines/engine/throttle", "<-" );
     map.insert({"engine_throttle", v23});
+    index_map.insert({22, "engine_throttle"});
     Var *v24 = new Var("/engines/engine/rpm", "<-" );
     map.insert({"engine_rpm", v24});
-    singleton->reset(map);
+    index_map.insert({23, "engine_rpm"});
+    singleton->reset(map, index_map);
   }
   void resetCommands() {
     singleton->commands.insert({OPEN_DATA_SERVER, new OpenServerCommand()});
@@ -89,7 +116,7 @@ class FlightSimulator {
     ifstream f;
     f.open(file_name, ios::in);
     //reading line by line
-    int i;
+    int i = 0;
     while (getline(f, line)) {
       i++;
       //dispose tabs
@@ -119,7 +146,7 @@ class FlightSimulator {
   void searchForOperator(queue<string> &token, string line) {
     string tempLine = line;
     string firstPart;
-    string secondPart;
+    string secondPart, operate;
     int condition_index;
     for (int i = 0; i < tempLine.length(); i++) {
       //if isOperator == 0 this means that the char is not an operator
@@ -129,12 +156,24 @@ class FlightSimulator {
       }
       if(tempLine[i] == '{') {
         if(isOperator(tempLine, condition_index) == 1) {
-          secondPart = tempLine.substr(condition_index+1, i-1);
+          operate = tempLine[condition_index];
+          secondPart = tempLine.substr(condition_index+1, i-firstPart.length()-1);
         } else if (isOperator(tempLine, condition_index) == 2) {
-          secondPart = tempLine.substr(condition_index+2, i-1);
+          operate = tempLine[condition_index];
+          operate += tempLine[condition_index+1];
+          secondPart = tempLine.substr(condition_index+2, i-firstPart.length()-1);
         }
       }
     }
+    token.push(firstPart);
+    cout<<firstPart<<endl;
+    token.push(operate);
+    cout<<operate<<endl;
+    token.push(secondPart);
+    cout<<secondPart<<endl;
+    token.push("{");
+    cout<<"{"<<endl;
+
 
   }
   void createQueue(queue<string> &token, string line) {
@@ -142,9 +181,13 @@ class FlightSimulator {
     int index = 0;
     for (int i = 0; i < line.length(); i++) {
       if (!token.empty()) {
-        if (token.front().compare(LOOP) == 0 || token.front().compare(IF) == 0) {
+        string in = token.back();
+        if (token.back().compare(LOOP) == 0 || token.back().compare(IF) == 0) {
+          line.erase(0, token.back().length() +1);
           searchForOperator(token, line);
+          break;
         }
+
       }
       switch (line[i]) {
         //this is ->
@@ -206,6 +249,7 @@ class FlightSimulator {
           cout << pusher << endl;
           i = line.length();
           current = "";
+
           break;
         }
         case '(' : {
@@ -219,15 +263,20 @@ class FlightSimulator {
             token.push(pusher);
             cout << pusher << endl;
             current = "";
+
           }
           break;
         }
         case ' ': {
+          if (is_in_brackets) {
+            break;
+          }
           if (current.compare("") != 0) {
             pusher = current;
             token.push(pusher);
             cout << pusher << endl;
             current = "";
+
           }
           break;
         }
@@ -272,31 +321,38 @@ class FlightSimulator {
       pusher = current;
       token.push(pusher);
       cout << pusher << endl;
-      if (line[i + 1] == '"') {
-        current = "";
-        while (line[i + 2] != '"') {
-          current += line[i + 1];
-          i++;
-        }
-        current += line[i + 1];
-        current += line[i + 2];
-        if (line[i + 3] == ',') {
-          line = line.substr(i + 3, line.length() - i - 4);
-          i = 0;
-        } else {
-          i += 2;
-        }
-        pusher = current;
-        token.push(pusher);
-        cout << pusher << endl;
-      } else {
-        //reset the line to be the phrase inside the ()
-        line = line.substr(i + 1, line.length() - i - 2);
-        i = -1;
-      }
+    }
+    current = "";
+    while(line[++i] != ')') {
+      current += line[i];
+    }
+    token.push(current);
+//      if (line[i + 1] == '"') {
+//        current = "";
+//        while (line[i + 2] != '"') {
+//          current += line[i + 1];
+//          i++;
+//        }
+//        current += line[i + 1];
+//        current += line[i + 2];
+//        if (line[i + 3] == ',') {
+//          //read until ) and push
+//
+//          line = line.substr(i + 3, line.length() - i - 4);
+//          i = 0;
+//        } else {
+//          i += 2;
+//        }
+//        pusher = current;
+//        token.push(pusher);
+//        cout << pusher << endl;
+//      } else {
+//        //reset the line to be the phrase inside the ()
+//        line = line.substr(i + 1, line.length() - i - 2);
+//        i = -1;
+//      }
       current = "";
     }
-  }
   void dealWithOperator(queue<string> &token, const string &line, string &current, int &i) const {
     string pusher;
     if (current.compare("") != 0) {

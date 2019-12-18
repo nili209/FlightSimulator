@@ -6,6 +6,7 @@ CMakeFiles/ex3.dir/main.cpp.o
  /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
  /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
  /home/shiraz/CLionProjects/ex3/DefineVarCommand.cpp
+ /home/shiraz/CLionProjects/ex3/Expression.h
  /home/shiraz/CLionProjects/ex3/FlightSimulator.cpp
  /home/shiraz/CLionProjects/ex3/IfCommand.cpp
  /home/shiraz/CLionProjects/ex3/LoopCommand.cpp
@@ -14,4 +15,5 @@ CMakeFiles/ex3.dir/main.cpp.o
  /home/shiraz/CLionProjects/ex3/Singleton.h
  /home/shiraz/CLionProjects/ex3/SleepCommand.cpp
  /home/shiraz/CLionProjects/ex3/Var.cpp
+ /home/shiraz/CLionProjects/ex3/ex1.h
  /home/shiraz/CLionProjects/ex3/main.cpp

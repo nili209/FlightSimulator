@@ -3,11 +3,10 @@
 //
 #ifndef ex3__OPENDATASERVER_CPP_
 #define ex3__OPENDATASERVER_CPP_
-#include <cstring>
 #include <bits/basic_string.tcc>
 #include "Command.h"
 #include "Var.cpp"
-#include "Singleton.h"
+#include "ex1.h"
 
 void switchCase(int i, float value) {
   Singleton* singleton = Singleton::getSingleton();
@@ -137,13 +136,17 @@ void switchCase(int i, float value) {
   }
 }
 void separateByComma(char *buffer) {
-  string pusher;
+  Singleton* singleton = Singleton::getSingleton();
+  string pusher, current_var_name;
   int i = 0, index_comma = 0, npos = (int) std::string::npos;
   string str = string(buffer);
   while ((index_comma = str.find(COMMA)) != npos) {
     pusher = str.substr(0, index_comma);
     //update the value in symbol-table-simulator
-    switchCase(i, atof(pusher.c_str()));
+    current_var_name = singleton->index.at(i);
+    Var* v = (Var*)singleton->symbol_table_simulator.at(current_var_name);
+    v->setValue(atof(pusher.c_str()));
+    //switchCase(i, atof(pusher.c_str()));
     i++;
     str.erase(0, index_comma + 1);
   }
@@ -161,11 +164,14 @@ int readFromSim(int client_socket) {//reading from client
   class OpenServerCommand : public Command {
    public:
     virtual void execute(queue<string> &token) {
+      //Interpreter* interpreter = new Interpreter();
       cout << "I am executing in Open Data Server" << endl;
       //name of command
       token.pop();
       //parameter of command
-      int port = atof(token.front().c_str());
+      string expression = token.front();
+      float port = ex1::cal(expression);
+      //int port = atof(token.front().c_str());
       token.pop();
 //      int socketfd;
 //      sockaddr_in address;
@@ -203,14 +209,14 @@ int readFromSim(int client_socket) {//reading from client
 //        exit(1);
 //      }
 //      //bind socket to IP address
-//// we first need to create the sockaddr obj.
-////in means IP4
+//      // we first need to create the sockaddr obj.
+//      //in means IP4
 //      address.sin_family = AF_INET;
 //      address.sin_addr.s_addr = INADDR_ANY; //give me any IP allocated for my machine
 //      address.sin_port = htons(port);
 //      //we need to convert our number
-//// to a number that the network understands.
-////the actual bind command
+//      // to a number that the network understands.
+//      //the actual bind command
 //      if (bind(socketfd, (struct sockaddr *) &address, sizeof(address)) == -1) {
 //        cerr << "Could not bind the socket to an IP" << endl;
 //        exit(1);

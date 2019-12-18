@@ -19,9 +19,7 @@
 #include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#define LINE_SIZE 768
-#define SPACE " "
-#define OPEN_BRACKETS '('
+#define LINE_SIZE 791
 #define COMMA ','
 #define OPEN_DATA_SERVER "openDataServer"
 #define CONNECT_CONTROL_CLIENT "connectControlClient"
@@ -30,11 +28,13 @@
 #define SLEEP "Sleep"
 #define IF "if"
 #define LOOP "while"
+
 using namespace std;
 
 class Command {
  public:
   virtual void execute(queue<string> &token) = 0;
+
 };
 #endif
 //Todo

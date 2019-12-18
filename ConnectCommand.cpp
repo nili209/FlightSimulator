@@ -12,11 +12,22 @@ class ConnectCommand : public Command {
     cout << "I am executing in Connect Control Command" << endl;
     //name of command
     token.pop();
-    //ip
-    const char *ip = token.front().c_str();
-    token.pop();
+    //ip and port
+    string arguments = token.front();
+    string ipTemp = "", portTemp = "";
+    int i = 0;
+    for (; arguments[i] != '"'; i++) {
+    }
+    while(arguments[i]!=',') {
+      ipTemp+= arguments[i++];
+    }
+    const char *ip = ipTemp.c_str();
+    while(i < arguments.length() - 1) {
+      portTemp += arguments[++i];
+    }
     //port
-    int port = atof(token.front().c_str());
+    int port = ex1::cal(portTemp);
+    //int port = atof(token.front().c_str());
     token.pop();
 //    int client_socket = createAndConnect(ip, port);
 //

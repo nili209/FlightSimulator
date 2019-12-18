@@ -60,6 +60,8 @@ Var.cpp
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
 
+/home/shiraz/CLionProjects/ex3/Expression.h
+
 /home/shiraz/CLionProjects/ex3/FlightSimulator.cpp
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
@@ -91,16 +93,14 @@ ConditionParser.cpp
 /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
 
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
-cstring
--
 bits/basic_string.tcc
 -
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Var.cpp
 /home/shiraz/CLionProjects/ex3/Var.cpp
-Singleton.h
-/home/shiraz/CLionProjects/ex3/Singleton.h
+ex1.h
+/home/shiraz/CLionProjects/ex3/ex1.h
 
 /home/shiraz/CLionProjects/ex3/PrintCommand.cpp
 Command.h
@@ -133,6 +133,24 @@ Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
+
+/home/shiraz/CLionProjects/ex3/ex1.h
+Singleton.h
+/home/shiraz/CLionProjects/ex3/Singleton.h
+Expression.h
+/home/shiraz/CLionProjects/ex3/Expression.h
+iostream
+-
+list
+-
+stack
+-
+queue
+-
+map
+-
+sstream
+-
 
 /home/shiraz/CLionProjects/ex3/main.cpp
 string

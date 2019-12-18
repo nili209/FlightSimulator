@@ -5,6 +5,7 @@ CMakeFiles/ex3.dir/main.cpp.o: ../Command.h
 CMakeFiles/ex3.dir/main.cpp.o: ../ConditionParser.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../ConnectCommand.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../DefineVarCommand.cpp
+CMakeFiles/ex3.dir/main.cpp.o: ../Expression.h
 CMakeFiles/ex3.dir/main.cpp.o: ../FlightSimulator.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../IfCommand.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../LoopCommand.cpp
@@ -13,5 +14,6 @@ CMakeFiles/ex3.dir/main.cpp.o: ../PrintCommand.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../Singleton.h
 CMakeFiles/ex3.dir/main.cpp.o: ../SleepCommand.cpp
 CMakeFiles/ex3.dir/main.cpp.o: ../Var.cpp
+CMakeFiles/ex3.dir/main.cpp.o: ../ex1.h
 CMakeFiles/ex3.dir/main.cpp.o: ../main.cpp
 
