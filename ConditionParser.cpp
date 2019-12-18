@@ -45,17 +45,17 @@ class ConditionParser : public Command {
     }
 
     cout<<"I am executing in Condition Parser"<<endl;
-    float value1, value2;
-    try{
-        value1 = ((Var*)singleton->symbol_table_program.at(first_var))->getValue();
-    } catch (exception e) {
-      value1 = atof(first_var.c_str());
-    }
-    try{
-      value2 = ((Var*)singleton->symbol_table_program.at(second_var))->getValue();
-    } catch (exception e) {
-      value2 = atof(second_var.c_str());
-    }
+    float value1 = ex1::cal(first_var, singleton->var_values), value2 = ex1::cal(second_var, singleton->var_values);
+//    try{
+//        value1 = ((Var*)singleton->symbol_table_program.at(first_var))->getValue();
+//    } catch (exception e) {
+//      value1 = atof(first_var.c_str());
+//    }
+//    try{
+//      value2 = ((Var*)singleton->symbol_table_program.at(second_var))->getValue();
+//    } catch (exception e) {
+//      value2 = atof(second_var.c_str());
+//    }
     if(con.compare("==") == 0) {
       condition = (value1 == value2);
     }

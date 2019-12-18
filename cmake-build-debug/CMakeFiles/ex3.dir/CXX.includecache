@@ -115,8 +115,6 @@ string
 -
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
-Var.cpp
-/home/shiraz/CLionProjects/ex3/Var.cpp
 
 /home/shiraz/CLionProjects/ex3/SleepCommand.cpp
 Command.h
@@ -133,10 +131,10 @@ Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
+ex1.h
+/home/shiraz/CLionProjects/ex3/ex1.h
 
 /home/shiraz/CLionProjects/ex3/ex1.h
-Singleton.h
-/home/shiraz/CLionProjects/ex3/Singleton.h
 Expression.h
 /home/shiraz/CLionProjects/ex3/Expression.h
 iostream

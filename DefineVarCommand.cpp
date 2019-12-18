@@ -35,14 +35,16 @@ class DefineVarCommand : public Command {
       }
       //if after the = is a number or expression
       if (is_digit) {
-        Var *v = new Var("", "");
+        Var *v = new Var("", "", var_name);
+        singleton->var_values.insert({var_name, num});
         v->setValue(num);
         singleton->symbol_table_program.insert({var_name, v});
       } else {
         //if after the = is a var:
         //update the value to be the value of other var
-        Var *v1 = new Var("", "");
+        Var *v1 = new Var("", "", var_name);
         Var *other = (Var*)singleton->symbol_table_program.at(other_var_name);
+        singleton->var_values.insert({var_name, other->getValue()});
         v1->setValue(other->getValue());
         singleton->symbol_table_program.insert({var_name, v1});
       }
@@ -57,8 +59,9 @@ class DefineVarCommand : public Command {
       token.pop();
       //we didnot found the var in the map
       if (!insert_to_map(sim, var_name)) {
-        Var *var = new Var(sim, action);
+        Var *var = new Var(sim, action, var_name);
         singleton->symbol_table_program.insert({var_name, var});
+        singleton->var_values.insert({var_name, var->getValue()});
         singleton->commands.insert({var_name, var});
       }
     }
@@ -72,6 +75,7 @@ class DefineVarCommand : public Command {
       //we found the var
       if (sim.compare(other_sim) == 0) {
         singleton->symbol_table_program.insert({var_name, v});
+        singleton->var_values.insert({var_name, v->getValue()});
         return true;
       }
     }

@@ -9,6 +9,7 @@
 class ConnectCommand : public Command {
  public:
   virtual void execute(queue<string> &token) {
+    Singleton* singleton = Singleton::getSingleton();
     cout << "I am executing in Connect Control Command" << endl;
     //name of command
     token.pop();
@@ -26,7 +27,7 @@ class ConnectCommand : public Command {
       portTemp += arguments[++i];
     }
     //port
-    int port = ex1::cal(portTemp);
+    int port = ex1::cal(portTemp, singleton->var_values);
     //int port = atof(token.front().c_str());
     token.pop();
 //    int client_socket = createAndConnect(ip, port);

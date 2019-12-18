@@ -145,6 +145,7 @@ void separateByComma(char *buffer) {
     //update the value in symbol-table-simulator
     current_var_name = singleton->index.at(i);
     Var* v = (Var*)singleton->symbol_table_simulator.at(current_var_name);
+    //singleton->var_values.at(current_var_name) = atof(pusher.c_str());
     v->setValue(atof(pusher.c_str()));
     //switchCase(i, atof(pusher.c_str()));
     i++;
@@ -165,12 +166,13 @@ int readFromSim(int client_socket) {//reading from client
    public:
     virtual void execute(queue<string> &token) {
       //Interpreter* interpreter = new Interpreter();
+      Singleton* singleton = Singleton::getSingleton();
       cout << "I am executing in Open Data Server" << endl;
       //name of command
       token.pop();
       //parameter of command
       string expression = token.front();
-      float port = ex1::cal(expression);
+      float port = ex1::cal(expression, singleton->var_values);
       //int port = atof(token.front().c_str());
       token.pop();
 //      int socketfd;

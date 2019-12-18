@@ -4,10 +4,10 @@
 
 #ifndef EX3__SINGLETON_H_
 #define EX3__SINGLETON_H_
-
+//#pragma once
 #include <string>
 #include "Command.h"
-#include "Var.cpp"
+
 class Singleton {
  private:
   static Singleton* singleton;
@@ -19,6 +19,7 @@ class Singleton {
   static unordered_map<string, Command*> commands;
   static unordered_map<string, Command*> symbol_table_program;
   static unordered_map<string, Command*> symbol_table_simulator;
+  static unordered_map<string, float > var_values;
   static unordered_map<int, string> index;
   static Singleton* getSingleton();
 };
@@ -27,6 +28,7 @@ Singleton*::Singleton::singleton = 0;
 unordered_map<string, Command*> Singleton::commands;
 unordered_map<string, Command*> Singleton::symbol_table_program;
 unordered_map<string, Command*> Singleton::symbol_table_simulator;
+unordered_map<string, float> Singleton::var_values;
 unordered_map<int, string> Singleton::index;
 Singleton *Singleton::getSingleton() {
   if (singleton == 0) {
