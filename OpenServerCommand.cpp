@@ -136,6 +136,7 @@ void switchCase(int i, float value) {
   }
 }
 void separateByComma(char *buffer) {
+
   Singleton* singleton = Singleton::getSingleton();
   string pusher, current_var_name;
   int i = 0, index_comma = 0, npos = (int) std::string::npos;
