@@ -56,7 +56,7 @@ starter = 1
 autostart = 1
 Print("engine is warming...")
 Print(rpm)
-while (starter < 1-(brakeparking - 1)) {
+while (starter > 1-(brakeparking - 1)) {
 	Print(rpm)
 }
 Sleep(5000)

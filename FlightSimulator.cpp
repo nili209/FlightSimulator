@@ -407,14 +407,34 @@ class FlightSimulator {
   }
   void parser(queue<string> &token) {
     int i = 0;
+    thread thread_in_1;
+    thread thread_in_2;
     while (!token.empty()) {
       i++;
       string current = token.front();
+      if(current.compare(OPEN_DATA_SERVER) == 0) {
+        Command *c = singleton->commands.at(current);
+        OpenServerCommand c1 = *((OpenServerCommand*)c);
+        //name of command
+        token.pop();
+        //parameter of command
+        string expression = token.front();
+        float port = ex1::cal(expression, singleton->var_values);
+        token.pop();
+        thread thread_in_1(&OpenServerCommand::openSocketOut, ref(c1),  port);
+        thread_in_1.join();
+        //thread_in_1.detach();
+        thread thread_in_2(&OpenServerCommand::readFromSim, ref(c1),client_socket);
+        thread_in_2.detach();
+      }
       Command *c = singleton->commands.at(current);
+      int i = 0;
       if (c != NULL) {
+        i++;
         c->execute(token);
       }
     }
+    //thread_in_2.detach();
   }
 };
 //  void createQueue(queue<string> &token, string line) {

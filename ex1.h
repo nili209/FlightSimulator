@@ -836,7 +836,7 @@ float ex1:: cal(string expression, unordered_map<string, float> var_values) {
     }
     newString += expression[i];
   }
-  cout<<newString[newString.length()-1];
+  //cout<<newString[newString.length()-1];
   if (count_close_brackes > count_open_brackets) {
     newString = newString.substr(0, newString.length() - 1);
   }
