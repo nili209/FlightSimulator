@@ -37,6 +37,8 @@ netinet/in.h
 -
 arpa/inet.h
 -
+mutex
+-
 
 /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
 Command.h
@@ -47,6 +49,8 @@ Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
+cstring
+-
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Var.cpp
@@ -94,6 +98,8 @@ ConditionParser.cpp
 
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
 bits/basic_string.tcc
+-
+future
 -
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h

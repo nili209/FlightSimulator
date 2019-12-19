@@ -56,7 +56,7 @@ starter = 1
 autostart = 1
 Print("engine is warming...")
 Print(rpm)
-while starter < 1-(brakeparking - 1) {
+while (starter < 1-(brakeparking - 1)) {
 	Print(rpm)
 }
 Sleep(5000)
@@ -64,7 +64,7 @@ Print("let's fly")
 var h0 = heading
 breaks = 0
 throttle = 1
-while h0 ==1000 {
+while (h0 ==1000) {
     Print(h0)
 	rudder = (h0 - heading)/80
 	aileron = -roll / 70

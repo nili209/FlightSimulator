@@ -58,7 +58,7 @@ class DefineVarCommand : public Command {
       //the name of the var of the simulator
       token.pop();
       //we didnot found the var in the map
-      if (!insert_to_map(sim, var_name)) {
+      if (!insert_to_map(sim, var_name, action)) {
         Var *var = new Var(sim, action, var_name);
         singleton->symbol_table_program.insert({var_name, var});
         singleton->var_values.insert({var_name, var->getValue()});
@@ -67,13 +67,14 @@ class DefineVarCommand : public Command {
     }
     cout << "I am executing in Define Var Command" << endl;
   }
-  bool insert_to_map(string sim, string var_name) {
+  bool insert_to_map(string sim, string var_name, string action) {
     unordered_map<string, Command *> map = singleton->symbol_table_simulator;
     for (auto it = map.begin(); it != map.end(); ++it) {
       Var *v = (Var*) it->second;
       string other_sim = v->getSim();
       //we found the var
       if (sim.compare(other_sim) == 0) {
+        v->setDirection(action);
         singleton->symbol_table_program.insert({var_name, v});
         singleton->var_values.insert({var_name, v->getValue()});
         return true;

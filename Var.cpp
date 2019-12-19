@@ -13,6 +13,12 @@ class Var : public Command {
   string sim, direction, name;
   float value = 0;
  public:
+  void setDirection(string direct) {
+    this->direction = direct;
+  }
+  string getDirection() {
+    return direction;
+  }
   string getSim() {
     return this->sim;
   }
@@ -58,15 +64,16 @@ class Var : public Command {
 //    }
     //shunting yard return value of expression = value
     //simulator needed to be changed
-//  if (direction.compare("->") == 0 ) {
-//    string message = "set " + path+ " " + to_string(value) + "\r\n";
+  if (direction.compare("->") == 0 ) {
+    string message = "set " + sim+ " " + to_string(value) + "\r\n";
+    Singleton::setMessages(message);
 //    ssize_t return_val;
 //    // Send message to the server
 //    returl_val = write(sockfd, message.c_str(), message.length());
 //
 //    //go to the symbol table of simulator and change the value;
 //    //"set /controls/engines/current-engine/throttle 1”
-// }
+ }
     token.pop();
   }
 };

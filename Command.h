@@ -19,6 +19,7 @@
 #include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <mutex>
 #define LINE_SIZE 791
 #define COMMA ','
 #define OPEN_DATA_SERVER "openDataServer"
