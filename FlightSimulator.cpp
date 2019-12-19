@@ -43,7 +43,7 @@ class FlightSimulator {
     Var *v4 = new Var("/instrumentation/altimeter/pressure-alt-ft", "<-" , "altimeter_pressure-alt-ft");
     map.insert({"altimeter_pressure-alt-ft", v4});
     index_map.insert({3, "altimeter_pressure-alt-ft"});
-    var_values.insert({"altimeter_pressure-alt-ft", 0});
+    var_values.insert({"altimeter_pressure-alt-ft", 1});
     Var *v5 = new Var("/instrumentation/attitude-indicator/indicated-pitch-deg", "<-" , "attitude-indicator_indicated-pitch-deg");
     map.insert({"attitude-indicator_indicated-pitch-deg", v5});
     index_map.insert({4, "attitude-indicator_indicated-pitch-deg"});
@@ -409,6 +409,8 @@ class FlightSimulator {
     int i = 0;
     thread thread_in_1;
     thread thread_in_2;
+    thread thread_out_2;
+    thread thread_out_1;
     while (!token.empty()) {
       i++;
       string current = token.front();
@@ -423,10 +425,35 @@ class FlightSimulator {
         token.pop();
         thread thread_in_1(&OpenServerCommand::openSocketOut, ref(c1),  port);
         thread_in_1.join();
-        //thread_in_1.detach();
-        thread thread_in_2(&OpenServerCommand::readFromSim, ref(c1),client_socket);
+        thread thread_in_2(&OpenServerCommand::readFromSim, ref(c1),client_socket_in);
         thread_in_2.detach();
       }
+//      if(current.compare(CONNECT_CONTROL_CLIENT) == 0) {
+//        Command *com = singleton->commands.at(current);
+//        ConnectCommand c2 = *((ConnectCommand*)com);
+//        //name of command
+//        token.pop();
+//        //ip and port
+//        string arguments = token.front();
+//        string ipTemp = "", portTemp = "";
+//        int i = 0;
+//        for (; arguments[i] != '"'; i++) {
+//        }
+//        while (arguments[i] != ',') {
+//          ipTemp += arguments[i++];
+//        }
+//        const char *ip = ipTemp.c_str();
+//        while (i < arguments.length() - 1) {
+//          portTemp += arguments[++i];
+//        }
+//        //port
+//        int port = ex1::cal(portTemp, singleton->var_values);
+//        token.pop();
+//        thread thread_out_1(&ConnectCommand::Connect, ref(c2), ip, port);
+//        thread_out_1.join();
+//        thread thread_out_2(&ConnectCommand::writeMessages, ref(c2));
+//        thread_out_2.detach();
+//      }
       Command *c = singleton->commands.at(current);
       int i = 0;
       if (c != NULL) {
@@ -434,7 +461,6 @@ class FlightSimulator {
         c->execute(token);
       }
     }
-    //thread_in_2.detach();
   }
 };
 //  void createQueue(queue<string> &token, string line) {

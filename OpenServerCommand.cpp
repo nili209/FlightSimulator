@@ -8,7 +8,7 @@
 #include "Command.h"
 #include "Var.cpp"
 #include "ex1.h"
-static int client_socket;
+static int client_socket_in;
 
   class OpenServerCommand : public Command {
    public:
@@ -26,7 +26,6 @@ static int client_socket;
      void openSocketOut(float port)  {
       int socketfd;
       sockaddr_in address;
-      //createAndBindSocket(port, socketfd, address);
 
       socketfd = socket(AF_INET, SOCK_STREAM, 0);//create socket
       if (socketfd == -1) {
@@ -53,9 +52,9 @@ static int client_socket;
         cout << "Server is now listening ..." << endl;
       }
       //acceptAndRead(socketfd, address);
-      client_socket = accept(socketfd, (struct sockaddr *) &address,
+       client_socket_in = accept(socketfd, (struct sockaddr *) &address,
                                  (socklen_t *) &address);
-      if (client_socket == -1) {
+      if (client_socket_in == -1) {
         cerr << "Error accepting client" << endl;
       }
       close(socketfd);
@@ -97,7 +96,9 @@ static int client_socket;
 //        exit(1);
 //      }
 //    }
+
      void separateByComma(char *buffer) {
+      mutex_lock.lock();
       Singleton* singleton = Singleton::getSingleton();
       string pusher, current_var_name;
       int i = 0, index_comma = 0, npos = (int) std::string::npos;
@@ -113,15 +114,16 @@ static int client_socket;
 
         i++;
         str.erase(0, index_comma + 1);
+        mutex_lock.unlock();
       }
-    }int readFromSim(int client_socket) {//reading from client
+    }int readFromSim(int client_socket_in) {//reading from client
       while (true) {
         char buffer[LINE_SIZE] = {0};
-        int valread = read(client_socket, buffer, LINE_SIZE);
+        int valread = read(client_socket_in, buffer, LINE_SIZE);
         cout << buffer << endl;
         separateByComma(buffer);
       }
-      return client_socket;
+      return client_socket_in;
     }
   };
 #endif

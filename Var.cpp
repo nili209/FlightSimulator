@@ -11,7 +11,7 @@
 class Var : public Command {
  private:
   string sim, direction, name;
-  float value = 0;
+  float value = 1;
  public:
   void setDirection(string direct) {
     this->direction = direct;
