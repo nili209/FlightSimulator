@@ -1,6 +1,5 @@
-var i = 5400
-openDataServer(i)
-connectControlClient("127.0.0.1", 5402 )
+openDataServer(5400)
+connectControlClient("10.0.2.2",5402)
 var warp -> sim("/sim/time/warp")
 var magnetos -> sim("/controls/switches/magnetos")
 var throttle -> sim("/controls/engines/current-engine/throttle")
@@ -23,27 +22,10 @@ var elevator -> sim("/controls/flight/elevator")
 var alt <- sim("/instrumentation/altimeter/indicated-altitude-ft")
 var rpm <- sim("/engines/engine/rpm")
 Print("waiting 2 minutes for gui")
-Sleep(1200)
-heading=10+1
-var nili = 4
-Print(nili)
+Sleep(1200000)
 Print("let's start")
 warp = 32000
 Sleep(1000)
-magnetos = warp
-Print(magnetos)
-warp = 4
-var shiraz = warp
-Print("shiraz")
-Print(shiraz)
-warp = 5
-Print("shiraz")
-Print(shiraz)
-Print(magnetos)
-Print(warp)
-magnetos = 8
-Print(magnetos)
-Print(warp)
 magnetos = 3
 throttle = 0.2
 mixture = 0.949
@@ -56,7 +38,7 @@ starter = 1
 autostart = 1
 Print("engine is warming...")
 Print(rpm)
-while (starter > 1-(brakeparking - 1)) {
+while rpm <= 750 {
 	Print(rpm)
 }
 Sleep(5000)
@@ -64,8 +46,7 @@ Print("let's fly")
 var h0 = heading
 breaks = 0
 throttle = 1
-while (h0 ==1000) {
-    Print(h0)
+while alt < 1000 {
 	rudder = (h0 - heading)/80
 	aileron = -roll / 70
 	elevator = pitch / 50

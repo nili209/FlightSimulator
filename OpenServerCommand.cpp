@@ -51,7 +51,6 @@ static int client_socket_in;
       } else {
         cout << "Server is now listening ..." << endl;
       }
-      //acceptAndRead(socketfd, address);
        client_socket_in = accept(socketfd, (struct sockaddr *) &address,
                                  (socklen_t *) &address);
       if (client_socket_in == -1) {
@@ -98,7 +97,7 @@ static int client_socket_in;
 //    }
 
      void separateByComma(char *buffer) {
-      mutex_lock.lock();
+      //mutex_lock.lock();
       Singleton* singleton = Singleton::getSingleton();
       string pusher, current_var_name;
       int i = 0, index_comma = 0, npos = (int) std::string::npos;
@@ -109,12 +108,17 @@ static int client_socket_in;
         current_var_name = singleton->index.at(i);
         Var* v = (Var*)singleton->symbol_table_simulator.at(current_var_name);
         if (v->getDirection().compare("<-") == 0) {
+          //v->value = atof(pusher.c_str());
+        //  singleton->symbol_table_simulator.at(v->getName()) = v;
+       // singleton->var_values.at(current_var_name) = atof(pusher.c_str());
           v->setValue(atof(pusher.c_str()));
+          Var *vt = v;
         }
-
         i++;
-        str.erase(0, index_comma + 1);
-        mutex_lock.unlock();
+        if (index_comma != 0 ) {
+          str.erase(0, index_comma + 1);
+        }
+      //  mutex_lock.unlock();
       }
     }int readFromSim(int client_socket_in) {//reading from client
       while (true) {

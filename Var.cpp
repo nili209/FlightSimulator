@@ -25,11 +25,19 @@ class Var : public Command {
   float getValue() {
     return this->value;
   }
+  void printSimulatorVar() {
+    for (auto& it: Singleton::symbol_table_simulator) {
+      // Do stuff
+      Var *v = (Var*)it.second;
+      cout << it.first<< "=" << v->getValue()<<endl;
+    }
+  }
   void setValue(float num) {
     Singleton* singleton = Singleton::getSingleton();
     this->value = num;
     singleton->var_values.at(name) = num;
   }
+
   Var(string sim1, string direction1, string name1) : sim(sim1), direction(direction1), name(name1){};
   virtual void execute(queue<string> &token) {
     Singleton* singleton = Singleton::getSingleton();
