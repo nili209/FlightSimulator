@@ -332,79 +332,79 @@ float Interpreter::interpret(string expression) {
   return 0;
 }
 
-void Interpreter::setVariables(string variables) {
-  stringstream ss(variables);
-  string item1;
-  list<string> tempList;
-  int flag = 0;
-  //create a list in the odd places is the m_value and other places are for the m_name
-  while (getline(ss, item1, *";")) {
-    stringstream ss2(item1);
-    string item2;
-    flag = 0;
-    //;;
-    if (item1.compare("") == 0) {
-      throw "bad input";
-    }
-    while (getline(ss2, item2, *"=")) {
-      if (flag >= 2) {
-        throw "bad intput";
-      }
-
-      tempList.push_back(item2);
-      flag++;
-    }
-  }
-  //now create a map with <m_value, m_name>
-  int i = 0;
-  string name;
-  double value;
-  string valueString;
-  try {
-    for (auto v = tempList.begin(); v != tempList.end(); v++) {
-      //m_name
-      if (i == 0) {
-        name = *v;
-      }
-      //m_value
-      if (i == 1) {
-        valueString = *v;
-        if (valueString[0] == '.') {
-          throw "bad input - invalid m_value";
-        }
-        if (valueString[0] == '-' || valueString[0] == '+') {
-          if (isANumber(&valueString[1]) == false) {
-            throw "bad input";
-          }
-        } else if (isANumber(*v) == false) {
-          throw "bad input";
-        }
-        value = stod(*v);
-      }
-      i++;
-      if (i == 2) {
-        i = 0;
-        //check if the variable m_name is valid
-        //Variable *check = new Variable(name, value);
-        //delete check;
-        if (this->variablesMap.empty()) {
-          this->variablesMap.insert({name, value});
-        } else {
-          //check if the variable exist
-          map<string, double>::iterator it;
-          it = this->variablesMap.find(name);
-          if (it != this->variablesMap.end()) {
-            it->second = value;
-          } else {
-            this->variablesMap.insert({name, value});
-          }
-        }
-      }
-    }
-  } catch (exception e) {
-    throw "bad input - invalid m_value";
-  }
-}
+//void Interpreter::setVariables(string variables) {
+//  stringstream ss(variables);
+//  string item1;
+//  list<string> tempList;
+//  int flag = 0;
+//  //create a list in the odd places is the m_value and other places are for the m_name
+//  while (getline(ss, item1, *";")) {
+//    stringstream ss2(item1);
+//    string item2;
+//    flag = 0;
+//    //;;
+//    if (item1.compare("") == 0) {
+//      throw "bad input";
+//    }
+//    while (getline(ss2, item2, *"=")) {
+//      if (flag >= 2) {
+//        throw "bad intput";
+//      }
+//
+//      tempList.push_back(item2);
+//      flag++;
+//    }
+//  }
+//  //now create a map with <m_value, m_name>
+//  int i = 0;
+//  string name;
+//  double value;
+//  string valueString;
+//  try {
+//    for (auto v = tempList.begin(); v != tempList.end(); v++) {
+//      //m_name
+//      if (i == 0) {
+//        name = *v;
+//      }
+//      //m_value
+//      if (i == 1) {
+//        valueString = *v;
+//        if (valueString[0] == '.') {
+//          throw "bad input - invalid m_value";
+//        }
+//        if (valueString[0] == '-' || valueString[0] == '+') {
+//          if (isANumber(&valueString[1]) == false) {
+//            throw "bad input";
+//          }
+//        } else if (isANumber(*v) == false) {
+//          throw "bad input";
+//        }
+//        value = stod(*v);
+//      }
+//      i++;
+//      if (i == 2) {
+//        i = 0;
+//        //check if the variable m_name is valid
+//        //Variable *check = new Variable(name, value);
+//        //delete check;
+//        if (this->variablesMap.empty()) {
+//          this->variablesMap.insert({name, value});
+//        } else {
+//          //check if the variable exist
+//          map<string, double>::iterator it;
+//          it = this->variablesMap.find(name);
+//          if (it != this->variablesMap.end()) {
+//            it->second = value;
+//          } else {
+//            this->variablesMap.insert({name, value});
+//          }
+//        }
+//      }
+//    }
+//  } catch (exception e) {
+//    throw "bad input - invalid m_value";
+//  }
+//}
 
 Interpreter::~Interpreter() {
 }
@@ -791,26 +791,6 @@ bool Interpreter::isANumber(string st) {
     }
   }
   return true;
-  /*
-  for (int j = 0; j < stringLength; j++) {
-    isANum = false;
-    for (int i = 0; i < numberLength; i++) {
-      if (numbers[i] == st[j]) {
-        isANum = true;
-      }
-    }
-    if (!isANum) {
-      if (st[j] == '.') {
-        period++;
-        if (period > 1) {
-          return false;
-        }
-    }
-
-  }
-}
-   */
-
 }
 
 

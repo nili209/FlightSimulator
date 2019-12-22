@@ -6,13 +6,12 @@
 #include "ConditionParser.cpp"
 class LoopCommand : public ConditionParser {
  public:
-  Singleton* singleton = Singleton::getSingleton();
   virtual void execute(queue<string> &token) {
     cout<<"I am executing in Loop Command"<<endl;
     //initialize the queue of commands and check condition
     ConditionParser::execute(token);
     int j = 0;
-    while (condition) {
+    while (is_condition) {
       j++;
       int i = 0;
       queue<string> copy_queue = condition_commands;

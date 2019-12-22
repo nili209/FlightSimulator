@@ -12,8 +12,7 @@ class Singleton {
  private:
   static Singleton* singleton;
   //private constractor
-  Singleton(){
-  };
+  Singleton(){};
  public:
   static queue<string> messages;
   static void reset(unordered_map<string, Command*>& map, unordered_map<int, string>&index_map, unordered_map<string, float>&var_value1);

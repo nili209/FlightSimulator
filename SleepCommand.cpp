@@ -12,9 +12,7 @@ class SleepCommand : public Command {
     cout<<"I am executing in Sleep Command"<<endl;
     //the word "Sleep"
     token.pop();
-    //time to sleep
     int time_to_sleep = atof(token.front().c_str());
-    //sleep
     this_thread::sleep_for(chrono::milliseconds(time_to_sleep));
     //time to sleep
     token.pop();

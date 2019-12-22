@@ -7,12 +7,11 @@
 
 class IfCommand : public ConditionParser {
  public:
-  Singleton* singleton = Singleton::getSingleton();
   virtual void execute(queue<string> &token) {
     cout<<"I am executing in If Command"<<endl;
     //initialize the queue of commands and check condition
     ConditionParser::execute(token);
-    if (condition) {
+    if (is_condition) {
       int i = 0;
       while(!condition_commands.empty()) {
         i++;

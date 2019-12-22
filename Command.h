@@ -20,7 +20,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <mutex>
-#define LINE_SIZE 791
+#define LINE_SIZE 1187
 #define COMMA ','
 #define OPEN_DATA_SERVER "openDataServer"
 #define CONNECT_CONTROL_CLIENT "connectControlClient"
@@ -38,6 +38,3 @@ class Command {
 
 };
 #endif
-//Todo
-//אחרי כל אופרטור ולא רק שווה -  להכניס הכל לתור אבל לא להכניס את הסולסול הסוגר אם יש בתנאים.
-//לעשות רשימה של משתנים של הסימולטור ולשים את הטרד שישלח את הפונקציה שפותחת את הסוקט

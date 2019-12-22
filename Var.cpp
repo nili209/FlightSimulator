@@ -4,20 +4,23 @@
 #ifndef ex3__VAR_CPP_
 #define ex3__VAR_CPP_
 #include "Command.h"
-//#include "ex1.h"
 #include "Singleton.h"
 #include "ex1.h"
 
 class Var : public Command {
  private:
+  Singleton* singleton = Singleton::getSingleton();
   string sim, direction, name;
-  float value = 1;
+  float value;
  public:
   void setDirection(string direct) {
     this->direction = direct;
   }
   string getDirection() {
     return direction;
+  }
+  string getName() {
+    return this->name;
   }
   string getSim() {
     return this->sim;
@@ -26,21 +29,23 @@ class Var : public Command {
     return this->value;
   }
   void printSimulatorVar() {
-    for (auto& it: Singleton::symbol_table_simulator) {
-      // Do stuff
+    for (auto& it: singleton->symbol_table_simulator) {
       Var *v = (Var*)it.second;
       cout << it.first<< "=" << v->getValue()<<endl;
     }
   }
+
   void setValue(float num) {
-    Singleton* singleton = Singleton::getSingleton();
+    mutex_lock.lock();
     this->value = num;
     singleton->var_values.at(name) = num;
+    mutex_lock.unlock();
   }
-
+  void setSim(string sim1) {
+    this->sim = sim1;
+  }
   Var(string sim1, string direction1, string name1) : sim(sim1), direction(direction1), name(name1){};
   virtual void execute(queue<string> &token) {
-    Singleton* singleton = Singleton::getSingleton();
     cout<<"I am executing in Var"<<endl;
     //name of var
     string var_name = token.front();
@@ -52,35 +57,22 @@ class Var : public Command {
     float value1 = ex1::cal(expression, singleton->var_values);
     setValue(value1);
 
-
-//    //for now, the expression will be only a var name or a number
-//    try {
-//      other_var = singleton->symbol_table_program.at(expression);
-//    } catch (exception e) {
-//      value1 = atof(expression.c_str());
-//    }
-//    //this is a value
-//    if (other_var == NULL) {
-//        this->value = value1;
-//    }
-//      //this is a var
-//    else {
-//      Var *var = (Var*)other_var;
-//      float value = var->getValue();
-//      Var *current_var = (Var*)singleton->symbol_table_program.at(var_name);
-//      current_var->value = value;
-//    }
     //shunting yard return value of expression = value
     //simulator needed to be changed
+    string tempSim = sim;
+    mutex_lock.lock();
   if (direction.compare("->") == 0 ) {
-    string message = "set " + sim+ " " + to_string(value) + "\r\n";
-    Singleton::setMessages(message);
-//    ssize_t return_val;
-//    // Send message to the server
-//    returl_val = write(sockfd, message.c_str(), message.length());
-//
-//    //go to the symbol table of simulator and change the value;
-//    //"set /controls/engines/current-engine/throttle 1”
+    if(sim[0] == '"') {
+      tempSim = sim.substr(1, sim.length() - 2);
+      if (tempSim[0] == '/') {
+        tempSim = tempSim.substr(1, tempSim.length() - 1);
+      }
+    } else if (tempSim[0] == '/') {
+      tempSim = tempSim.substr(1, tempSim.length() - 1);
+    }
+    mutex_lock.unlock();
+    string message = "set " + tempSim+ " " + to_string(value) + "\r\n";
+    singleton->setMessages(message);
  }
     token.pop();
   }

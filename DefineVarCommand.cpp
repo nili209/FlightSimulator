@@ -7,8 +7,9 @@
 #include "Var.cpp"
 #include "Singleton.h"
 class DefineVarCommand : public Command {
- public:
+ private:
   Singleton *singleton = Singleton::getSingleton();
+ public:
   virtual void execute(queue<string> &token) {
     bool is_digit = false;
     //the word var
@@ -26,13 +27,19 @@ class DefineVarCommand : public Command {
       token.pop();
       float num;
       is_digit = false;
+      //Todo
+      //1 change the logic here - this is not good to rely on try catch to check if this is name of var or expression
+      //2 change to allow shunting yard here **
       try {
         singleton->symbol_table_program.at(other_var_name);
         //this is a number or expression
       } catch (exception e){
-        num = atof(other_var_name.c_str());
+        //**
+        num = ex1::cal(other_var_name, singleton->var_values);
+        //num = atof(other_var_name.c_str());
         is_digit = true;
       }
+      mutex_lock.lock();
       //if after the = is a number or expression
       if (is_digit) {
         Var *v = new Var("", "", var_name);
@@ -59,24 +66,33 @@ class DefineVarCommand : public Command {
       token.pop();
       //we didnot found the var in the map
       if (!insert_to_map(sim, var_name, action)) {
-        Var *var = new Var(sim, action, var_name);
+        //string tempSim = sim.substr(1, sim.length() -2);
+        string tempSim = sim;
+        Var *var = new Var(tempSim, action, var_name);
         singleton->symbol_table_program.insert({var_name, var});
         singleton->var_values.insert({var_name, var->getValue()});
         singleton->commands.insert({var_name, var});
       }
     }
+    mutex_lock.unlock();
     cout << "I am executing in Define Var Command" << endl;
   }
   bool insert_to_map(string sim, string var_name, string action) {
+  string copySim = "";
     unordered_map<string, Command *> map = singleton->symbol_table_simulator;
     for (auto it = map.begin(); it != map.end(); ++it) {
       Var *v = (Var*) it->second;
       string other_sim = v->getSim();
+      copySim = sim.substr(1, sim.length() -2);
       //we found the var
-      if (sim.compare(other_sim) == 0) {
+      if (copySim.compare(other_sim) == 0) {
+        mutex_lock.lock();
         v->setDirection(action);
+        //v->setSim(other_sim);
         singleton->symbol_table_program.insert({var_name, v});
         singleton->var_values.insert({var_name, v->getValue()});
+        singleton->commands.insert({var_name, v});
+        mutex_lock.unlock();
         return true;
       }
     }

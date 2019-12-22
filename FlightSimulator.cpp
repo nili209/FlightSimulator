@@ -31,135 +31,173 @@ class FlightSimulator {
     string name_of_var = "";
     string sim_of_var = "";
     /***/
-    Var *v1 = new Var("/instrumentation/airspeed-indicator/indicated-speed-kt", "<-",
-                      "airspeed-indicator_indicated-speed-kt");
-    map.insert({"airspeed-indicator_indicated-speed-kt", v1});
-    index_map.insert({0, "airspeed-indicator_indicated-speed-kt"});
-    var_values.insert({"airspeed-indicator_indicated-speed-kt", 0});
+    name_of_var = "airspeed-indicator_indicated-speed-kt";
+    sim_of_var = "/instrumentation/airspeed-indicator/indicated-speed-kt";
+    Var *v1 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v1});
+    index_map.insert({0, name_of_var});
+    var_values.insert({name_of_var, 1});
     /***/
-    Var *v2 = new Var("/sim/time/warp", "<-", "time_warp");
-    map.insert({"time_warp", v2});
-    index_map.insert({1, "time_warp"});
-    var_values.insert({"time_warp", 0});
+    name_of_var = "time_warp";
+    sim_of_var = "/sim/time/warp";
+    Var *v2 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v2});
+    index_map.insert({1, name_of_var});
+    var_values.insert({name_of_var, 1});
     /***/
-    Var *v3 = new Var("/controls/switches/magnetos", "<-", "switches_magnetos");
-    map.insert({"switches_magnetos", v3});
-    index_map.insert({2, "switches_magnetos"});
-    var_values.insert({"switches_magnetos", 0});
+    name_of_var = "switches_magnetos";
+    sim_of_var = "/controls/switches/magnetos";
+    Var *v3 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v3});
+    index_map.insert({2, name_of_var});
+    var_values.insert({name_of_var, 1});
     /***/
-    Var *v4 = new Var("/instrumentation/heading-indicator/offset-deg", "<-", "heading-indicator_offset-deg");
-    map.insert({"heading-indicator_offset-deg", v4});
-    index_map.insert({3, "heading-indicator_offset-deg"});
-    var_values.insert({"heading-indicator_offset-deg", 0});
+    name_of_var = "heading-indicator_offset-deg";
+    sim_of_var = "/instrumentation/heading-indicator/offset-deg";
+    Var *v4 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v4});
+    index_map.insert({3, name_of_var});
+    var_values.insert({name_of_var, 1});
     /***/
-    Var *v5 = new Var("/instrumentation/altimeter/indicated-altitude-ft", "<-", "altimeter_indicated-altitude-ft");
-    map.insert({"altimeter_indicated-altitude-ft", v5});
-    index_map.insert({4, "altimeter_indicated-altitude-ft"});
-    var_values.insert({"altimeter_indicated-altitude-ft", 0});
+    name_of_var = "altimeter_indicated-altitude-ft";
+    sim_of_var = "/instrumentation/altimeter/indicated-altitude-ft";
+    Var *v5 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v5});
+    index_map.insert({4, name_of_var});
+    var_values.insert({name_of_var, 1});
     /***/
-    Var *v6 = new Var("/instrumentation/altimeter/pressure-alt-ft", "<-", "altimeter_pressure-alt-ft");
-    map.insert({"altimeter_pressure-alt-ft", v6});
-    index_map.insert({5, "altimeter_pressure-alt-ft"});
-    var_values.insert({"altimeter_pressure-alt-ft", 0});
+    name_of_var = "altimeter_pressure-alt-ft";
+    sim_of_var = "/instrumentation/altimeter/pressure-alt-ft";
+    Var *v6 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v6});
+    index_map.insert({5, name_of_var});
+    var_values.insert({name_of_var, 1});
     /***/
-    Var *v7 = new Var("/instrumentation/attitude-indicator/indicated-pitch-deg", "<-",
-                      "attitude-indicator_indicated-pitch-deg");
-    map.insert({"attitude-indicator_indicated-pitch-deg", v7});
-    index_map.insert({6, "attitude-indicator_indicated-pitch-deg"});
-    var_values.insert({"attitude-indicator_indicated-pitch-deg", 0});
+    name_of_var = "attitude-indicator_indicated-pitch-deg";
+    sim_of_var = "/instrumentation/attitude-indicator/indicated-pitch-deg";
+    Var *v7 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v7});
+    index_map.insert({6, name_of_var});
+    var_values.insert({name_of_var, 1});
     /***/
-    Var *v8 = new Var("/instrumentation/attitude-indicator/indicated-roll-deg", "<-",
-                      "attitude-indicator_indicated-roll-deg");
-    map.insert({"attitude-indicator_indicated-roll-deg", v8});
-    index_map.insert({7, "attitude-indicator_indicated-roll-deg"});
-    var_values.insert({"attitude-indicator_indicated-roll-deg", 0});
+    name_of_var = "attitude-indicator_indicated-roll-deg";
+    sim_of_var = "/instrumentation/attitude-indicator/indicated-roll-deg";
+    Var *v8 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v8});
+    index_map.insert({7, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v9 = new Var("/instrumentation/attitude-indicator/internal-pitch-deg", "<-",
-                      "attitude-indicator_internal-pitch-deg");
-    map.insert({"attitude-indicator_internal-pitch-deg", v9});
-    index_map.insert({8, "attitude-indicator_internal-pitch-deg"});
-    var_values.insert({"attitude-indicator_internal-pitch-deg", 0});
+    name_of_var = "attitude-indicator_internal-pitch-deg";
+    sim_of_var = "/instrumentation/attitude-indicator/internal-pitch-deg";
+    Var *v9 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v9});
+    index_map.insert({8, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v10 = new Var("/instrumentation/attitude-indicator/internal-roll-deg", "<-",
-                       "attitude-indicator_internal-roll-deg");
-    map.insert({"attitude-indicator_internal-roll-deg", v10});
-    index_map.insert({9, "attitude-indicator_internal-roll-deg"});
-    var_values.insert({"attitude-indicator_internal-roll-deg", 0});
+    name_of_var = "attitude-indicator_internal-roll-deg";
+    sim_of_var = "/instrumentation/attitude-indicator/internal-roll-deg";
+    Var *v10 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v10});
+    index_map.insert({9, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v11 = new Var("/instrumentation/encoder/indicated-altitude-ft", "<-", "encoder_indicated-altitude-ft");
-    map.insert({"encoder_indicated-altitude-ft", v11});
-    index_map.insert({10, "encoder_indicated-altitude-ft"});
-    var_values.insert({"encoder_indicated-altitude-ft", 0});
+    name_of_var = "encoder_indicated-altitude-ft";
+    sim_of_var = "/instrumentation/encoder/indicated-altitude-ft";
+    Var *v11 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v11});
+    index_map.insert({10, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v12 = new Var("/instrumentation/encoder/pressure-alt-ft", "<-", "encoder_pressure-alt-ft");
-    map.insert({"encoder_pressure-alt-ft", v12});
-    index_map.insert({11, "encoder_pressure-alt-ft"});
-    var_values.insert({"encoder_pressure-alt-ft", 0});
+    name_of_var = "encoder_pressure-alt-ft";
+    sim_of_var = "/instrumentation/encoder/pressure-alt-ft";
+    Var *v12 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v12});
+    index_map.insert({11, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v13 = new Var("/instrumentation/gps/indicated-altitude-ft", "<-", "gps_indicated-altitude-ft");
-    map.insert({"gps_indicated-altitude-ft", v13});
-    index_map.insert({12, "gps_indicated-altitude-ft"});
-    var_values.insert({"gps_indicated-altitude-ft", 0});
+    name_of_var = "gps_indicated-altitude-ft";
+    sim_of_var = "/instrumentation/gps/indicated-altitude-ft";
+    Var *v13 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v13});
+    index_map.insert({12, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v14 = new Var("/instrumentation/gps/indicated-ground-speed-kt", "<-",
-                       "gps_indicated-ground-speed-kt");
-    map.insert({"gps_indicated-ground-speed-kt", v14});
-    index_map.insert({13, "gps_indicated-ground-speed-kt"});
-    var_values.insert({"gps_indicated-ground-speed-kt", 0});
+    name_of_var = "gps_indicated-ground-speed-kt";
+    sim_of_var = "/instrumentation/gps/indicated-ground-speed-kt";
+    Var *v14 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v14});
+    index_map.insert({13, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v15 = new Var("/instrumentation/gps/indicated-vertical-speed", "<-",
-                       "gps_indicated-vertical-speed");
-    map.insert({"gps_indicated-vertical-speed", v15});
-    index_map.insert({14, "gps_indicated-vertical-speed"});
-    var_values.insert({"gps_indicated-vertical-speed", 0});
+    name_of_var = "gps_indicated-vertical-speed";
+    sim_of_var = "/instrumentation/gps/indicated-vertical-speed";
+    Var *v15 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v15});
+    index_map.insert({14, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v16 = new Var("/instrumentation/heading-indicator/indicated-heading-deg", "<-",
-                       "indicated-heading-deg");
-    map.insert({"indicated-heading-deg", v16});
-    index_map.insert({15, "indicated-heading-deg"});
-    var_values.insert({"indicated-heading-deg", 0});
+    name_of_var = "indicated-heading-deg";
+    sim_of_var = "/instrumentation/heading-indicator/indicated-heading-deg";
+    Var *v16 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v16});
+    index_map.insert({15, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v17 = new Var("/instrumentation/magnetic-compass/indicated-heading-deg", "<-",
-                       "magnetic-compass_indicated-heading-deg");
-    map.insert({"magnetic-compass_indicated-heading-deg", v17});
-    index_map.insert({16, "magnetic-compass_indicated-heading-deg"});
-    var_values.insert({"magnetic-compass_indicated-heading-deg", 0});
+    name_of_var = "magnetic-compass_indicated-heading-deg";
+    sim_of_var = "/instrumentation/magnetic-compass/indicated-heading-deg";
+    Var *v17 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v17});
+    index_map.insert({16, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v18 = new Var("/instrumentation/slip-skid-ball/indicated-slip-skid", "<-",
-                       "slip-skid-ball_indicated-slip-skid");
-    map.insert({"slip-skid-ball_indicated-slip-skid", v18});
-    index_map.insert({17, "slip-skid-ball_indicated-slip-skid"});
-    var_values.insert({"slip-skid-ball_indicated-slip-skid", 0});
+    name_of_var = "slip-skid-ball_indicated-slip-skid";
+    sim_of_var = "/instrumentation/slip-skid-ball/indicated-slip-skid";
+    Var *v18 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v18});
+    index_map.insert({17, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v19 = new Var("/instrumentation/turn-indicator/indicated-turn-rate", "<-", "turn-indicator_indicated-turn-rate");
-    map.insert({"turn-indicator_indicated-turn-rate", v19});
-    index_map.insert({18, "turn-indicator_indicated-turn-rate"});
-    var_values.insert({"turn-indicator_indicated-turn-rate", 0});
+    name_of_var = "turn-indicator_indicated-turn-rate";
+    sim_of_var = "/instrumentation/turn-indicator/indicated-turn-rate";
+    Var *v19 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v19});
+    index_map.insert({18, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v20 = new Var("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", "<-", "vertical-speed-indicator_indicated-speed-fpm");
-    map.insert({"vertical-speed-indicator_indicated-speed-fpm", v20});
-    index_map.insert({19, "vertical-speed-indicator_indicated-speed-fpm"});
-    var_values.insert({"vertical-speed-indicator_indicated-speed-fpm", 0});
+    name_of_var = "vertical-speed-indicator_indicated-speed-fpm";
+    sim_of_var = "/instrumentation/vertical-speed-indicator/indicated-speed-fpm";
+    Var *v20 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v20});
+    index_map.insert({19, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v21 = new Var("/controls/flight/aileron", "<-", "flight_aileron");
-    map.insert({"flight_aileron", v21});
-    index_map.insert({20, "flight_aileron"});
-    var_values.insert({"flight_aileron", 0});
+    name_of_var = "flight_aileron";
+    sim_of_var = "/controls/flight/aileron";
+    Var *v21 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v21});
+    index_map.insert({20, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v22 = new Var("/controls/flight/elevator", "<-", "flight_elevator");
-    map.insert({"flight_elevator", v22});
-    index_map.insert({21, "flight_elevator"});
-    var_values.insert({"flight_elevator", 0});
+    name_of_var = "flight_elevator";
+    sim_of_var = "/controls/flight/elevator";
+    Var *v22 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v22});
+    index_map.insert({21, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v23 = new Var("/controls/flight/rudder", "<-", "flight_rudder");
-    map.insert({"flight_rudder", v23});
-    index_map.insert({22, "flight_rudder"});
-    var_values.insert({"flight_rudder", 0});
+    name_of_var = "flight_rudder";
+    sim_of_var = "/controls/flight/rudder";
+    Var *v23 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v23});
+    index_map.insert({22, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
-    Var *v24 = new Var("/controls/flight/flaps", "<-", "flight_flaps");
-    map.insert({"flight_flaps", v24});
-    index_map.insert({23, "flight_flaps"});
-    var_values.insert({"flight_flaps", 0});
+    name_of_var = "flight_flaps";
+    sim_of_var = "/controls/flight/flaps";
+    Var *v24 = new Var(sim_of_var, "<-", name_of_var);
+    map.insert({name_of_var, v24});
+    index_map.insert({23, name_of_var});
+    var_values.insert({name_of_var, 0});
     /***/
     name_of_var = "engine_throttle";
     sim_of_var = "/controls/engines/engine/throttle";
@@ -260,7 +298,6 @@ class FlightSimulator {
     string line;
     ifstream f;
     f.open(file_name, ios::in);
-    //reading line by line
     int i = 0;
     while (getline(f, line)) {
       i++;
@@ -288,23 +325,22 @@ class FlightSimulator {
     return returnValue;
   }
   void searchForOperator(queue<string> &token, string line) {
-    string tempLine = line;
-    string firstPart;
-    string secondPart, operate;
+    string tempLine = line, firstPart, secondPart, operate;
     int condition_index;
-    bool is_found = false;
+    bool is_operator_found = false;
     for (int i = 0; i < tempLine.length(); i++) {
       //if isOperator == 0 this means that the char is not an operator
-      if (isOperator(tempLine, i) > 0 && !is_found) {
-        is_found = true;
+      if (isOperator(tempLine, i) > 0 && !is_operator_found) {
+        is_operator_found = true;
         firstPart = tempLine.substr(0, i);
         condition_index = i;
       }
       if(tempLine[i] == '{') {
-        if(isOperator(tempLine, condition_index) == 1) {
+        int num_of_operator = isOperator(tempLine, condition_index);
+        if(num_of_operator == 1) {
           operate = tempLine[condition_index];
           secondPart = tempLine.substr(condition_index+1, i-firstPart.length()-1);
-        } else if (isOperator(tempLine, condition_index) == 2) {
+        } else if (num_of_operator == 2) {
           operate = tempLine[condition_index];
           operate += tempLine[condition_index+1];
           secondPart = tempLine.substr(condition_index+2, i-firstPart.length()-2);
@@ -331,7 +367,6 @@ class FlightSimulator {
           searchForOperator(token, line);
           break;
         }
-
       }
       switch (line[i]) {
         //this is ->
@@ -407,7 +442,6 @@ class FlightSimulator {
             token.push(pusher);
             cout << pusher << endl;
             current = "";
-
           }
           break;
         }
@@ -420,7 +454,6 @@ class FlightSimulator {
             token.push(pusher);
             cout << pusher << endl;
             current = "";
-
           }
           break;
         }
@@ -505,59 +538,14 @@ class FlightSimulator {
   }
   void parser(queue<string> &token) {
     int i = 0;
-    thread thread_in_1;
-    thread thread_in_2;
-    thread thread_out_2;
-    thread thread_out_1;
     while (!token.empty()) {
       i++;
       string current = token.front();
       if(current.compare(OPEN_DATA_SERVER) == 0) {
-        Command *c = singleton->commands.at(current);
-        OpenServerCommand c1 = *((OpenServerCommand*)c);
-        //name of command
-        token.pop();
-        //parameter of command
-        string expression = token.front();
-        float port = ex1::cal(expression, singleton->var_values);
-        token.pop();
-        thread thread_in_1(&OpenServerCommand::openSocketOut, ref(c1),  port);
-        thread_in_1.join();
-        thread thread_in_2(&OpenServerCommand::readFromSim, ref(c1),client_socket_in);
-        thread_in_2.detach();
-        printSimulatorVar();
+        operateOpenData(token, current);
       }
       if(current.compare(CONNECT_CONTROL_CLIENT) == 0) {
-        Command *com = singleton->commands.at(current);
-        ConnectCommand c2 = *((ConnectCommand*)com);
-        //name of command
-        token.pop();
-        mutex_lock.lock();
-        //ip and port
-        string arguments = token.front();
-        string ipTemp = "", portTemp = "";
-        int i = 0;
-        for (; arguments[i] != '"'; i++) {
-        }
-        while (arguments[i] != ',') {
-          ipTemp += arguments[i++];
-        }
-        //remoove the ""
-        ipTemp = ipTemp.substr(1, ipTemp.length() -2);
-        const char *ip = ipTemp.c_str();
-        while (i < arguments.length()-1) {
-          i++;
-          portTemp += arguments[i];
-
-        }
-        //port
-        int port = ex1::cal(portTemp, singleton->var_values);
-        mutex_lock.unlock();
-        token.pop();
-        thread thread_out_1(&ConnectCommand::Connect, ref(c2), ip, port);
-        thread_out_1.join();
-        thread thread_out_2(&ConnectCommand::writeMessages, ref(c2));
-        thread_out_2.detach();
+        operateConnect(token, current);
       }
       Command *c = singleton->commands.at(current);
       int i = 0;
@@ -566,6 +554,49 @@ class FlightSimulator {
         c->execute(token);
       }
     }
+  }
+  void operateOpenData(queue<string> &token, const string &current) const {
+    Command *c = singleton->commands.at(current);
+    OpenServerCommand c1 = *((OpenServerCommand*)c);
+    //name of command
+    token.pop();
+    //parameter of command
+    string expression = token.front();
+    float port = ex1::cal(expression, singleton->var_values);
+    token.pop();
+    thread thread_in_1(&OpenServerCommand::openSocketOut, ref(c1),  port);
+    thread_in_1.join();
+    thread thread_in_2(&OpenServerCommand::readFromSim, ref(c1),client_socket_in);
+    thread_in_2.detach();
+  }
+  void operateConnect(queue<string> &token, const string &current) const {
+    Command *com = singleton->commands.at(current);
+    ConnectCommand c2 = *((ConnectCommand*)com);
+    //name of command
+    token.pop();
+    //ip and port
+    string arguments = token.front();
+    string ipTemp = "", portTemp = "";
+    int i = 0;
+    for (; arguments[i] != '"'; i++) {
+    }
+    while (arguments[i] != ',') {
+      ipTemp += arguments[i++];
+    }
+    //remoove the ""
+    ipTemp = ipTemp.substr(1, ipTemp.length() -2);
+    const char *ip = ipTemp.c_str();
+    while (i < arguments.length()-1) {
+      i++;
+      portTemp += arguments[i];
+    }
+    //port
+    int port = ex1::cal(portTemp, singleton->var_values);
+    token.pop();
+    thread thread_out_1(&ConnectCommand::Connect, ref(c2), ip, port);
+    thread_out_1.join();
+    thread thread_out_2(&ConnectCommand::writeMessages, ref(c2));
+    thread_out_2.detach();
   }
 };
 #endif

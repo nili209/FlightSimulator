@@ -16,7 +16,7 @@ class ConnectCommand : public Command {
   int writeMessages() {//if here we made a connection
     Singleton* singleton = Singleton::getSingleton();
     while(true) {
-      while(!singleton->isMessagesEmpty()) {
+      if (!singleton->isMessagesEmpty()) {
         string m = singleton->getMessage();
         const char* message = m.c_str();
         int is_sent = send(client_socket , message , strlen(message) , 0 );
@@ -27,6 +27,8 @@ class ConnectCommand : public Command {
           cout << "Hello message sent to server" << endl;
           cout << "message = "<< message << endl;
         }
+      } else {
+        this_thread::sleep_for(chrono::milliseconds(10));
       }
     }
     return client_socket;
@@ -45,7 +47,7 @@ class ConnectCommand : public Command {
     address.sin_addr.s_addr = inet_addr(ip);  //the localhost address
     address.sin_port = htons(port);
     //we need to convert our number (both port & localhost)
-// to a number that the network understands.
+    // to a number that the network understands.
 
     // Requesting a connection with the server on local host with port 8081
     int is_connect = connect(client_socket, (struct sockaddr *)&address, sizeof(address));
