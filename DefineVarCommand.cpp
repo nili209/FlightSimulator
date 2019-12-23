@@ -27,6 +27,7 @@ class DefineVarCommand : public Command {
       string other_var_name = token.front();
       token.pop();
       float num;
+
       num = ex1::cal(other_var_name, singleton->var_values);
       Var *v = new Var("", "", var_name);
       v->setName(var_name);
