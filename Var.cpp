@@ -34,7 +34,9 @@ class Var : public Command {
       cout << it.first<< "=" << v->getValue()<<endl;
     }
   }
-
+  void setName(string name1) {
+    this->name = name;
+  }
   void setValue(float num) {
     mutex_lock.lock();
     this->value = num;

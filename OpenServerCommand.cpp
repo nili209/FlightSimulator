@@ -57,39 +57,62 @@ class OpenServerCommand : public Command {
     for (auto& it: singleton->symbol_table_program) {
       Var *v = (Var*)it.second;
       otherSim = v->getSim();
-      //otherSim = otherSim.substr(1, otherSim.length() -2);
       if (sim.compare(otherSim) == 0) {
-        string name = v->getName();
+        string name = it.first;
         singleton->var_values.at(name) = value;
+        break;
       }
     }
     mutex_lock.unlock();
   }
-  void separateByComma(char *buffer) {
+  void separateByComma(string buffer) {
     //Singleton *singleton = Singleton::getSingleton();
     string current_value, current_var_name, str = string(buffer);
     int i = 0, index_comma = 0, npos = (int) std::string::npos;
     while ((index_comma = str.find(COMMA)) != npos) {
+     // mutex_lock.lock();
       current_value = str.substr(0, index_comma);
       //update the value in symbol-table-simulator
       current_var_name = singleton->index.at(i);
       Var *v = (Var *) singleton->symbol_table_simulator.at(current_var_name);
       if (v->getDirection().compare("<-") == 0) {
         v->setValue(atof(current_value.c_str()));
-        //updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
+        updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
       }
       i++;
       if (index_comma != 0) {
         str.erase(0, index_comma + 1);
       }
+     // mutex_lock.unlock();
     }
+    current_value = str;
+    //update the value in symbol-table-simulator
+    current_var_name = singleton->index.at(i);
+    Var *v = (Var *) singleton->symbol_table_simulator.at(current_var_name);
+    if (v->getDirection().compare("<-") == 0) {
+      v->setValue(atof(current_value.c_str()));
+      updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
+      }
   }
+
   int readFromSim(int client_socket_in) {//reading from client
+    int index_of_n = 0;
+    string buffer_temp = "";
     while (true) {
       char buffer[LINE_SIZE] = {0};
       int valread = read(client_socket_in, buffer, LINE_SIZE);
-      cout << buffer << endl;
-      separateByComma(buffer);
+      int i = 0;
+      while (i < valread) {
+        if (buffer[i] == '\n') {
+          cout << buffer_temp << endl;
+          separateByComma(buffer_temp);
+          buffer_temp = "";
+          i++;
+          continue;
+        }
+        buffer_temp += buffer[i];
+        i++;
+      }
     }
     return client_socket_in;
   }
