@@ -284,19 +284,12 @@ class FlightSimulator {
     singleton->reset(map, index_map, var_values);
   }
   void resetCommands() {
-    //singleton->commands.insert({OPEN_DATA_SERVER, new OpenServerCommand()});
     singleton->insertToCommands(OPEN_DATA_SERVER, new OpenServerCommand());
-    //singleton->commands.insert({CONNECT_CONTROL_CLIENT, new ConnectCommand()});
     singleton->insertToCommands(CONNECT_CONTROL_CLIENT, new ConnectCommand());
-    //singleton->commands.insert({VAR, new DefineVarCommand()});
     singleton->insertToCommands(VAR, new DefineVarCommand());
-    //singleton->commands.insert({PRINT, new PrintCommand()});
     singleton->insertToCommands(PRINT, new PrintCommand());
-    //singleton->commands.insert({SLEEP, new SleepCommand()});
     singleton->insertToCommands(SLEEP, new SleepCommand());
-    //singleton->commands.insert({LOOP, new LoopCommand()});
     singleton->insertToCommands(LOOP, new LoopCommand());
-    //singleton->commands.insert({IF, new IfCommand()});
     singleton->insertToCommands(IF, new IfCommand());
   }
   queue<string> lexer(string file_name) {
@@ -507,10 +500,7 @@ class FlightSimulator {
     current = "";
     int lastBracket = countBrackets(line);
     while (i < lastBracket - 1) {
-      // while(line[++i] != ')') {
       current += line[++i];
-      //i++;
-      //}
     }
     if (lastBracket == i) {
       token.push(current);
@@ -546,27 +536,12 @@ int countBrackets(string &line) const {
     token.push(pusher);
     cout << pusher << endl;
     current = "";
-    //push the expression after the operator
-    //keep reading until the {
-  }
-  void printSimulatorVar() {
-    for (auto &it: *singleton->getSymbolTableSimulator()) {
-      // Do stuff
-      Var *v = (Var *) it.second;
-      cout << it.first << "=" << v->getValue() << endl;
-    }
   }
   void parser(queue<string> &token) {
     int i = 0;
     while (!token.empty()) {
       i++;
       string current = token.front();
-      if (current.compare(OPEN_DATA_SERVER) == 0) {
-        operateOpenData(token, current);
-      }
-      if (current.compare(CONNECT_CONTROL_CLIENT) == 0) {
-        operateConnect(token, current);
-      }
       Command *c = singleton->getCommands()->at(current);
       int i = 0;
       if (c != NULL) {
@@ -575,48 +550,6 @@ int countBrackets(string &line) const {
       }
     }
   }
-  void operateOpenData(queue<string> &token, const string &current) const {
-    Command *c = singleton->getCommands()->at(current);
-    OpenServerCommand c1 = *((OpenServerCommand *) c);
-    //name of command
-    token.pop();
-    //parameter of command
-    string expression = token.front();
-    float port = ex1::cal(expression, *singleton->getVarValues());
-    token.pop();
-    thread thread_in_1(&OpenServerCommand::openSocketOut, ref(c1), port);
-    thread_in_1.join();
-    thread thread_in_2(&OpenServerCommand::readFromSim, ref(c1), client_socket_in);
-    thread_in_2.detach();
-  }
-  void operateConnect(queue<string> &token, const string &current) const {
-    Command *com = singleton->getCommands()->at(current);
-    ConnectCommand c2 = *((ConnectCommand *) com);
-    //name of command
-    token.pop();
-    //ip and port
-    string arguments = token.front();
-    string ipTemp = "", portTemp = "";
-    int i = 0;
-    for (; arguments[i] != '"'; i++) {
-    }
-    while (arguments[i] != ',') {
-      ipTemp += arguments[i++];
-    }
-    //remoove the ""
-    ipTemp = ipTemp.substr(1, ipTemp.length() - 2);
-    const char *ip = ipTemp.c_str();
-    while (i < arguments.length() - 1) {
-      i++;
-      portTemp += arguments[i];
-    }
-    //port
-    int port = ex1::cal(portTemp, *singleton->getVarValues());
-    token.pop();
-    thread thread_out_1(&ConnectCommand::Connect, ref(c2), ip, port);
-    thread_out_1.join();
-    thread thread_out_2(&ConnectCommand::writeMessages, ref(c2));
-    thread_out_2.detach();
-  }
+  virtual ~FlightSimulator(){};
 };
 #endif

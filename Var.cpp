@@ -34,22 +34,15 @@ class Var : public Command {
   string getDirection() {
     return direction;
   }
-  string getName() {
-    return this->name;
-  }
   string getSim() {
     return this->sim;
+  }
+  void setSim(string sim1) {
+    this->sim = sim1;
   }
   float getValue() {
     return this->value;
   }
-  void printSimulatorVar() {
-    for (auto& it: *singleton->getSymbolTableSimulator()) {
-      Var *v = (Var*)it.second;
-      cout << it.first<< "=" << v->getValue()<<endl;
-    }
-  }
-
   void setName(string name1) {
     this->name = name;
   }
@@ -59,10 +52,6 @@ class Var : public Command {
     singleton->updateVarValues(name, num);
     mutex_lock.unlock();
     updateSymbolTableProg(sim, num);
-    //singleton->var_values.at(name) = num;
-  }
-  void setSim(string sim1) {
-    this->sim = sim1;
   }
   Var(string sim1, string direction1, string name1) : sim(sim1), direction(direction1), name(name1){};
   virtual void execute(queue<string> &token) {
@@ -76,8 +65,6 @@ class Var : public Command {
     Command* other_var = NULL;
     float value1 = ex1::cal(expression, *singleton->getVarValues());
     setValue(value1);
-
-    //shunting yard return value of expression = value
     //simulator needed to be changed
     string tempSim = sim;
     mutex_lock.lock();
@@ -96,5 +83,6 @@ class Var : public Command {
  }
     token.pop();
   }
+  virtual ~Var(){};
 };
 #endif

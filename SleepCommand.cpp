@@ -18,5 +18,6 @@ class SleepCommand : public Command {
     //time to sleep
     token.pop();
   }
+  virtual ~SleepCommand(){};
 };
 #endif

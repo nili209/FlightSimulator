@@ -69,6 +69,15 @@ class Singleton {
   static void insertToCommands(string name_of_command, Command *command) {
     commands.insert({name_of_command, command});
   }
+  virtual ~Singleton(){
+    unordered_map<string, Command*>::iterator it;
+    for (auto&it: symbol_table_simulator) {
+      delete it.second;
+    }
+    for (auto&it: symbol_table_program) {
+      delete it.second;
+    }
+  };
 };
 Singleton *::Singleton::singleton = 0;
 queue<string> Singleton::messages;

@@ -70,5 +70,6 @@ class ConditionParser : public Command {
       is_condition = (value1 < value2);
     }
   }
+  virtual ~ConditionParser(){};
 };
 #endif

@@ -22,12 +22,11 @@ class PrintCommand : public Command {
       //is not a string with " "
     } else {
       value = ex1::cal(token.front(), *singleton->getVarValues());
-//      Var *var = (Var*)singleton->getSymbolTableProgram()->at(token.front());
-//      value = var->getValue();
       cout<<value<<endl;
     }
     //the message
     token.pop();
   }
+  virtual ~PrintCommand(){};
 };
 #endif

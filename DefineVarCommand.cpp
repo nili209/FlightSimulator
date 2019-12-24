@@ -13,6 +13,7 @@ class DefineVarCommand : public Command {
   virtual void execute(queue<string> &token) {
     cout << "I am executing in Define Var Command" << endl;
     bool is_digit = false;
+    float num;
     //the word var
     token.pop();
     string var_name = token.front();
@@ -26,16 +27,12 @@ class DefineVarCommand : public Command {
       //pop the var or value after the =
       string other_var_name = token.front();
       token.pop();
-      float num;
       num = ex1::cal(other_var_name, *singleton->getVarValues());
       Var *v = new Var("", "", var_name);
       v->setName(var_name);
       singleton->updateVarValues(var_name, num);
-      //singleton->var_values.insert({var_name, num});
       v->setValue(num);
-      //singleton->symbol_table_program.insert({var_name, v});
       singleton->updateSymbolTableProgram(var_name, v);
-
     } else {
       //direction
       token.pop();
@@ -47,14 +44,10 @@ class DefineVarCommand : public Command {
       //we didnot found the var in the map
       if (!insert_to_map(sim, var_name, action)) {
         string tempSim = sim.substr(1, sim.length() -2);
-        //string tempSim = sim;
         Var *var = new Var(tempSim, action, var_name);
         var->setName(var_name);
-       // singleton->symbol_table_program.insert({var_name, var});
         singleton->updateSymbolTableProgram(var_name, var);
         singleton->updateVarValues(var_name, var->getValue());
-        //singleton->var_values.insert({var_name, var->getValue()});
-        //singleton->commands.insert({var_name, var});
         singleton->insertToCommands(var_name, var);
       }
     }
@@ -72,11 +65,8 @@ class DefineVarCommand : public Command {
         v->setDirection(action);
         v->setSim(other_sim);
         v->setName(var_name);
-        //singleton->symbol_table_program.insert({var_name, v});
         singleton->updateSymbolTableProgram(var_name, v);
         singleton->updateVarValues(var_name, v->getValue());
-       // singleton->var_values.insert({var_name, v->getValue()});
-        //singleton->commands.insert({var_name, v});
         singleton->insertToCommands(var_name, v);
         mutex_lock.unlock();
         return true;
@@ -84,5 +74,6 @@ class DefineVarCommand : public Command {
     }
     return false;
   }
+  virtual ~DefineVarCommand(){};
 };
 #endif

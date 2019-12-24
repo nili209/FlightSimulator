@@ -38,6 +38,6 @@ using namespace std;
 class Command {
  public:
   virtual void execute(queue<string> &token) = 0;
-
+  virtual ~Command(){};
 };
 #endif
