@@ -17,7 +17,8 @@ class IfCommand : public ConditionParser {
         i++;
         //the name of the command or var
         string current = condition_commands.front();
-        Command *c = singleton->commands.at(current);
+        //Command *c = singleton->commands.at(current);
+        Command *c = singleton->getCommands()->at(current);
         if(c != NULL) {
           c->execute(condition_commands);
         }

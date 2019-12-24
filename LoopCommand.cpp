@@ -19,7 +19,8 @@ class LoopCommand : public ConditionParser {
         i++;
         //the name of command or var
         string current = copy_queue.front();
-        Command *c = singleton->commands.at(current);
+//        Command *c = singleton->commands.at(current);
+          Command *c = singleton->getCommands()->at(current);
         if(c != NULL) {
           c->execute(copy_queue);
         }

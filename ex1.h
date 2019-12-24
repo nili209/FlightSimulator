@@ -657,7 +657,7 @@ bool Interpreter::isCurrentSmaller(operators current, operators prev) {
     case MUL: {
     }
     case DIV : {
-      if ((prev == MUL) || (prev == DIV) || (prev == PLUS) || (prev == MINUS)) {
+      if ((prev == PLUS) || (prev == MINUS)) {
         return false;
       }
       return false;
@@ -666,7 +666,7 @@ bool Interpreter::isCurrentSmaller(operators current, operators prev) {
 
     }
     case MINUS : {
-      if ((prev == PLUS) || (prev == MINUS) || (prev == OPEN_BRACKET)) {
+      if ((prev == OPEN_BRACKET)) {
         return false;
       }
       return true;
@@ -675,10 +675,9 @@ bool Interpreter::isCurrentSmaller(operators current, operators prev) {
 
     }
     case U_MINUS : {
-      if ((prev == U_PLUS) || (prev == U_MINUS)) {
+
         return false;
-      }
-      return true;
+      //return true;
     }
     case OPEN_BRACKET : {
       if (prev == OPEN_BRACKET) {

@@ -49,8 +49,8 @@ class ConditionParser : public Command {
     checkAndUpdateIsCondition();
   }
   void checkAndUpdateIsCondition() {
-    float value1 = ex1::cal(first_var, singleton->var_values),
-    value2 = ex1::cal(second_var, singleton->var_values);
+    float value1 = ex1::cal(first_var, *singleton->getVarValues()),
+    value2 = ex1::cal(second_var, *singleton->getVarValues());
     if(condition.compare("==") == 0) {
       is_condition = (value1 == value2);
     }

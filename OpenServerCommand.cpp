@@ -25,6 +25,7 @@ class OpenServerCommand : public Command {
     if (socketfd == -1) {
       //error
       cerr << "Could not create a socket" << endl;
+      exit(1);
     }
     //bind socket to IP address
     // we first need to create the sockaddr obj.
@@ -37,10 +38,12 @@ class OpenServerCommand : public Command {
     //the actual bind command
     if (bind(socketfd, (struct sockaddr *) &address, sizeof(address)) == -1) {
       cerr << "Could not bind the socket to an IP" << endl;
+      exit(1);
     }
     //making socket listen to the port
     if (listen(socketfd, 5) == -1) { //can also set to SOMAXCON (max connections)
       cerr << "Error during listening command" << endl;
+      exit(1);
     } else {
       cout << "Server is now listening ..." << endl;
     }
@@ -48,36 +51,35 @@ class OpenServerCommand : public Command {
                               (socklen_t *) &address);
     if (client_socket_in == -1) {
       cerr << "Error accepting client" << endl;
+      exit(1);
     }
     close(socketfd);
   }
-  void updateSymbolTableProg( string sim, float value) {
-    string otherSim = "";
-    mutex_lock.lock();
-    for (auto& it: singleton->symbol_table_program) {
-      Var *v = (Var*)it.second;
-      otherSim = v->getSim();
-      if (sim.compare(otherSim) == 0) {
-        string name = it.first;
-        singleton->var_values.at(name) = value;
-        break;
-      }
-    }
-    mutex_lock.unlock();
-  }
+//  void updateSymbolTableProg( string sim, float value) {
+//    string otherSim = "";
+//    mutex_lock.lock();
+//    for (auto& it: *singleton->getSymbolTableProgram()) {
+//      Var *v = (Var*)it.second;
+//      otherSim = v->getSim();
+//      if (sim.compare(otherSim) == 0) {
+//        string name = it.first;
+//        singleton->updateVarValues(name, value);
+//        break;
+//      }
+//    }
+//    mutex_lock.unlock();
+//  }
   void separateByComma(string buffer) {
-    //Singleton *singleton = Singleton::getSingleton();
     string current_value, current_var_name, str = string(buffer);
     int i = 0, index_comma = 0, npos = (int) std::string::npos;
     while ((index_comma = str.find(COMMA)) != npos) {
-     // mutex_lock.lock();
       current_value = str.substr(0, index_comma);
       //update the value in symbol-table-simulator
-      current_var_name = singleton->index.at(i);
-      Var *v = (Var *) singleton->symbol_table_simulator.at(current_var_name);
+      current_var_name = singleton->getIndex()->at(i);
+      Var *v = (Var *) singleton->getSymbolTableSimulator()->at(current_var_name);
       if (v->getDirection().compare("<-") == 0) {
         v->setValue(atof(current_value.c_str()));
-        updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
+        Var::updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
       }
       i++;
       if (index_comma != 0) {
@@ -87,11 +89,11 @@ class OpenServerCommand : public Command {
     }
     current_value = str;
     //update the value in symbol-table-simulator
-    current_var_name = singleton->index.at(i);
-    Var *v = (Var *) singleton->symbol_table_simulator.at(current_var_name);
+    current_var_name = singleton->getIndex()->at(i);
+    Var *v = (Var *) singleton->getSymbolTableSimulator()->at(current_var_name);
     if (v->getDirection().compare("<-") == 0) {
       v->setValue(atof(current_value.c_str()));
-      updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
+      Var::updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
       }
   }
 

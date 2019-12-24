@@ -12,7 +12,8 @@ class SleepCommand : public Command {
     cout<<"I am executing in Sleep Command"<<endl;
     //the word "Sleep"
     token.pop();
-    int time_to_sleep = atof(token.front().c_str());
+    Singleton* singleton = Singleton::getSingleton();
+    int time_to_sleep = ex1::cal(token.front().c_str(), *singleton->getVarValues());
     this_thread::sleep_for(chrono::milliseconds(time_to_sleep));
     //time to sleep
     token.pop();

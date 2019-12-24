@@ -21,8 +21,9 @@ class PrintCommand : public Command {
       cout<<printer<<endl;
       //is not a string with " "
     } else {
-      Var *var = (Var*)singleton->symbol_table_program.at(token.front());
-      value = var->getValue();
+      value = ex1::cal(token.front(), *singleton->getVarValues());
+//      Var *var = (Var*)singleton->getSymbolTableProgram()->at(token.front());
+//      value = var->getValue();
       cout<<value<<endl;
     }
     //the message

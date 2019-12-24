@@ -23,6 +23,7 @@ class ConnectCommand : public Command {
 
         if (is_sent == -1) {
           cout << "Error sending message" << endl;
+          exit(1);
         } else {
           cout << "Hello message sent to server" << endl;
           cout << "message = "<< message << endl;
@@ -39,6 +40,7 @@ class ConnectCommand : public Command {
     if (client_socket == -1) {
       //error
       cerr << "Could not create a socket" << endl;
+      exit(1);
     }
 
     //We need to create a sockaddr obj to hold address of server
@@ -53,6 +55,7 @@ class ConnectCommand : public Command {
     int is_connect = connect(client_socket, (struct sockaddr *)&address, sizeof(address));
     if (is_connect == -1) {
       cerr << "Could not connect to host server" << endl;
+      exit(1);
     } else {
       cout << "Client is now connected to server" << endl;
     }

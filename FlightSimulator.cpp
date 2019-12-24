@@ -9,7 +9,6 @@
 #include "DefineVarCommand.cpp"
 #include "PrintCommand.cpp"
 #include "SleepCommand.cpp"
-#include "ConditionParser.cpp"
 #include "IfCommand.cpp"
 #include "LoopCommand.cpp"
 #include "Singleton.h"
@@ -18,14 +17,14 @@ class FlightSimulator {
  private:
   bool is_in_brackets = false;
  public:
-  Singleton* singleton;
+  Singleton *singleton;
   FlightSimulator() {
     singleton = Singleton::getSingleton();
     resetCommands();
     resetSimulatorMap();
   };
   void resetSimulatorMap() {
-    unordered_map<string, Command*> map;
+    unordered_map<string, Command *> map;
     unordered_map<int, string> index_map;
     unordered_map<string, float> var_values;
     string name_of_var = "";
@@ -285,13 +284,20 @@ class FlightSimulator {
     singleton->reset(map, index_map, var_values);
   }
   void resetCommands() {
-    singleton->commands.insert({OPEN_DATA_SERVER, new OpenServerCommand()});
-    singleton->commands.insert({CONNECT_CONTROL_CLIENT, new ConnectCommand()});
-    singleton->commands.insert({VAR, new DefineVarCommand()});
-    singleton->commands.insert({PRINT, new PrintCommand()});
-    singleton->commands.insert({SLEEP, new SleepCommand()});
-    singleton->commands.insert({LOOP, new LoopCommand()});
-    singleton->commands.insert({IF, new IfCommand()});
+    //singleton->commands.insert({OPEN_DATA_SERVER, new OpenServerCommand()});
+    singleton->insertToCommands(OPEN_DATA_SERVER, new OpenServerCommand());
+    //singleton->commands.insert({CONNECT_CONTROL_CLIENT, new ConnectCommand()});
+    singleton->insertToCommands(CONNECT_CONTROL_CLIENT, new ConnectCommand());
+    //singleton->commands.insert({VAR, new DefineVarCommand()});
+    singleton->insertToCommands(VAR, new DefineVarCommand());
+    //singleton->commands.insert({PRINT, new PrintCommand()});
+    singleton->insertToCommands(PRINT, new PrintCommand());
+    //singleton->commands.insert({SLEEP, new SleepCommand()});
+    singleton->insertToCommands(SLEEP, new SleepCommand());
+    //singleton->commands.insert({LOOP, new LoopCommand()});
+    singleton->insertToCommands(LOOP, new LoopCommand());
+    //singleton->commands.insert({IF, new IfCommand()});
+    singleton->insertToCommands(IF, new IfCommand());
   }
   queue<string> lexer(string file_name) {
     queue<string> token;
@@ -314,7 +320,7 @@ class FlightSimulator {
   }
   int isOperator(string line, int index) {
     char current = line[index];
-    char next = line[index+1];
+    char next = line[index + 1];
     int returnValue = 0;
     if (current == '=' || current == '!' || current == '>' || current == '<') {
       returnValue++;
@@ -335,26 +341,26 @@ class FlightSimulator {
         firstPart = tempLine.substr(0, i);
         condition_index = i;
       }
-      if(tempLine[i] == '{') {
+      if (tempLine[i] == '{') {
         int num_of_operator = isOperator(tempLine, condition_index);
-        if(num_of_operator == 1) {
+        if (num_of_operator == 1) {
           operate = tempLine[condition_index];
-          secondPart = tempLine.substr(condition_index+1, i-firstPart.length()-1);
+          secondPart = tempLine.substr(condition_index + 1, i - firstPart.length() - 1);
         } else if (num_of_operator == 2) {
           operate = tempLine[condition_index];
-          operate += tempLine[condition_index+1];
-          secondPart = tempLine.substr(condition_index+2, i-firstPart.length()-2);
+          operate += tempLine[condition_index + 1];
+          secondPart = tempLine.substr(condition_index + 2, i - firstPart.length() - 2);
         }
       }
     }
     token.push(firstPart);
-    cout<<firstPart<<endl;
+    cout << firstPart << endl;
     token.push(operate);
-    cout<<operate<<endl;
+    cout << operate << endl;
     token.push(secondPart);
-    cout<<secondPart<<endl;
+    cout << secondPart << endl;
     token.push("{");
-    cout<<"{"<<endl;
+    cout << "{" << endl;
   }
   void createQueue(queue<string> &token, string line) {
     string current = "", pusher;
@@ -363,13 +369,13 @@ class FlightSimulator {
       if (!token.empty()) {
         string in = token.back();
         if (token.back().compare(LOOP) == 0 || token.back().compare(IF) == 0) {
-          line.erase(0, token.back().length() +1);
+          line.erase(0, token.back().length() + 1);
           searchForOperator(token, line);
           break;
         }
       }
       switch (line[i]) {
-        //this is ->
+          //this is ->
         case '-' : {
           //it can be just a minus sign
           if (line[i + 1] != '>') {
@@ -471,7 +477,7 @@ class FlightSimulator {
       cout << pusher << endl;
     }
   }
-  void dealWithArrow(queue<string> &token,const string &line,string &current,int &i, string direction) const {
+  void dealWithArrow(queue<string> &token, const string &line, string &current, int &i, string direction) const {
     string pusher;
     //there was no space between the var name and the -> : the name var should be pushed into token
     if (current.compare(direction) != 0 && current.compare("") != 0) {
@@ -499,12 +505,26 @@ class FlightSimulator {
       cout << pusher << endl;
     }
     current = "";
-    while(line[++i] != ')') {
-      current += line[i];
+    int lastBracket = countBrackets(line);
+    while (i < lastBracket - 1) {
+      // while(line[++i] != ')') {
+      current += line[++i];
+      //i++;
+      //}
     }
-    token.push(current);
+    if (lastBracket == i) {
+      token.push(current);
       current = "";
     }
+  }
+int countBrackets(string &line) const {
+    for(int i = line.length(); i > 0; i--) {
+      if (line[i] == ')') {
+        return i;
+      }
+    }
+    return -1;
+  }
   void dealWithOperator(queue<string> &token, const string &line, string &current, int &i) const {
     string pusher;
     if (current.compare("") != 0) {
@@ -530,10 +550,10 @@ class FlightSimulator {
     //keep reading until the {
   }
   void printSimulatorVar() {
-    for (auto& it: Singleton::symbol_table_simulator) {
+    for (auto &it: *singleton->getSymbolTableSimulator()) {
       // Do stuff
-      Var *v = (Var*)it.second;
-      cout << it.first<< "=" << v->getValue()<<endl;
+      Var *v = (Var *) it.second;
+      cout << it.first << "=" << v->getValue() << endl;
     }
   }
   void parser(queue<string> &token) {
@@ -541,13 +561,13 @@ class FlightSimulator {
     while (!token.empty()) {
       i++;
       string current = token.front();
-      if(current.compare(OPEN_DATA_SERVER) == 0) {
+      if (current.compare(OPEN_DATA_SERVER) == 0) {
         operateOpenData(token, current);
       }
-      if(current.compare(CONNECT_CONTROL_CLIENT) == 0) {
+      if (current.compare(CONNECT_CONTROL_CLIENT) == 0) {
         operateConnect(token, current);
       }
-      Command *c = singleton->commands.at(current);
+      Command *c = singleton->getCommands()->at(current);
       int i = 0;
       if (c != NULL) {
         i++;
@@ -556,22 +576,22 @@ class FlightSimulator {
     }
   }
   void operateOpenData(queue<string> &token, const string &current) const {
-    Command *c = singleton->commands.at(current);
-    OpenServerCommand c1 = *((OpenServerCommand*)c);
+    Command *c = singleton->getCommands()->at(current);
+    OpenServerCommand c1 = *((OpenServerCommand *) c);
     //name of command
     token.pop();
     //parameter of command
     string expression = token.front();
-    float port = ex1::cal(expression, singleton->var_values);
+    float port = ex1::cal(expression, *singleton->getVarValues());
     token.pop();
-    thread thread_in_1(&OpenServerCommand::openSocketOut, ref(c1),  port);
+    thread thread_in_1(&OpenServerCommand::openSocketOut, ref(c1), port);
     thread_in_1.join();
-    thread thread_in_2(&OpenServerCommand::readFromSim, ref(c1),client_socket_in);
+    thread thread_in_2(&OpenServerCommand::readFromSim, ref(c1), client_socket_in);
     thread_in_2.detach();
   }
   void operateConnect(queue<string> &token, const string &current) const {
-    Command *com = singleton->commands.at(current);
-    ConnectCommand c2 = *((ConnectCommand*)com);
+    Command *com = singleton->getCommands()->at(current);
+    ConnectCommand c2 = *((ConnectCommand *) com);
     //name of command
     token.pop();
     //ip and port
@@ -584,14 +604,14 @@ class FlightSimulator {
       ipTemp += arguments[i++];
     }
     //remoove the ""
-    ipTemp = ipTemp.substr(1, ipTemp.length() -2);
+    ipTemp = ipTemp.substr(1, ipTemp.length() - 2);
     const char *ip = ipTemp.c_str();
-    while (i < arguments.length()-1) {
+    while (i < arguments.length() - 1) {
       i++;
       portTemp += arguments[i];
     }
     //port
-    int port = ex1::cal(portTemp, singleton->var_values);
+    int port = ex1::cal(portTemp, *singleton->getVarValues());
     token.pop();
     thread thread_out_1(&ConnectCommand::Connect, ref(c2), ip, port);
     thread_out_1.join();

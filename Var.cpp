@@ -13,6 +13,21 @@ class Var : public Command {
   string sim, direction, name;
   float value;
  public:
+  static void updateSymbolTableProg( string sim, float value) {
+    string otherSim = "";
+    mutex_lock.lock();
+    Singleton* singelton1 = Singleton::getSingleton();
+    for (auto& it: *singelton1->getSymbolTableProgram()) {
+      Var *v = (Var*)it.second;
+      otherSim = v->getSim();
+      if (sim.compare(otherSim) == 0) {
+        string name = it.first;
+        singelton1->updateVarValues(name, value);
+        break;
+      }
+    }
+    mutex_lock.unlock();
+  }
   void setDirection(string direct) {
     this->direction = direct;
   }
@@ -29,19 +44,22 @@ class Var : public Command {
     return this->value;
   }
   void printSimulatorVar() {
-    for (auto& it: singleton->symbol_table_simulator) {
+    for (auto& it: *singleton->getSymbolTableSimulator()) {
       Var *v = (Var*)it.second;
       cout << it.first<< "=" << v->getValue()<<endl;
     }
   }
+
   void setName(string name1) {
     this->name = name;
   }
   void setValue(float num) {
     mutex_lock.lock();
     this->value = num;
-    singleton->var_values.at(name) = num;
+    singleton->updateVarValues(name, num);
     mutex_lock.unlock();
+    updateSymbolTableProg(sim, num);
+    //singleton->var_values.at(name) = num;
   }
   void setSim(string sim1) {
     this->sim = sim1;
@@ -56,7 +74,7 @@ class Var : public Command {
     token.pop();
     string expression = token.front();
     Command* other_var = NULL;
-    float value1 = ex1::cal(expression, singleton->var_values);
+    float value1 = ex1::cal(expression, *singleton->getVarValues());
     setValue(value1);
 
     //shunting yard return value of expression = value
