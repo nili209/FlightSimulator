@@ -4,7 +4,6 @@
 
 #ifndef EX3__VAR_H_
 #define EX3__VAR_H_
-#include "Command.h"
 #include "Singleton.h"
 #include "ex1.h"
 class Var : public Command {
@@ -15,8 +14,8 @@ class Var : public Command {
  public:
   static void updateSymbolTableProg(string sim, float value) {
     string otherSim = "";
-    mutex_lock.lock();
     Singleton *singelton1 = Singleton::getSingleton();
+    singelton1->mutex_lock.lock();
     for (auto &it: *singelton1->getSymbolTableProgram()) {
       Var *v = (Var *) it.second;
       otherSim = v->getSim();
@@ -26,7 +25,7 @@ class Var : public Command {
         break;
       }
     }
-    mutex_lock.unlock();
+    singelton1->mutex_lock.unlock();
   }
   void setDirection(string direct) {
     this->direction = direct;
@@ -47,10 +46,10 @@ class Var : public Command {
     this->name = name1;
   }
   void setValue(float num) {
-    mutex_lock.lock();
+    singleton->mutex_lock.lock();
     this->value = num;
     singleton->updateVarValues(name, num);
-    mutex_lock.unlock();
+    singleton->mutex_lock.unlock();
     updateSymbolTableProg(sim, num);
   }
   Var(string sim1, string direction1, string name1) : sim(sim1), direction(direction1), name(name1) {};
@@ -67,7 +66,7 @@ class Var : public Command {
     setValue(value1);
     //simulator needed to be changed
     string tempSim = sim;
-    mutex_lock.lock();
+    singleton->mutex_lock.lock();
     if (direction.compare("->") == 0) {
       if (sim[0] == '"') {
         tempSim = sim.substr(1, sim.length() - 2);
@@ -79,7 +78,7 @@ class Var : public Command {
       }
       string message = "set " + tempSim + " " + to_string(value) + "\r\n";
       singleton->setMessages(message);
-      mutex_lock.unlock();
+      singleton->mutex_lock.unlock();
     }
     token.pop();
   }

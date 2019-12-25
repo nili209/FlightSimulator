@@ -41,18 +41,12 @@ mutex
 -
 
 /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
-Command.h
-/home/shiraz/CLionProjects/ex3/Command.h
 Var.cpp
 /home/shiraz/CLionProjects/ex3/Var.cpp
-Singleton.h
-/home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
 cstring
 -
-Command.h
-/home/shiraz/CLionProjects/ex3/Command.h
 Var.cpp
 /home/shiraz/CLionProjects/ex3/Var.cpp
 
@@ -61,14 +55,10 @@ Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Var.cpp
 /home/shiraz/CLionProjects/ex3/Var.cpp
-Singleton.h
-/home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/Expression.h
 
 /home/shiraz/CLionProjects/ex3/FlightSimulator.cpp
-Command.h
-/home/shiraz/CLionProjects/ex3/Command.h
 OpenServerCommand.cpp
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
 ConnectCommand.cpp
@@ -95,10 +85,6 @@ ConditionParser.cpp
 /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
 
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
-bits/basic_string.tcc
--
-future
--
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Var.cpp
@@ -109,10 +95,10 @@ ex1.h
 /home/shiraz/CLionProjects/ex3/PrintCommand.cpp
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
-Var.cpp
-/home/shiraz/CLionProjects/ex3/Var.cpp
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
+ex1.h
+/home/shiraz/CLionProjects/ex3/ex1.h
 
 /home/shiraz/CLionProjects/ex3/Singleton.h
 string
@@ -131,8 +117,6 @@ Var.cpp
 /home/shiraz/CLionProjects/ex3/Var.cpp
 
 /home/shiraz/CLionProjects/ex3/Var.cpp
-Command.h
-/home/shiraz/CLionProjects/ex3/Command.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
 ex1.h

@@ -5,7 +5,6 @@
 #ifndef EX3__SINGLETON_H_
 #define EX3__SINGLETON_H_
 #include <string>
-std::mutex mutex_lock;
 #include "Command.h"
 
 class Singleton {
@@ -17,73 +16,30 @@ class Singleton {
   static unordered_map<string, Command *> symbol_table_program;
   static unordered_map<string, Command *> symbol_table_simulator;
   static unordered_map<int, string> index;
-  Singleton() {};
+  Singleton(){};
  public:
-  static void reset(unordered_map<string, Command *> &map, unordered_map<int, string> &index_map,
-                    unordered_map<string, float> &var_value1) {
-    symbol_table_simulator = map;
-    index = index_map;
-    var_values = var_value1;
-  }
-  static Singleton *getSingleton() {
-    if (instance == 0) {
-      instance = new Singleton();
-    }
-    return instance;
-  }
-  static string getMessage() {
-    string message = Singleton::messages.front();
-    Singleton::messages.pop();
-    return message;
-  }
-  static void setMessages(string str) {
-    Singleton::messages.push(str);
-  }
-  static bool isMessagesEmpty() {
-    if (messages.empty()) {
-      return true;
-    }
-    return false;
-  }
-  static unordered_map<string, Command *> *getCommands() {
-    return &commands;
-  }
-  static unordered_map<string, float> *getVarValues() {
-    return &var_values;
-  }
-  static unordered_map<string, Command *> *getSymbolTableProgram() {
-    return &symbol_table_program;
-  }
-  static unordered_map<string, Command *> *getSymbolTableSimulator() {
-    return &symbol_table_simulator;
-  }
-  static unordered_map<int, string> *getIndex() {
-    return &index;
-  }
-  static void updateSymbolTableProgram(string name, Command *command) {
-    symbol_table_program[name] = command;
-  }
-  static void updateVarValues(string var_name, float value) {
-    var_values[var_name] = value;
-  }
-  static void insertToCommands(string name_of_command, Command *command) {
-    commands.insert({name_of_command, command});
-  }
-  virtual ~Singleton(){
-    unordered_map<string, Command*>::iterator it;
-    for (auto&iter: symbol_table_simulator) {
-      delete iter.second;
-    }
-    for (auto&iter: symbol_table_program) {
-      delete iter.second;
-    }
-  };
+  static mutex mutex_lock;
+  void reset(unordered_map<string, Command *> &map, unordered_map<int, string> &index_map,
+                    unordered_map<string, float> &var_value1);
+  static Singleton *getSingleton();
+  string getMessage();
+  void setMessages(string str);
+  bool isMessagesEmpty();
+  unordered_map<string, Command *> *getCommands();
+  unordered_map<string, float> *getVarValues();
+  unordered_map<string, Command *> *getSymbolTableProgram();
+  unordered_map<string, Command *> *getSymbolTableSimulator();
+  unordered_map<int, string> *getIndex();
+  void updateSymbolTableProgram(string name, Command *command);
+  void updateVarValues(string var_name, float value);
+  void insertToCommands(string name_of_command, Command *command);
+  virtual ~Singleton();
 };
-Singleton *::Singleton::instance = 0;
-queue<string> Singleton::messages;
-unordered_map<string, Command *> Singleton::commands;
-unordered_map<string, Command *> Singleton::symbol_table_program;
-unordered_map<string, Command *> Singleton::symbol_table_simulator;
-unordered_map<string, float> Singleton::var_values;
-unordered_map<int, string> Singleton::index;
+//Singleton *::Singleton::instance = 0;
+//queue<string> Singleton::messages;
+//unordered_map<string, Command *> Singleton::commands;
+//unordered_map<string, Command *> Singleton::symbol_table_program;
+//unordered_map<string, Command *> Singleton::symbol_table_simulator;
+//unordered_map<string, float> Singleton::var_values;
+//unordered_map<int, string> Singleton::index;
 #endif //EX3__SINGLETON_H_

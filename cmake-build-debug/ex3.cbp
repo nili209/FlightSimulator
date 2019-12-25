@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Singleton.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Singleton.h">
+			<Option target="ex3"/>
+		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/main.cpp">
 			<Option target="ex3"/>
 		</Unit>

@@ -4,8 +4,8 @@
 #ifndef ex3__PRINTCOMMAND_CPP
 #define ex3__PRINTCOMMAND_CPP
 #include "Command.h"
-#include "Var.cpp"
 #include "Singleton.h"
+#include "ex1.h"
 class PrintCommand : public Command {
  public:
   Singleton* singleton = Singleton::getSingleton();

@@ -3,7 +3,6 @@
 //
 #ifndef ex3__FLIGHTSIMULATOR_CPP_
 #define ex3__FLIGHTSIMULATOR_CPP_
-#include "Command.h"
 #include "OpenServerCommand.cpp"
 #include "ConnectCommand.cpp"
 #include "DefineVarCommand.cpp"
@@ -17,9 +16,8 @@ class FlightSimulator {
  private:
   bool is_in_brackets = false;
  public:
-  Singleton *singleton;
+  Singleton* singleton = Singleton::getSingleton();
   FlightSimulator() {
-    singleton = Singleton::getSingleton();
     resetCommands();
     resetSimulatorMap();
   };
@@ -506,7 +504,7 @@ class FlightSimulator {
       current = "";
     }
   }
-int countBrackets(string &line) const {
+  int countBrackets(string &line) const {
     for(int i = line.length(); i > 0; i--) {
       if (line[i] == ')') {
         return i;

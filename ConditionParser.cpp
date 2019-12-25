@@ -3,9 +3,7 @@
 //
 #ifndef ex3__CONDITIONPARSER_CPP_
 #define ex3__CONDITIONPARSER_CPP_
-#include "Command.h"
 #include "Var.cpp"
-#include "Singleton.h"
 
 class ConditionParser : public Command {
  private:
