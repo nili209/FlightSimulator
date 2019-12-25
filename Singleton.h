@@ -10,7 +10,7 @@ std::mutex mutex_lock;
 
 class Singleton {
  private:
-  static Singleton *singleton;
+  static Singleton *instance;
   static unordered_map<string, Command *> commands;
   static unordered_map<string, float> var_values;
   static queue<string> messages;
@@ -26,10 +26,10 @@ class Singleton {
     var_values = var_value1;
   }
   static Singleton *getSingleton() {
-    if (singleton == 0) {
-      singleton = new Singleton();
+    if (instance == 0) {
+      instance = new Singleton();
     }
-    return singleton;
+    return instance;
   }
   static string getMessage() {
     string message = Singleton::messages.front();
@@ -71,15 +71,15 @@ class Singleton {
   }
   virtual ~Singleton(){
     unordered_map<string, Command*>::iterator it;
-    for (auto&it: symbol_table_simulator) {
-      delete it.second;
+    for (auto&iter: symbol_table_simulator) {
+      delete iter.second;
     }
-    for (auto&it: symbol_table_program) {
-      delete it.second;
+    for (auto&iter: symbol_table_program) {
+      delete iter.second;
     }
   };
 };
-Singleton *::Singleton::singleton = 0;
+Singleton *::Singleton::instance = 0;
 queue<string> Singleton::messages;
 unordered_map<string, Command *> Singleton::commands;
 unordered_map<string, Command *> Singleton::symbol_table_program;

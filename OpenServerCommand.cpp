@@ -39,7 +39,7 @@ void openSocketOut(float port) {
   }
   close(socketfd);
 }
-void updateValuesInMaps(const string &str,int i,int index_comma,string &current_value,string &current_var_name) {
+void updateValuesInMaps(int i,string &current_value,string &current_var_name) {
   Singleton* singleton = Singleton::getSingleton();
   //update the value in symbol-table-simulator
   current_var_name = singleton->getIndex()->at(i);
@@ -54,22 +54,21 @@ void separateByComma(string buffer) {
   int i = 0, index_comma = 0, npos = (int) std::string::npos;
   while ((index_comma = str.find(COMMA)) != npos) {
     current_value = str.substr(0, index_comma);
-    updateValuesInMaps(str, i, index_comma, current_value, current_var_name);
+    updateValuesInMaps(i, current_value, current_var_name);
     i++;
     if (index_comma != 0) {
       str.erase(0, index_comma + 1);
     }
   }
   current_value = str;
-  updateValuesInMaps(str, i, index_comma, current_value, current_var_name);
+  updateValuesInMaps(i, current_value, current_var_name);
 }
 
-int readFromSim(int client_socket_in) {//reading from client
-  int index_of_n = 0;
+int readFromSim(int client_socket_in1) {//reading from client
   string buffer_temp = "";
   while (true) {
     char buffer[LINE_SIZE] = {0};
-    int valread = read(client_socket_in, buffer, LINE_SIZE);
+    int valread = read(client_socket_in1, buffer, LINE_SIZE);
     int i = 0;
     while (i < valread) {
       if (buffer[i] == '\n') {

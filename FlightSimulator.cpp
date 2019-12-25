@@ -303,7 +303,6 @@ class FlightSimulator {
       //dispose tabs
       size_t first = line.find_first_not_of('\t');
       if (string::npos != first) {
-        size_t last = line.size();
         line = line.substr(first, line.size() - first + 1);
       }
       createQueue(token, line);
@@ -325,9 +324,9 @@ class FlightSimulator {
   }
   void searchForOperator(queue<string> &token, string line) {
     string tempLine = line, firstPart, secondPart, operate;
-    int condition_index;
+    int condition_index, size = tempLine.length();
     bool is_operator_found = false;
-    for (int i = 0; i < tempLine.length(); i++) {
+    for (int i = 0; i < size; i++) {
       //if isOperator == 0 this means that the char is not an operator
       if (isOperator(tempLine, i) > 0 && !is_operator_found) {
         is_operator_found = true;
@@ -357,8 +356,8 @@ class FlightSimulator {
   }
   void createQueue(queue<string> &token, string line) {
     string current = "", pusher;
-    int index = 0;
-    for (int i = 0; i < line.length(); i++) {
+    int size = line.length(), i;
+    for (i = 0; i < size; i++) {
       if (!token.empty()) {
         string in = token.back();
         if (token.back().compare(LOOP) == 0 || token.back().compare(IF) == 0) {
@@ -538,14 +537,10 @@ int countBrackets(string &line) const {
     current = "";
   }
   void parser(queue<string> &token) {
-    int i = 0;
     while (!token.empty()) {
-      i++;
       string current = token.front();
       Command *c = singleton->getCommands()->at(current);
-      int i = 0;
       if (c != NULL) {
-        i++;
         c->execute(token);
       }
     }

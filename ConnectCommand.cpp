@@ -11,7 +11,9 @@ int writeMessages() {
   Singleton* singleton = Singleton::getSingleton();
   while(true) {
     if (!singleton->isMessagesEmpty()) {
+      mutex_lock.lock();
       string m = singleton->getMessage();
+      mutex_lock.unlock();
       const char* message = m.c_str();
       int is_sent = send(client_socket , message , strlen(message) , 0 );
 
@@ -67,7 +69,8 @@ class ConnectCommand : public Command {
     //remoove the ""
     ipTemp = ipTemp.substr(1, ipTemp.length() - 2);
     const char *ip = ipTemp.c_str();
-    while (i < arguments.length() - 1) {
+    int size = arguments.length();
+    while (i < size - 1) {
       i++;
       portTemp += arguments[i];
     }

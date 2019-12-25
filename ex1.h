@@ -4,8 +4,7 @@
 
 #ifndef EX1__EX1_H_
 #define EX1__EX1_H_
-//#include "Singleton.h"
-//#include "Var.cpp"
+#include <unordered_map>
 #include "Expression.h"
 #include <iostream>
 #include <list>
