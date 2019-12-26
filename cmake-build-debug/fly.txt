@@ -21,9 +21,9 @@ var aileron -> sim("/controls/flight/aileron")
 var elevator -> sim("/controls/flight/elevator")
 var alt <- sim("/instrumentation/altimeter/indicated-altitude-ft")
 var rpm <- sim("/engines/engine/rpm")
-Print("waiting 2 minutes for gui")
+Print("waiting 2 minutes for gui"  )
 Sleep(120000)
-Print("let's start")
+Print(  "let's start" )
 warp = 32000
 Sleep(1000)
 magnetos = 3
@@ -36,10 +36,10 @@ brakeparking = 0
 primer = 3
 starter = 1
 autostart = 1
-Print("engine is warming...")
+Print("engine is warming..."   )
 Print(rpm)
 while rpm <= 750 {
-	Print(rpm)
+  Print(rpm)
 }
 Sleep(5000)
 Print("let's fly")

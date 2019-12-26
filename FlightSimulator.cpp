@@ -305,6 +305,15 @@ class FlightSimulator {
       if (string::npos != first) {
         line = line.substr(first, line.size() - first + 1);
       }
+      //dispose spaces until the first char
+      first = line.find_first_not_of(' ');
+      if (string::npos != first) {
+        line = line.substr(first, line.size() - first + 1);
+      }
+      //dispose spaces until the last char
+      while(line[line.length() - 1] == ' ') {
+        line = line.substr(0, line.length() - 1);
+      }
       createQueue(token, line);
     }
     f.close();
@@ -490,6 +499,7 @@ class FlightSimulator {
   }
   void dealWithBrackets(queue<string> &token, string &line, string &current, int &i) const {
     string pusher;
+    bool is_first_valid_char = false;
     if (current.compare("") != 0) {
       //until the '('
       pusher = current;
@@ -499,7 +509,20 @@ class FlightSimulator {
     current = "";
     int lastBracket = countBrackets(line);
     while (i < lastBracket - 1) {
-      current += line[++i];
+      if (line[++i] == ' ') {
+        if (!is_first_valid_char) {
+          continue;
+        } else {
+          is_first_valid_char = true;
+          current += line[i];
+        }
+      }else {
+        is_first_valid_char = true;
+        current += line[i];
+      }
+    }
+    while(current[current.length() - 1] == ' ') {
+      current = current.substr(0, current.length() - 1);
     }
     if (lastBracket == i) {
       token.push(current);
@@ -545,7 +568,6 @@ class FlightSimulator {
       }
     }
   }
-
   virtual ~FlightSimulator(){
     delete singleton;
   };
