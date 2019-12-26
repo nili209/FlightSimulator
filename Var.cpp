@@ -1,6 +1,9 @@
 //
 // Created by shiraz and nili on 12.12.2019.
 //
+//
+// Created by shiraz and nili on 25.12.2019.
+//
 
 #ifndef EX3__VAR_H_
 #define EX3__VAR_H_
@@ -12,6 +15,7 @@ class Var : public Command {
   string sim, direction, name;
   float value;
  public:
+  Var(string sim1, string direction1, string name1) : sim(sim1), direction(direction1), name(name1) {};
   static void updateSymbolTableProg(string sim, float value) {
     string otherSim = "";
     Singleton *singelton1 = Singleton::getSingleton();
@@ -45,14 +49,13 @@ class Var : public Command {
   void setName(string name1) {
     this->name = name1;
   }
-  void setValue(float num) {
+  void setValue(float num){
     singleton->mutex_lock.lock();
     this->value = num;
     singleton->updateVarValues(name, num);
     singleton->mutex_lock.unlock();
     updateSymbolTableProg(sim, num);
   }
-  Var(string sim1, string direction1, string name1) : sim(sim1), direction(direction1), name(name1) {};
   virtual void execute(queue<string> &token) {
     cout << "I am executing in Var" << endl;
     //name of var
@@ -82,6 +85,10 @@ class Var : public Command {
     }
     token.pop();
   }
-  virtual ~Var(){};
+  virtual ~Var(){
+    cout<<"I am in Var distructor"<<endl;
+  };
 };
+
 #endif //EX3__VAR_H_
+

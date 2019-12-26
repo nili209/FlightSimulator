@@ -11,6 +11,8 @@
 #include "IfCommand.cpp"
 #include "LoopCommand.cpp"
 #include "Singleton.h"
+#include <list>
+#include "Var.cpp"
 
 class FlightSimulator {
  private:
@@ -543,6 +545,9 @@ class FlightSimulator {
       }
     }
   }
-  virtual ~FlightSimulator(){};
+
+  virtual ~FlightSimulator(){
+    delete singleton;
+  };
 };
 #endif

@@ -4,7 +4,6 @@
 #ifndef ex3__CONDITIONPARSER_CPP_
 #define ex3__CONDITIONPARSER_CPP_
 #include "Var.cpp"
-
 class ConditionParser : public Command {
  private:
   string first_var;
@@ -68,6 +67,8 @@ class ConditionParser : public Command {
       is_condition = (value1 < value2);
     }
   }
-  virtual ~ConditionParser(){};
+  virtual ~ConditionParser(){
+    cout<<"I am in ConditionParser distructor"<<endl;
+  };
 };
 #endif

@@ -60,12 +60,12 @@ void Singleton::updateVarValues(string var_name, float value) {
 void Singleton::insertToCommands(string name_of_command, Command *command) {
   commands.insert({name_of_command, command});
 }
+
 Singleton::~Singleton() {
-  unordered_map<string, Command *>::iterator it;
-  for (auto &iter: symbol_table_simulator) {
+  cout<<"i am in singleton distructor"<<endl;
+  mutex_lock.lock();
+  for (auto &iter: commands) {
     delete iter.second;
   }
-  for (auto &iter: symbol_table_program) {
-    delete iter.second;
-  }
+  mutex_lock.unlock();
 }

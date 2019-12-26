@@ -46,7 +46,6 @@ class ConnectCommand : public Command {
         singleton->mutex_lock.unlock();
         const char* message = m.c_str();
         int is_sent = send(client_socket , message , strlen(message) , 0 );
-
         if (is_sent == -1) {
           cout << "Error sending message" << endl;
           exit(1);
@@ -78,9 +77,11 @@ class ConnectCommand : public Command {
     } else {
       cout << "Client is now connected to server" << endl;
     }
-    //close(client_socket);
   }
-
-  virtual ~ConnectCommand(){};
+  virtual ~ConnectCommand() {
+    cout<<"I am in ConnectCommand distructor"<<endl;
+    close(client_socket);
+    cout<<"client socket has been closed"<<endl;
+  }
 };
 #endif

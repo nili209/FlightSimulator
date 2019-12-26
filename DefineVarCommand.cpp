@@ -5,7 +5,6 @@
 #define ex3__DEFINEVARCOMMAND_CPP_
 #include "Command.h"
 #include "Var.cpp"
-
 class DefineVarCommand : public Command {
  private:
   Singleton *singleton = Singleton::getSingleton();
@@ -79,6 +78,8 @@ class DefineVarCommand : public Command {
     }
     return false;
   }
-  virtual ~DefineVarCommand(){};
+  virtual ~DefineVarCommand(){
+    cout<<"I am in DefineVarCommand distructor"<<endl;
+  };
 };
 #endif

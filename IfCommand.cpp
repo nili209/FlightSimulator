@@ -24,6 +24,8 @@ class IfCommand : public ConditionParser {
       }
     }
   }
-  virtual ~IfCommand(){};
+  virtual ~IfCommand(){
+    cout<<"I am in IfCommand distructor"<<endl;
+  };
 };
 #endif

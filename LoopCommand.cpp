@@ -28,6 +28,8 @@ class LoopCommand : public ConditionParser {
       ConditionParser::execute(token);
     }
   }
-  virtual ~LoopCommand(){};
+  virtual ~LoopCommand(){
+    cout<<"I am in LoopCommand distructor"<<endl;
+  };
 };
 #endif

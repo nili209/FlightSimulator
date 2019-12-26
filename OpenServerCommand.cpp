@@ -100,6 +100,8 @@ class OpenServerCommand : public Command {
     }
     return client_socket_in;
   }
-  virtual ~OpenServerCommand(){};
+  virtual ~OpenServerCommand(){
+    cout<<"I am in OpenServerCommand distructor"<<endl;
+  };
 };
 #endif

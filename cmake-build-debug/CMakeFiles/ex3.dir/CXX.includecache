@@ -75,6 +75,10 @@ LoopCommand.cpp
 /home/shiraz/CLionProjects/ex3/LoopCommand.cpp
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
+list
+-
+Var.cpp
+/home/shiraz/CLionProjects/ex3/Var.cpp
 
 /home/shiraz/CLionProjects/ex3/IfCommand.cpp
 ConditionParser.cpp
@@ -99,6 +103,10 @@ Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
 ex1.h
 /home/shiraz/CLionProjects/ex3/ex1.h
+
+/home/shiraz/CLionProjects/ex3/Singleton.cpp
+Singleton.h
+/home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/Singleton.h
 string
