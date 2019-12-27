@@ -8,7 +8,6 @@
 class IfCommand : public ConditionParser {
  public:
   virtual void execute(queue<string> &token) {
-    cout<<"I am executing in If Command"<<endl;
     //initialize the queue of commands and check condition
     ConditionParser::execute(token);
     if (is_condition) {
@@ -24,8 +23,6 @@ class IfCommand : public ConditionParser {
       }
     }
   }
-  virtual ~IfCommand(){
-    cout<<"I am in IfCommand distructor"<<endl;
-  };
+  virtual ~IfCommand(){};
 };
 #endif

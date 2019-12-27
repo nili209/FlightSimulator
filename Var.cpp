@@ -57,7 +57,6 @@ class Var : public Command {
     updateSymbolTableProg(sim, num);
   }
   virtual void execute(queue<string> &token) {
-    cout << "I am executing in Var" << endl;
     //name of var
     string var_name = token.front();
     token.pop();
@@ -85,9 +84,7 @@ class Var : public Command {
     }
     token.pop();
   }
-  virtual ~Var(){
-    cout<<"I am in Var distructor"<<endl;
-  };
+  virtual ~Var(){};
 };
 
 #endif //EX3__VAR_H_

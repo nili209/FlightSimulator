@@ -10,7 +10,6 @@ class DefineVarCommand : public Command {
   Singleton *singleton = Singleton::getSingleton();
  public:
   virtual void execute(queue<string> &token) {
-    cout << "I am executing in Define Var Command" << endl;
     float num;
     //the word var
     token.pop();
@@ -28,7 +27,6 @@ class DefineVarCommand : public Command {
       num = ex1::cal(other_var_name, *singleton->getVarValues());
       Var *v = new Var("", "", var_name);
       singleton->mutex_lock.lock();
-      //v->setName(var_name);
       singleton->updateVarValues(var_name, num);
       singleton->mutex_lock.unlock();
       v->setValue(num);
@@ -48,7 +46,6 @@ class DefineVarCommand : public Command {
         string tempSim = sim.substr(1, sim.length() -2);
         Var *var = new Var(tempSim, action, var_name);
         singleton->mutex_lock.lock();
-        //var->setName(var_name);
         singleton->updateSymbolTableProgram(var_name, var);
         singleton->updateVarValues(var_name, var->getValue());
         singleton->insertToCommands(var_name, var);
@@ -78,8 +75,6 @@ class DefineVarCommand : public Command {
     }
     return false;
   }
-  virtual ~DefineVarCommand(){
-    cout<<"I am in DefineVarCommand distructor"<<endl;
-  };
+  virtual ~DefineVarCommand(){};
 };
 #endif

@@ -12,7 +12,6 @@ class SleepCommand : public Command {
  public:
   SleepCommand(){};
   virtual void execute(queue<string> &token) {
-    cout << "I am executing in Sleep Command" << endl;
     //the word "Sleep"
     token.pop();
     Singleton *singleton = Singleton::getSingleton();
@@ -21,9 +20,7 @@ class SleepCommand : public Command {
     //time to sleep
     token.pop();
   }
-  virtual ~SleepCommand(){
-    cout<<"I am in SleepCommand distructor"<<endl;
-  };
+  virtual ~SleepCommand(){};
 };
 #endif //EX3__SLEEPCOMMAND_H_
 

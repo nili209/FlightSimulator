@@ -62,7 +62,6 @@ void Singleton::insertToCommands(string name_of_command, Command *command) {
 }
 
 Singleton::~Singleton() {
-  cout<<"i am in singleton distructor"<<endl;
   mutex_lock.lock();
   for (auto &iter: commands) {
     delete iter.second;

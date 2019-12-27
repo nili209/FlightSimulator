@@ -11,7 +11,6 @@
 #include "IfCommand.cpp"
 #include "LoopCommand.cpp"
 #include "Singleton.h"
-#include <list>
 #include "Var.cpp"
 
 class FlightSimulator {
@@ -355,13 +354,9 @@ class FlightSimulator {
       }
     }
     token.push(firstPart);
-    cout << firstPart << endl;
     token.push(operate);
-    cout << operate << endl;
     token.push(secondPart);
-    cout << secondPart << endl;
     token.push("{");
-    cout << "{" << endl;
   }
   void createQueue(queue<string> &token, string line) {
     string current = "", pusher;
@@ -408,7 +403,6 @@ class FlightSimulator {
             //until the '='
             pusher = current;
             token.push(pusher);
-            cout << pusher << endl;
             current = "";
           }
           //if this = does not mean to assign somthing
@@ -418,24 +412,20 @@ class FlightSimulator {
             i++;
             pusher = current;
             token.push(pusher);
-            cout << pusher << endl;
             current = "";
             break;
           }
           //push the '='
           pusher = line[i];
           token.push(pusher);
-          cout << pusher << endl;
           //after the '='
           pusher = line.substr(i + 1, line.length() - i);
           if (pusher[0] == ' ') {
             pusher = pusher.substr(1, pusher.length() - 1);
           }
           token.push(pusher);
-          cout << pusher << endl;
           i = line.length();
           current = "";
-
           break;
         }
         case '(' : {
@@ -447,7 +437,6 @@ class FlightSimulator {
             //until the ','
             pusher = current;
             token.push(pusher);
-            cout << pusher << endl;
             current = "";
           }
           break;
@@ -459,7 +448,6 @@ class FlightSimulator {
           if (current.compare("") != 0) {
             pusher = current;
             token.push(pusher);
-            cout << pusher << endl;
             current = "";
           }
           break;
@@ -475,7 +463,6 @@ class FlightSimulator {
     if (current.compare("") != 0) {
       pusher = current;
       token.push(pusher);
-      cout << pusher << endl;
     }
   }
   void dealWithArrow(queue<string> &token, const string &line, string &current, int &i, string direction) const {
@@ -484,7 +471,6 @@ class FlightSimulator {
     if (current.compare(direction) != 0 && current.compare("") != 0) {
       pusher = current;
       token.push(pusher);
-      cout << pusher << endl;
       current = "";
     }
     //current = ->
@@ -494,7 +480,6 @@ class FlightSimulator {
     //push ->
     pusher = current;
     token.push(pusher);
-    cout << pusher << endl;
     current = "";
   }
   void dealWithBrackets(queue<string> &token, string &line, string &current, int &i) const {
@@ -504,7 +489,6 @@ class FlightSimulator {
       //until the '('
       pusher = current;
       token.push(pusher);
-      cout << pusher << endl;
     }
     current = "";
     int lastBracket = countBrackets(line);
@@ -542,7 +526,6 @@ class FlightSimulator {
     if (current.compare("") != 0) {
       pusher = current;
       token.push(pusher);
-      cout << pusher << endl;
       current = "";
     }
     current += line[i];
@@ -556,7 +539,6 @@ class FlightSimulator {
       pusher = current;
     }
     token.push(pusher);
-    cout << pusher << endl;
     current = "";
   }
   void parser(queue<string> &token) {

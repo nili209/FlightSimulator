@@ -35,11 +35,4 @@ class Singleton {
   void insertToCommands(string name_of_command, Command *command);
   virtual ~Singleton();
 };
-//Singleton *::Singleton::instance = 0;
-//queue<string> Singleton::messages;
-//unordered_map<string, Command *> Singleton::commands;
-//unordered_map<string, Command *> Singleton::symbol_table_program;
-//unordered_map<string, Command *> Singleton::symbol_table_simulator;
-//unordered_map<string, float> Singleton::var_values;
-//unordered_map<int, string> Singleton::index;
 #endif //EX3__SINGLETON_H_

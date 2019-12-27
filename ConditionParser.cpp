@@ -20,13 +20,10 @@ class ConditionParser : public Command {
       //pop if/while
       token.pop();
       first_var = token.front();
-      cout<<first_var<<endl;
       token.pop();
       condition = token.front();
-      cout<<condition<<endl;
       token.pop();
       second_var = token.front();
-      cout<<second_var<<endl;
       token.pop();
       //pop {
       token.pop();
@@ -42,7 +39,6 @@ class ConditionParser : public Command {
       //'}'
       token.pop();
     }
-    cout<<"I am executing in Condition Parser"<<endl;
     checkAndUpdateIsCondition();
   }
   void checkAndUpdateIsCondition() {
@@ -67,8 +63,6 @@ class ConditionParser : public Command {
       is_condition = (value1 < value2);
     }
   }
-  virtual ~ConditionParser(){
-    cout<<"I am in ConditionParser distructor"<<endl;
-  };
+  virtual ~ConditionParser(){};
 };
 #endif

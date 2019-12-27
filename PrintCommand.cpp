@@ -13,7 +13,6 @@ class PrintCommand : public Command {
   virtual void execute(queue<string> &token) {
     string printer;
     float value;
-    cout << "I am executing in Print Command" << endl;
     //the word "print"
     token.pop();
     //if the message is a string - need to dispose the " "
@@ -28,9 +27,7 @@ class PrintCommand : public Command {
     //the message
     token.pop();
   }
-  virtual ~PrintCommand(){
-    cout<<"I am in PrintCommand distructor"<<endl;
-  };
+  virtual ~PrintCommand(){};
 };
 #endif //EX3__PRINTCOMMAND_H_PrintCommand::PrintCommand() {}
 

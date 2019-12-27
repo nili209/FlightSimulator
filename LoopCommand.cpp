@@ -7,7 +7,6 @@
 class LoopCommand : public ConditionParser {
  public:
   virtual void execute(queue<string> &token) {
-    cout<<"I am executing in Loop Command"<<endl;
     //initialize the queue of commands and check condition
     ConditionParser::execute(token);
     int j = 0;
@@ -28,8 +27,6 @@ class LoopCommand : public ConditionParser {
       ConditionParser::execute(token);
     }
   }
-  virtual ~LoopCommand(){
-    cout<<"I am in LoopCommand distructor"<<endl;
-  };
+  virtual ~LoopCommand(){};
 };
 #endif

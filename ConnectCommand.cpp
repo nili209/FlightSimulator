@@ -10,7 +10,6 @@ class ConnectCommand : public Command {
  public:
   virtual void execute(queue<string> &token) {
     Singleton *singleton = Singleton::getSingleton();
-    cout << "I am executing in Connect Control Command" << endl;
     //name of command
     token.pop();
     //ip and port
@@ -49,9 +48,6 @@ class ConnectCommand : public Command {
         if (is_sent == -1) {
           cout << "Error sending message" << endl;
           exit(1);
-        } else {
-          cout << "Hello message sent to server" << endl;
-          cout << "message = "<< message << endl;
         }
       } else {
         this_thread::sleep_for(chrono::milliseconds(10));
@@ -74,14 +70,10 @@ class ConnectCommand : public Command {
     if (is_connect == -1) {
       cerr << "Could not connect to host server" << endl;
       exit(1);
-    } else {
-      cout << "Client is now connected to server" << endl;
     }
   }
   virtual ~ConnectCommand() {
-    cout<<"I am in ConnectCommand distructor"<<endl;
     close(client_socket);
-    cout<<"client socket has been closed"<<endl;
   }
 };
 #endif

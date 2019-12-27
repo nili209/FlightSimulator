@@ -13,7 +13,6 @@ class OpenServerCommand : public Command {
   Singleton *singleton = Singleton::getSingleton();
  public:
   virtual void execute(queue<string> &token) {
-    cout << "I am executing in Open Data Server" << endl;
     token.pop();
     //parameter of command
     string expression = token.front();
@@ -44,8 +43,6 @@ class OpenServerCommand : public Command {
     if (listen(socketfd, 5) == -1) {
       cerr << "Error during listening command" << endl;
       exit(1);
-    } else {
-      cout << "Server is now listening ..." << endl;
     }
     client_socket_in = accept(socketfd, (struct sockaddr *) &address,
                               (socklen_t *) &address);
@@ -88,7 +85,6 @@ class OpenServerCommand : public Command {
       int i = 0;
       while (i < valread) {
         if (buffer[i] == '\n') {
-          cout << buffer_temp << endl;
           separateByComma(buffer_temp);
           buffer_temp = "";
           i++;
@@ -100,8 +96,6 @@ class OpenServerCommand : public Command {
     }
     return client_socket_in;
   }
-  virtual ~OpenServerCommand(){
-    cout<<"I am in OpenServerCommand distructor"<<endl;
-  };
+  virtual ~OpenServerCommand(){};
 };
 #endif
