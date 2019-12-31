@@ -36,8 +36,8 @@ void ConditionParser::execute(queue<string> &token) {
 * The function checks the condition and updates is_condition.
 */
 void ConditionParser::checkAndUpdateIsCondition() {
-  float value1 = ex1::cal(first_var, *singleton->getVarValues()),
-      value2 = ex1::cal(second_var, *singleton->getVarValues());
+  float value1 = ShuntingYard::calculator(first_var, *singleton->getVarValues()),
+      value2 = ShuntingYard::calculator(second_var, *singleton->getVarValues());
   if (condition.compare("==") == 0) {
     is_condition = (value1 == value2);
   }

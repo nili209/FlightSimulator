@@ -5,7 +5,7 @@
 #ifndef EX3__DEFINEVARCOMMAND_H_
 #define EX3__DEFINEVARCOMMAND_H_
 #include "Command.h"
-#include "Var.h"
+#include "VarCommand.h"
 class DefineVarCommand : public Command {
  private:
   Singleton *singleton = Singleton::getSingleton();

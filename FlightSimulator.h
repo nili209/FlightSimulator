@@ -12,7 +12,7 @@
 #include "IfCommand.h"
 #include "LoopCommand.h"
 #include "Singleton.h"
-#include "Var.h"
+#include "VarCommand.h"
 class FlightSimulator {
  private:
   bool is_in_brackets = false;

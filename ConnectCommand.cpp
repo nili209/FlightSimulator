@@ -27,7 +27,7 @@ void ConnectCommand::execute(queue<string> &token) {
     i++;
     portTemp += arguments[i];
   }
-  int port = ex1::cal(portTemp, *singleton->getVarValues());
+  int port = ShuntingYard::calculator(portTemp, *singleton->getVarValues());
   token.pop();
   thread thread_out_1(Connect, ip, port);
   thread_out_1.join();

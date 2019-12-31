@@ -20,8 +20,8 @@ void DefineVarCommand::execute(queue<string> &token) {
     //pop the var or value after the =
     string other_var_name = token.front();
     token.pop();
-    num = ex1::cal(other_var_name, *singleton->getVarValues());
-    Var *v = new Var("", "", var_name);
+    num = ShuntingYard::calculator(other_var_name, *singleton->getVarValues());
+    VarCommand *v = new VarCommand("", "", var_name);
     singleton->mutex_lock.lock();
     singleton->updateVarValues(var_name, num);
     singleton->mutex_lock.unlock();
@@ -40,7 +40,7 @@ void DefineVarCommand::execute(queue<string> &token) {
     //we didnot found the var in the map
     if (!insert_to_map(sim, var_name, action)) {
       string tempSim = sim.substr(1, sim.length() - 2);
-      Var *var = new Var(tempSim, action, var_name);
+      VarCommand *var = new VarCommand(tempSim, action, var_name);
       singleton->mutex_lock.lock();
       singleton->updateSymbolTableProgram(var_name, var);
       singleton->updateVarValues(var_name, var->getValue());
@@ -56,7 +56,7 @@ bool DefineVarCommand::insert_to_map(string sim, string var_name, string action)
   string copySim = "";
   unordered_map<string, Command *> map = *singleton->getSymbolTableSimulator();
   for (auto it = map.begin(); it != map.end(); ++it) {
-    Var *v = (Var *) it->second;
+    VarCommand *v = (VarCommand *) it->second;
     string other_sim = v->getSim();
     copySim = sim.substr(1, sim.length() - 2);
     //we found the var

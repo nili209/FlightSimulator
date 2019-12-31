@@ -5,7 +5,7 @@
 #ifndef EX3__CONNECTCOMMAND_H_
 #define EX3__CONNECTCOMMAND_H_
 #include <cstring>
-#include "Var.h"
+#include "VarCommand.h"
 class ConnectCommand : public Command {
  private:
   static int client_socket;

@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/shiraz/CLionProjects/ex3/BinaryOperator.h
+Expression.h
+/home/shiraz/CLionProjects/ex3/Expression.h
+
 /home/shiraz/CLionProjects/ex3/Command.h
 unordered_map
 -
@@ -45,8 +49,8 @@ ConditionParser.h
 /home/shiraz/CLionProjects/ex3/ConditionParser.h
 
 /home/shiraz/CLionProjects/ex3/ConditionParser.h
-Var.h
-/home/shiraz/CLionProjects/ex3/Var.h
+VarCommand.h
+/home/shiraz/CLionProjects/ex3/VarCommand.h
 
 /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
 ConnectCommand.h
@@ -55,8 +59,8 @@ ConnectCommand.h
 /home/shiraz/CLionProjects/ex3/ConnectCommand.h
 cstring
 -
-Var.h
-/home/shiraz/CLionProjects/ex3/Var.h
+VarCommand.h
+/home/shiraz/CLionProjects/ex3/VarCommand.h
 
 /home/shiraz/CLionProjects/ex3/DefineVarCommand.cpp
 DefineVarCommand.h
@@ -65,8 +69,16 @@ DefineVarCommand.h
 /home/shiraz/CLionProjects/ex3/DefineVarCommand.h
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
-Var.h
-/home/shiraz/CLionProjects/ex3/Var.h
+VarCommand.h
+/home/shiraz/CLionProjects/ex3/VarCommand.h
+
+/home/shiraz/CLionProjects/ex3/Div.cpp
+Div.h
+/home/shiraz/CLionProjects/ex3/Div.h
+
+/home/shiraz/CLionProjects/ex3/Div.h
+BinaryOperator.h
+/home/shiraz/CLionProjects/ex3/BinaryOperator.h
 
 /home/shiraz/CLionProjects/ex3/Expression.h
 
@@ -91,8 +103,8 @@ LoopCommand.h
 /home/shiraz/CLionProjects/ex3/LoopCommand.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
-Var.h
-/home/shiraz/CLionProjects/ex3/Var.h
+VarCommand.h
+/home/shiraz/CLionProjects/ex3/VarCommand.h
 
 /home/shiraz/CLionProjects/ex3/IfCommand.cpp
 IfCommand.h
@@ -102,6 +114,48 @@ IfCommand.h
 ConditionParser.h
 /home/shiraz/CLionProjects/ex3/ConditionParser.h
 
+/home/shiraz/CLionProjects/ex3/Interpreter.cpp
+Interpreter.h
+/home/shiraz/CLionProjects/ex3/Interpreter.h
+
+/home/shiraz/CLionProjects/ex3/Interpreter.h
+Variable.h
+/home/shiraz/CLionProjects/ex3/Variable.h
+UnaryOperator.h
+/home/shiraz/CLionProjects/ex3/UnaryOperator.h
+BinaryOperator.h
+/home/shiraz/CLionProjects/ex3/BinaryOperator.h
+UPlus.h
+/home/shiraz/CLionProjects/ex3/UPlus.h
+UMinus.h
+/home/shiraz/CLionProjects/ex3/UMinus.h
+Plus.h
+/home/shiraz/CLionProjects/ex3/Plus.h
+Minus.h
+/home/shiraz/CLionProjects/ex3/Minus.h
+Mul.h
+/home/shiraz/CLionProjects/ex3/Mul.h
+Div.h
+/home/shiraz/CLionProjects/ex3/Div.h
+Value.h
+/home/shiraz/CLionProjects/ex3/Value.h
+unordered_map
+-
+Expression.h
+/home/shiraz/CLionProjects/ex3/Expression.h
+iostream
+-
+list
+-
+stack
+-
+queue
+-
+map
+-
+sstream
+-
+
 /home/shiraz/CLionProjects/ex3/LoopCommand.cpp
 LoopCommand.h
 /home/shiraz/CLionProjects/ex3/LoopCommand.h
@@ -110,6 +164,22 @@ LoopCommand.h
 ConditionParser.h
 /home/shiraz/CLionProjects/ex3/ConditionParser.h
 
+/home/shiraz/CLionProjects/ex3/Minus.cpp
+Minus.h
+/home/shiraz/CLionProjects/ex3/Minus.h
+
+/home/shiraz/CLionProjects/ex3/Minus.h
+BinaryOperator.h
+/home/shiraz/CLionProjects/ex3/BinaryOperator.h
+
+/home/shiraz/CLionProjects/ex3/Mul.cpp
+Mul.h
+/home/shiraz/CLionProjects/ex3/Mul.h
+
+/home/shiraz/CLionProjects/ex3/Mul.h
+BinaryOperator.h
+/home/shiraz/CLionProjects/ex3/BinaryOperator.h
+
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
 OpenServerCommand.h
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.h
@@ -117,10 +187,14 @@ OpenServerCommand.h
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.h
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
-Var.h
-/home/shiraz/CLionProjects/ex3/Var.h
-ex1.h
-/home/shiraz/CLionProjects/ex3/ex1.h
+VarCommand.h
+/home/shiraz/CLionProjects/ex3/VarCommand.h
+ShuntingYard.h
+/home/shiraz/CLionProjects/ex3/ShuntingYard.h
+
+/home/shiraz/CLionProjects/ex3/Plus.h
+BinaryOperator.h
+/home/shiraz/CLionProjects/ex3/BinaryOperator.h
 
 /home/shiraz/CLionProjects/ex3/PrintCommand.cpp
 PrintCommand.h
@@ -131,12 +205,16 @@ Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
-ex1.h
-/home/shiraz/CLionProjects/ex3/ex1.h
+ShuntingYard.h
+/home/shiraz/CLionProjects/ex3/ShuntingYard.h
 
-/home/shiraz/CLionProjects/ex3/Singleton.cpp
-Singleton.h
-/home/shiraz/CLionProjects/ex3/Singleton.h
+/home/shiraz/CLionProjects/ex3/ShuntingYard.cpp
+ShuntingYard.h
+/home/shiraz/CLionProjects/ex3/ShuntingYard.h
+
+/home/shiraz/CLionProjects/ex3/ShuntingYard.h
+Interpreter.h
+/home/shiraz/CLionProjects/ex3/Interpreter.h
 
 /home/shiraz/CLionProjects/ex3/Singleton.h
 string
@@ -155,36 +233,40 @@ thread
 -
 chrono
 -
-Var.h
-/home/shiraz/CLionProjects/ex3/Var.h
+VarCommand.h
+/home/shiraz/CLionProjects/ex3/VarCommand.h
 
-/home/shiraz/CLionProjects/ex3/Var.cpp
-Var.h
-/home/shiraz/CLionProjects/ex3/Var.h
+/home/shiraz/CLionProjects/ex3/UMinus.h
+UnaryOperator.h
+/home/shiraz/CLionProjects/ex3/UnaryOperator.h
 
-/home/shiraz/CLionProjects/ex3/Var.h
+/home/shiraz/CLionProjects/ex3/UPlus.h
+UnaryOperator.h
+/home/shiraz/CLionProjects/ex3/UnaryOperator.h
+
+/home/shiraz/CLionProjects/ex3/UnaryOperator.h
+Expression.h
+/home/shiraz/CLionProjects/ex3/Expression.h
+
+/home/shiraz/CLionProjects/ex3/Value.h
+Expression.h
+/home/shiraz/CLionProjects/ex3/Expression.h
+
+/home/shiraz/CLionProjects/ex3/VarCommand.cpp
+VarCommand.h
+/home/shiraz/CLionProjects/ex3/VarCommand.h
+
+/home/shiraz/CLionProjects/ex3/VarCommand.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
-ex1.h
-/home/shiraz/CLionProjects/ex3/ex1.h
+ShuntingYard.h
+/home/shiraz/CLionProjects/ex3/ShuntingYard.h
 
-/home/shiraz/CLionProjects/ex3/ex1.h
+/home/shiraz/CLionProjects/ex3/Variable.h
 unordered_map
 -
 Expression.h
 /home/shiraz/CLionProjects/ex3/Expression.h
-iostream
--
-list
--
-stack
--
-queue
--
-map
--
-sstream
--
 
 /home/shiraz/CLionProjects/ex3/main.cpp
 string

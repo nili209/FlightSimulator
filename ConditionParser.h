@@ -4,7 +4,7 @@
 
 #ifndef EX3__CONDITIONPARSER_H_
 #define EX3__CONDITIONPARSER_H_
-#include "Var.h"
+#include "VarCommand.h"
 class ConditionParser : public Command {
  private:
   string first_var;

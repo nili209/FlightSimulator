@@ -7,7 +7,7 @@
 #include "Command.h"
 #include <thread>
 #include <chrono>
-#include "Var.h"
+#include "VarCommand.h"
 class SleepCommand : public Command {
  public:
   SleepCommand(){};

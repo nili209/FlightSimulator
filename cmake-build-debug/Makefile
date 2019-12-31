@@ -123,6 +123,33 @@ ex3/fast:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/build
 .PHONY : ex3/fast
 
+BinaryOperator.o: BinaryOperator.cpp.o
+
+.PHONY : BinaryOperator.o
+
+# target to build an object file
+BinaryOperator.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/BinaryOperator.cpp.o
+.PHONY : BinaryOperator.cpp.o
+
+BinaryOperator.i: BinaryOperator.cpp.i
+
+.PHONY : BinaryOperator.i
+
+# target to preprocess a source file
+BinaryOperator.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/BinaryOperator.cpp.i
+.PHONY : BinaryOperator.cpp.i
+
+BinaryOperator.s: BinaryOperator.cpp.s
+
+.PHONY : BinaryOperator.s
+
+# target to generate assembly for a file
+BinaryOperator.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/BinaryOperator.cpp.s
+.PHONY : BinaryOperator.cpp.s
+
 ConditionParser.o: ConditionParser.cpp.o
 
 .PHONY : ConditionParser.o
@@ -204,6 +231,33 @@ DefineVarCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/DefineVarCommand.cpp.s
 .PHONY : DefineVarCommand.cpp.s
 
+Div.o: Div.cpp.o
+
+.PHONY : Div.o
+
+# target to build an object file
+Div.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Div.cpp.o
+.PHONY : Div.cpp.o
+
+Div.i: Div.cpp.i
+
+.PHONY : Div.i
+
+# target to preprocess a source file
+Div.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Div.cpp.i
+.PHONY : Div.cpp.i
+
+Div.s: Div.cpp.s
+
+.PHONY : Div.s
+
+# target to generate assembly for a file
+Div.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Div.cpp.s
+.PHONY : Div.cpp.s
+
 FlightSimulator.o: FlightSimulator.cpp.o
 
 .PHONY : FlightSimulator.o
@@ -258,6 +312,33 @@ IfCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/IfCommand.cpp.s
 .PHONY : IfCommand.cpp.s
 
+Interpreter.o: Interpreter.cpp.o
+
+.PHONY : Interpreter.o
+
+# target to build an object file
+Interpreter.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Interpreter.cpp.o
+.PHONY : Interpreter.cpp.o
+
+Interpreter.i: Interpreter.cpp.i
+
+.PHONY : Interpreter.i
+
+# target to preprocess a source file
+Interpreter.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Interpreter.cpp.i
+.PHONY : Interpreter.cpp.i
+
+Interpreter.s: Interpreter.cpp.s
+
+.PHONY : Interpreter.s
+
+# target to generate assembly for a file
+Interpreter.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Interpreter.cpp.s
+.PHONY : Interpreter.cpp.s
+
 LoopCommand.o: LoopCommand.cpp.o
 
 .PHONY : LoopCommand.o
@@ -284,6 +365,60 @@ LoopCommand.s: LoopCommand.cpp.s
 LoopCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/LoopCommand.cpp.s
 .PHONY : LoopCommand.cpp.s
+
+Minus.o: Minus.cpp.o
+
+.PHONY : Minus.o
+
+# target to build an object file
+Minus.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Minus.cpp.o
+.PHONY : Minus.cpp.o
+
+Minus.i: Minus.cpp.i
+
+.PHONY : Minus.i
+
+# target to preprocess a source file
+Minus.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Minus.cpp.i
+.PHONY : Minus.cpp.i
+
+Minus.s: Minus.cpp.s
+
+.PHONY : Minus.s
+
+# target to generate assembly for a file
+Minus.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Minus.cpp.s
+.PHONY : Minus.cpp.s
+
+Mul.o: Mul.cpp.o
+
+.PHONY : Mul.o
+
+# target to build an object file
+Mul.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Mul.cpp.o
+.PHONY : Mul.cpp.o
+
+Mul.i: Mul.cpp.i
+
+.PHONY : Mul.i
+
+# target to preprocess a source file
+Mul.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Mul.cpp.i
+.PHONY : Mul.cpp.i
+
+Mul.s: Mul.cpp.s
+
+.PHONY : Mul.s
+
+# target to generate assembly for a file
+Mul.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Mul.cpp.s
+.PHONY : Mul.cpp.s
 
 OpenServerCommand.o: OpenServerCommand.cpp.o
 
@@ -312,6 +447,33 @@ OpenServerCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/OpenServerCommand.cpp.s
 .PHONY : OpenServerCommand.cpp.s
 
+Plus.o: Plus.cpp.o
+
+.PHONY : Plus.o
+
+# target to build an object file
+Plus.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Plus.cpp.o
+.PHONY : Plus.cpp.o
+
+Plus.i: Plus.cpp.i
+
+.PHONY : Plus.i
+
+# target to preprocess a source file
+Plus.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Plus.cpp.i
+.PHONY : Plus.cpp.i
+
+Plus.s: Plus.cpp.s
+
+.PHONY : Plus.s
+
+# target to generate assembly for a file
+Plus.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Plus.cpp.s
+.PHONY : Plus.cpp.s
+
 PrintCommand.o: PrintCommand.cpp.o
 
 .PHONY : PrintCommand.o
@@ -338,6 +500,33 @@ PrintCommand.s: PrintCommand.cpp.s
 PrintCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/PrintCommand.cpp.s
 .PHONY : PrintCommand.cpp.s
+
+ShuntingYard.o: ShuntingYard.cpp.o
+
+.PHONY : ShuntingYard.o
+
+# target to build an object file
+ShuntingYard.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ShuntingYard.cpp.o
+.PHONY : ShuntingYard.cpp.o
+
+ShuntingYard.i: ShuntingYard.cpp.i
+
+.PHONY : ShuntingYard.i
+
+# target to preprocess a source file
+ShuntingYard.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ShuntingYard.cpp.i
+.PHONY : ShuntingYard.cpp.i
+
+ShuntingYard.s: ShuntingYard.cpp.s
+
+.PHONY : ShuntingYard.s
+
+# target to generate assembly for a file
+ShuntingYard.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ShuntingYard.cpp.s
+.PHONY : ShuntingYard.cpp.s
 
 Singleton.o: Singleton.cpp.o
 
@@ -393,32 +582,167 @@ SleepCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/SleepCommand.cpp.s
 .PHONY : SleepCommand.cpp.s
 
-Var.o: Var.cpp.o
+UMinus.o: UMinus.cpp.o
 
-.PHONY : Var.o
+.PHONY : UMinus.o
 
 # target to build an object file
-Var.cpp.o:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Var.cpp.o
-.PHONY : Var.cpp.o
+UMinus.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UMinus.cpp.o
+.PHONY : UMinus.cpp.o
 
-Var.i: Var.cpp.i
+UMinus.i: UMinus.cpp.i
 
-.PHONY : Var.i
+.PHONY : UMinus.i
 
 # target to preprocess a source file
-Var.cpp.i:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Var.cpp.i
-.PHONY : Var.cpp.i
+UMinus.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UMinus.cpp.i
+.PHONY : UMinus.cpp.i
 
-Var.s: Var.cpp.s
+UMinus.s: UMinus.cpp.s
 
-.PHONY : Var.s
+.PHONY : UMinus.s
 
 # target to generate assembly for a file
-Var.cpp.s:
-	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Var.cpp.s
-.PHONY : Var.cpp.s
+UMinus.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UMinus.cpp.s
+.PHONY : UMinus.cpp.s
+
+UPlus.o: UPlus.cpp.o
+
+.PHONY : UPlus.o
+
+# target to build an object file
+UPlus.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UPlus.cpp.o
+.PHONY : UPlus.cpp.o
+
+UPlus.i: UPlus.cpp.i
+
+.PHONY : UPlus.i
+
+# target to preprocess a source file
+UPlus.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UPlus.cpp.i
+.PHONY : UPlus.cpp.i
+
+UPlus.s: UPlus.cpp.s
+
+.PHONY : UPlus.s
+
+# target to generate assembly for a file
+UPlus.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UPlus.cpp.s
+.PHONY : UPlus.cpp.s
+
+UnaryOperator.o: UnaryOperator.cpp.o
+
+.PHONY : UnaryOperator.o
+
+# target to build an object file
+UnaryOperator.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UnaryOperator.cpp.o
+.PHONY : UnaryOperator.cpp.o
+
+UnaryOperator.i: UnaryOperator.cpp.i
+
+.PHONY : UnaryOperator.i
+
+# target to preprocess a source file
+UnaryOperator.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UnaryOperator.cpp.i
+.PHONY : UnaryOperator.cpp.i
+
+UnaryOperator.s: UnaryOperator.cpp.s
+
+.PHONY : UnaryOperator.s
+
+# target to generate assembly for a file
+UnaryOperator.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/UnaryOperator.cpp.s
+.PHONY : UnaryOperator.cpp.s
+
+Value.o: Value.cpp.o
+
+.PHONY : Value.o
+
+# target to build an object file
+Value.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Value.cpp.o
+.PHONY : Value.cpp.o
+
+Value.i: Value.cpp.i
+
+.PHONY : Value.i
+
+# target to preprocess a source file
+Value.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Value.cpp.i
+.PHONY : Value.cpp.i
+
+Value.s: Value.cpp.s
+
+.PHONY : Value.s
+
+# target to generate assembly for a file
+Value.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Value.cpp.s
+.PHONY : Value.cpp.s
+
+VarCommand.o: VarCommand.cpp.o
+
+.PHONY : VarCommand.o
+
+# target to build an object file
+VarCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/VarCommand.cpp.o
+.PHONY : VarCommand.cpp.o
+
+VarCommand.i: VarCommand.cpp.i
+
+.PHONY : VarCommand.i
+
+# target to preprocess a source file
+VarCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/VarCommand.cpp.i
+.PHONY : VarCommand.cpp.i
+
+VarCommand.s: VarCommand.cpp.s
+
+.PHONY : VarCommand.s
+
+# target to generate assembly for a file
+VarCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/VarCommand.cpp.s
+.PHONY : VarCommand.cpp.s
+
+Variable.o: Variable.cpp.o
+
+.PHONY : Variable.o
+
+# target to build an object file
+Variable.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Variable.cpp.o
+.PHONY : Variable.cpp.o
+
+Variable.i: Variable.cpp.i
+
+.PHONY : Variable.i
+
+# target to preprocess a source file
+Variable.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Variable.cpp.i
+.PHONY : Variable.cpp.i
+
+Variable.s: Variable.cpp.s
+
+.PHONY : Variable.s
+
+# target to generate assembly for a file
+Variable.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Variable.cpp.s
+.PHONY : Variable.cpp.s
 
 main.o: main.cpp.o
 
@@ -456,6 +780,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ex3"
 	@echo "... edit_cache"
+	@echo "... BinaryOperator.o"
+	@echo "... BinaryOperator.i"
+	@echo "... BinaryOperator.s"
 	@echo "... ConditionParser.o"
 	@echo "... ConditionParser.i"
 	@echo "... ConditionParser.s"
@@ -465,30 +792,63 @@ help:
 	@echo "... DefineVarCommand.o"
 	@echo "... DefineVarCommand.i"
 	@echo "... DefineVarCommand.s"
+	@echo "... Div.o"
+	@echo "... Div.i"
+	@echo "... Div.s"
 	@echo "... FlightSimulator.o"
 	@echo "... FlightSimulator.i"
 	@echo "... FlightSimulator.s"
 	@echo "... IfCommand.o"
 	@echo "... IfCommand.i"
 	@echo "... IfCommand.s"
+	@echo "... Interpreter.o"
+	@echo "... Interpreter.i"
+	@echo "... Interpreter.s"
 	@echo "... LoopCommand.o"
 	@echo "... LoopCommand.i"
 	@echo "... LoopCommand.s"
+	@echo "... Minus.o"
+	@echo "... Minus.i"
+	@echo "... Minus.s"
+	@echo "... Mul.o"
+	@echo "... Mul.i"
+	@echo "... Mul.s"
 	@echo "... OpenServerCommand.o"
 	@echo "... OpenServerCommand.i"
 	@echo "... OpenServerCommand.s"
+	@echo "... Plus.o"
+	@echo "... Plus.i"
+	@echo "... Plus.s"
 	@echo "... PrintCommand.o"
 	@echo "... PrintCommand.i"
 	@echo "... PrintCommand.s"
+	@echo "... ShuntingYard.o"
+	@echo "... ShuntingYard.i"
+	@echo "... ShuntingYard.s"
 	@echo "... Singleton.o"
 	@echo "... Singleton.i"
 	@echo "... Singleton.s"
 	@echo "... SleepCommand.o"
 	@echo "... SleepCommand.i"
 	@echo "... SleepCommand.s"
-	@echo "... Var.o"
-	@echo "... Var.i"
-	@echo "... Var.s"
+	@echo "... UMinus.o"
+	@echo "... UMinus.i"
+	@echo "... UMinus.s"
+	@echo "... UPlus.o"
+	@echo "... UPlus.i"
+	@echo "... UPlus.s"
+	@echo "... UnaryOperator.o"
+	@echo "... UnaryOperator.i"
+	@echo "... UnaryOperator.s"
+	@echo "... Value.o"
+	@echo "... Value.i"
+	@echo "... Value.s"
+	@echo "... VarCommand.o"
+	@echo "... VarCommand.i"
+	@echo "... VarCommand.s"
+	@echo "... Variable.o"
+	@echo "... Variable.i"
+	@echo "... Variable.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

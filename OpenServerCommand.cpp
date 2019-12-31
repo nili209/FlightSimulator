@@ -10,7 +10,7 @@ void OpenServerCommand::execute(queue<string> &token) {
   token.pop();
   //parameter of command
   string expression = token.front();
-  float port = ex1::cal(expression, *singleton->getVarValues());
+  float port = ShuntingYard::calculator(expression, *singleton->getVarValues());
   token.pop();
   thread thread_in_1(openSocketOut, port);
   thread_in_1.join();
@@ -55,10 +55,10 @@ void OpenServerCommand::updateValuesInMaps(int i, string &current_value, string 
   Singleton *singleton = Singleton::getSingleton();
   //update the value in symbol-table-simulator
   current_var_name = singleton->getIndex()->at(i);
-  Var *v = (Var *) singleton->getSymbolTableSimulator()->at(current_var_name);
+  VarCommand *v = (VarCommand *) singleton->getSymbolTableSimulator()->at(current_var_name);
   if (v->getDirection().compare("<-") == 0) {
     v->setValue(atof(current_value.c_str()));
-    Var::updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
+    VarCommand::updateSymbolTableProg(v->getSim(), atof(current_value.c_str()));
   }
 }
 /*

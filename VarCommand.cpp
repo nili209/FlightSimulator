@@ -1,16 +1,16 @@
 //
 // Created by shiraz and nili on 12.12.2019.
 //
-#include "Var.h"
+#include "VarCommand.h"
 /*
 * The function updates the symbol table of the program.
 */
- void Var::updateSymbolTableProg(string sim, float value) {
+ void VarCommand::updateSymbolTableProg(string sim, float value) {
   string otherSim = "";
   Singleton *singelton1 = Singleton::getSingleton();
   singelton1->mutex_lock.lock();
   for (auto &it: *singelton1->getSymbolTableProgram()) {
-    Var *v = (Var *) it.second;
+    VarCommand *v = (VarCommand *) it.second;
     otherSim = v->getSim();
     if (sim.compare(otherSim) == 0) {
       string name = it.first;
@@ -23,43 +23,43 @@
 /*
 * The function sets the direction.
 */
-void Var::setDirection(string direct) {
+void VarCommand::setDirection(string direct) {
   this->direction = direct;
 }
 /*
 * The function returns the direction.
 */
-string Var::getDirection() {
+string VarCommand::getDirection() {
   return direction;
 }
 /*
 * The function returns the sim.
 */
-string Var::getSim() {
+string VarCommand::getSim() {
   return this->sim;
 }
 /*
 * The function sets the sim.
 */
-void Var::setSim(string sim1) {
+void VarCommand::setSim(string sim1) {
   this->sim = sim1;
 }
 /*
 * The function returns the value.
 */
-float Var::getValue() {
+float VarCommand::getValue() {
   return this->value;
 }
 /*
 * The function sets the name.
 */
-void Var::setName(string name1) {
+void VarCommand::setName(string name1) {
   this->name = name1;
 }
 /*
 * The function sets the value.
 */
-void Var::setValue(float num) {
+void VarCommand::setValue(float num) {
   singleton->mutex_lock.lock();
   this->value = num;
   singleton->updateVarValues(name, num);
@@ -69,14 +69,14 @@ void Var::setValue(float num) {
 /*
 * The function updates the value of the var and adds a message if needed.
 */
-void Var::execute(queue<string> &token) {
+void VarCommand::execute(queue<string> &token) {
   //name of var
   string var_name = token.front();
   token.pop();
   //"="
   token.pop();
   string expression = token.front();
-  float value1 = ex1::cal(expression, *singleton->getVarValues());
+  float value1 = ShuntingYard::calculator(expression, *singleton->getVarValues());
   setValue(value1);
   //simulator needed to be changed
   string tempSim = sim;
@@ -99,6 +99,6 @@ void Var::execute(queue<string> &token) {
 /*
 * Destructor.
 */
-Var::~Var() {}
+VarCommand::~VarCommand() {}
 
 

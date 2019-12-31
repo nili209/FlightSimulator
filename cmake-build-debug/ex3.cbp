@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/BinaryOperator.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/BinaryOperator.h">
+			<Option target="ex3"/>
+		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/ConditionParser.cpp">
 			<Option target="ex3"/>
 		</Unit>
@@ -102,6 +108,12 @@
 		<Unit filename="/home/shiraz/CLionProjects/ex3/DefineVarCommand.h">
 			<Option target="ex3"/>
 		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Div.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Div.h">
+			<Option target="ex3"/>
+		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/FlightSimulator.cpp">
 			<Option target="ex3"/>
 		</Unit>
@@ -114,10 +126,28 @@
 		<Unit filename="/home/shiraz/CLionProjects/ex3/IfCommand.h">
 			<Option target="ex3"/>
 		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Interpreter.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Interpreter.h">
+			<Option target="ex3"/>
+		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/LoopCommand.cpp">
 			<Option target="ex3"/>
 		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/LoopCommand.h">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Minus.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Minus.h">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Mul.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Mul.h">
 			<Option target="ex3"/>
 		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp">
@@ -126,10 +156,22 @@
 		<Unit filename="/home/shiraz/CLionProjects/ex3/OpenServerCommand.h">
 			<Option target="ex3"/>
 		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Plus.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Plus.h">
+			<Option target="ex3"/>
+		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/PrintCommand.cpp">
 			<Option target="ex3"/>
 		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/PrintCommand.h">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/ShuntingYard.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/ShuntingYard.h">
 			<Option target="ex3"/>
 		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/Singleton.cpp">
@@ -144,10 +186,40 @@
 		<Unit filename="/home/shiraz/CLionProjects/ex3/SleepCommand.h">
 			<Option target="ex3"/>
 		</Unit>
-		<Unit filename="/home/shiraz/CLionProjects/ex3/Var.cpp">
+		<Unit filename="/home/shiraz/CLionProjects/ex3/UMinus.cpp">
 			<Option target="ex3"/>
 		</Unit>
-		<Unit filename="/home/shiraz/CLionProjects/ex3/Var.h">
+		<Unit filename="/home/shiraz/CLionProjects/ex3/UMinus.h">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/UPlus.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/UPlus.h">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/UnaryOperator.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/UnaryOperator.h">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Value.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Value.h">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/VarCommand.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/VarCommand.h">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Variable.cpp">
+			<Option target="ex3"/>
+		</Unit>
+		<Unit filename="/home/shiraz/CLionProjects/ex3/Variable.h">
 			<Option target="ex3"/>
 		</Unit>
 		<Unit filename="/home/shiraz/CLionProjects/ex3/main.cpp">

@@ -6,7 +6,7 @@
 #define EX3__PRINTCOMMAND_H_
 #include "Command.h"
 #include "Singleton.h"
-#include "ex1.h"
+#include "ShuntingYard.h"
 class PrintCommand : public Command {
  private:
   Singleton* singleton = Singleton::getSingleton();

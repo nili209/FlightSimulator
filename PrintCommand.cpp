@@ -16,7 +16,7 @@ void PrintCommand::execute(queue<string> &token) {
     cout << printer << endl;
     //is not a string with " "
   } else {
-    value = ex1::cal(token.front(), *singleton->getVarValues());
+    value = ShuntingYard::calculator(token.front(), *singleton->getVarValues());
     cout << value << endl;
   }
   //the message

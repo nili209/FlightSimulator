@@ -4,8 +4,8 @@
 #ifndef ex3__OPENDATASERVER_H_
 #define ex3__OPENDATASERVER_H_
 #include "Command.h"
-#include "Var.h"
-#include "ex1.h"
+#include "VarCommand.h"
+#include "ShuntingYard.h"
 
 class OpenServerCommand : public Command {
  private:

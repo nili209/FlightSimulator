@@ -19,252 +19,252 @@ void FlightSimulator::resetSimulatorMap() {
   /***/
   name_of_var = "airspeed-indicator_indicated-speed-kt";
   sim_of_var = "/instrumentation/airspeed-indicator/indicated-speed-kt";
-  Var *v1 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v1 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v1});
   index_map.insert({0, name_of_var});
   var_values.insert({name_of_var, 1});
   /***/
   name_of_var = "time_warp";
   sim_of_var = "/sim/time/warp";
-  Var *v2 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v2 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v2});
   index_map.insert({1, name_of_var});
   var_values.insert({name_of_var, 1});
   /***/
   name_of_var = "switches_magnetos";
   sim_of_var = "/controls/switches/magnetos";
-  Var *v3 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v3 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v3});
   index_map.insert({2, name_of_var});
   var_values.insert({name_of_var, 1});
   /***/
   name_of_var = "heading-indicator_offset-deg";
   sim_of_var = "/instrumentation/heading-indicator/offset-deg";
-  Var *v4 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v4 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v4});
   index_map.insert({3, name_of_var});
   var_values.insert({name_of_var, 1});
   /***/
   name_of_var = "altimeter_indicated-altitude-ft";
   sim_of_var = "/instrumentation/altimeter/indicated-altitude-ft";
-  Var *v5 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v5 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v5});
   index_map.insert({4, name_of_var});
   var_values.insert({name_of_var, 1});
   /***/
   name_of_var = "altimeter_pressure-alt-ft";
   sim_of_var = "/instrumentation/altimeter/pressure-alt-ft";
-  Var *v6 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v6 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v6});
   index_map.insert({5, name_of_var});
   var_values.insert({name_of_var, 1});
   /***/
   name_of_var = "attitude-indicator_indicated-pitch-deg";
   sim_of_var = "/instrumentation/attitude-indicator/indicated-pitch-deg";
-  Var *v7 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v7 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v7});
   index_map.insert({6, name_of_var});
   var_values.insert({name_of_var, 1});
   /***/
   name_of_var = "attitude-indicator_indicated-roll-deg";
   sim_of_var = "/instrumentation/attitude-indicator/indicated-roll-deg";
-  Var *v8 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v8 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v8});
   index_map.insert({7, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "attitude-indicator_internal-pitch-deg";
   sim_of_var = "/instrumentation/attitude-indicator/internal-pitch-deg";
-  Var *v9 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v9 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v9});
   index_map.insert({8, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "attitude-indicator_internal-roll-deg";
   sim_of_var = "/instrumentation/attitude-indicator/internal-roll-deg";
-  Var *v10 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v10 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v10});
   index_map.insert({9, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "encoder_indicated-altitude-ft";
   sim_of_var = "/instrumentation/encoder/indicated-altitude-ft";
-  Var *v11 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v11 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v11});
   index_map.insert({10, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "encoder_pressure-alt-ft";
   sim_of_var = "/instrumentation/encoder/pressure-alt-ft";
-  Var *v12 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v12 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v12});
   index_map.insert({11, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "gps_indicated-altitude-ft";
   sim_of_var = "/instrumentation/gps/indicated-altitude-ft";
-  Var *v13 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v13 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v13});
   index_map.insert({12, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "gps_indicated-ground-speed-kt";
   sim_of_var = "/instrumentation/gps/indicated-ground-speed-kt";
-  Var *v14 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v14 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v14});
   index_map.insert({13, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "gps_indicated-vertical-speed";
   sim_of_var = "/instrumentation/gps/indicated-vertical-speed";
-  Var *v15 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v15 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v15});
   index_map.insert({14, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "indicated-heading-deg";
   sim_of_var = "/instrumentation/heading-indicator/indicated-heading-deg";
-  Var *v16 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v16 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v16});
   index_map.insert({15, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "magnetic-compass_indicated-heading-deg";
   sim_of_var = "/instrumentation/magnetic-compass/indicated-heading-deg";
-  Var *v17 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v17 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v17});
   index_map.insert({16, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "slip-skid-ball_indicated-slip-skid";
   sim_of_var = "/instrumentation/slip-skid-ball/indicated-slip-skid";
-  Var *v18 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v18 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v18});
   index_map.insert({17, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "turn-indicator_indicated-turn-rate";
   sim_of_var = "/instrumentation/turn-indicator/indicated-turn-rate";
-  Var *v19 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v19 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v19});
   index_map.insert({18, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "vertical-speed-indicator_indicated-speed-fpm";
   sim_of_var = "/instrumentation/vertical-speed-indicator/indicated-speed-fpm";
-  Var *v20 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v20 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v20});
   index_map.insert({19, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "flight_aileron";
   sim_of_var = "/controls/flight/aileron";
-  Var *v21 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v21 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v21});
   index_map.insert({20, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "flight_elevator";
   sim_of_var = "/controls/flight/elevator";
-  Var *v22 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v22 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v22});
   index_map.insert({21, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "flight_rudder";
   sim_of_var = "/controls/flight/rudder";
-  Var *v23 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v23 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v23});
   index_map.insert({22, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "flight_flaps";
   sim_of_var = "/controls/flight/flaps";
-  Var *v24 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v24 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v24});
   index_map.insert({23, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "engine_throttle";
   sim_of_var = "/controls/engines/engine/throttle";
-  Var *v25 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v25 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v25});
   index_map.insert({24, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "current-engine_throttle";
   sim_of_var = "/controls/engines/current-engine/throttle";
-  Var *v26 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v26 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v26});
   index_map.insert({25, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "switches_master-avionics";
   sim_of_var = "/controls/switches/master-avionics";
-  Var *v27 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v27 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v27});
   index_map.insert({26, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "switches_starter";
   sim_of_var = "/controls/switches/starter";
-  Var *v28 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v28 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v28});
   index_map.insert({27, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "active-engine_auto-start";
   sim_of_var = "/engines/active-engine/auto-start";
-  Var *v29 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v29 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v29});
   index_map.insert({28, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "flight_speedbrake";
   sim_of_var = "/controls/flight/speedbrake";
-  Var *v30 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v30 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v30});
   index_map.insert({29, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "c172p_brake-parking";
   sim_of_var = "/sim/model/c172p/brake-parking";
-  Var *v31 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v31 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v31});
   index_map.insert({30, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "engine_primer";
   sim_of_var = "/controls/engines/engine/primer";
-  Var *v32 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v32 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v32});
   index_map.insert({31, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "current-engine_mixture";
   sim_of_var = "/controls/engines/current-engine/mixture";
-  Var *v33 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v33 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v33});
   index_map.insert({32, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "switches_master-bat";
   sim_of_var = "/controls/switches/master-bat";
-  Var *v34 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v34 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v34});
   index_map.insert({33, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "switches_master-alt";
   sim_of_var = "/controls/switches/master-alt";
-  Var *v35 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v35 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v35});
   index_map.insert({34, name_of_var});
   var_values.insert({name_of_var, 0});
   /***/
   name_of_var = "engine_rpm";
   sim_of_var = "/engines/engine/rpm";
-  Var *v36 = new Var(sim_of_var, "<-", name_of_var);
+  VarCommand *v36 = new VarCommand(sim_of_var, "<-", name_of_var);
   map.insert({name_of_var, v36});
   index_map.insert({35, name_of_var});
   var_values.insert({name_of_var, 0});
