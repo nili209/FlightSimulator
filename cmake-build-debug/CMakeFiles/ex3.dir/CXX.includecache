@@ -41,66 +41,102 @@ mutex
 -
 
 /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
-Var.cpp
-/home/shiraz/CLionProjects/ex3/Var.cpp
+ConditionParser.h
+/home/shiraz/CLionProjects/ex3/ConditionParser.h
+
+/home/shiraz/CLionProjects/ex3/ConditionParser.h
+Var.h
+/home/shiraz/CLionProjects/ex3/Var.h
 
 /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
+ConnectCommand.h
+/home/shiraz/CLionProjects/ex3/ConnectCommand.h
+
+/home/shiraz/CLionProjects/ex3/ConnectCommand.h
 cstring
 -
-Var.cpp
-/home/shiraz/CLionProjects/ex3/Var.cpp
+Var.h
+/home/shiraz/CLionProjects/ex3/Var.h
 
 /home/shiraz/CLionProjects/ex3/DefineVarCommand.cpp
+DefineVarCommand.h
+/home/shiraz/CLionProjects/ex3/DefineVarCommand.h
+
+/home/shiraz/CLionProjects/ex3/DefineVarCommand.h
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
-Var.cpp
-/home/shiraz/CLionProjects/ex3/Var.cpp
+Var.h
+/home/shiraz/CLionProjects/ex3/Var.h
 
 /home/shiraz/CLionProjects/ex3/Expression.h
 
 /home/shiraz/CLionProjects/ex3/FlightSimulator.cpp
-OpenServerCommand.cpp
-/home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
-ConnectCommand.cpp
-/home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
-DefineVarCommand.cpp
-/home/shiraz/CLionProjects/ex3/DefineVarCommand.cpp
-PrintCommand.cpp
-/home/shiraz/CLionProjects/ex3/PrintCommand.cpp
-SleepCommand.cpp
-/home/shiraz/CLionProjects/ex3/SleepCommand.cpp
-IfCommand.cpp
-/home/shiraz/CLionProjects/ex3/IfCommand.cpp
-LoopCommand.cpp
-/home/shiraz/CLionProjects/ex3/LoopCommand.cpp
+FlightSimulator.h
+/home/shiraz/CLionProjects/ex3/FlightSimulator.h
+
+/home/shiraz/CLionProjects/ex3/FlightSimulator.h
+OpenServerCommand.h
+/home/shiraz/CLionProjects/ex3/OpenServerCommand.h
+ConnectCommand.h
+/home/shiraz/CLionProjects/ex3/ConnectCommand.h
+DefineVarCommand.h
+/home/shiraz/CLionProjects/ex3/DefineVarCommand.h
+PrintCommand.h
+/home/shiraz/CLionProjects/ex3/PrintCommand.h
+SleepCommand.h
+/home/shiraz/CLionProjects/ex3/SleepCommand.h
+IfCommand.h
+/home/shiraz/CLionProjects/ex3/IfCommand.h
+LoopCommand.h
+/home/shiraz/CLionProjects/ex3/LoopCommand.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
-Var.cpp
-/home/shiraz/CLionProjects/ex3/Var.cpp
+Var.h
+/home/shiraz/CLionProjects/ex3/Var.h
 
 /home/shiraz/CLionProjects/ex3/IfCommand.cpp
-ConditionParser.cpp
-/home/shiraz/CLionProjects/ex3/ConditionParser.cpp
+IfCommand.h
+/home/shiraz/CLionProjects/ex3/IfCommand.h
+
+/home/shiraz/CLionProjects/ex3/IfCommand.h
+ConditionParser.h
+/home/shiraz/CLionProjects/ex3/ConditionParser.h
 
 /home/shiraz/CLionProjects/ex3/LoopCommand.cpp
-ConditionParser.cpp
-/home/shiraz/CLionProjects/ex3/ConditionParser.cpp
+LoopCommand.h
+/home/shiraz/CLionProjects/ex3/LoopCommand.h
+
+/home/shiraz/CLionProjects/ex3/LoopCommand.h
+ConditionParser.h
+/home/shiraz/CLionProjects/ex3/ConditionParser.h
 
 /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
+OpenServerCommand.h
+/home/shiraz/CLionProjects/ex3/OpenServerCommand.h
+
+/home/shiraz/CLionProjects/ex3/OpenServerCommand.h
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
-Var.cpp
-/home/shiraz/CLionProjects/ex3/Var.cpp
+Var.h
+/home/shiraz/CLionProjects/ex3/Var.h
 ex1.h
 /home/shiraz/CLionProjects/ex3/ex1.h
 
 /home/shiraz/CLionProjects/ex3/PrintCommand.cpp
+PrintCommand.h
+/home/shiraz/CLionProjects/ex3/PrintCommand.h
+
+/home/shiraz/CLionProjects/ex3/PrintCommand.h
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
 ex1.h
 /home/shiraz/CLionProjects/ex3/ex1.h
+
+/home/shiraz/CLionProjects/ex3/Singleton.cpp
+Singleton.h
+/home/shiraz/CLionProjects/ex3/Singleton.h
 
 /home/shiraz/CLionProjects/ex3/Singleton.h
 string
@@ -109,16 +145,24 @@ Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 
 /home/shiraz/CLionProjects/ex3/SleepCommand.cpp
+SleepCommand.h
+/home/shiraz/CLionProjects/ex3/SleepCommand.h
+
+/home/shiraz/CLionProjects/ex3/SleepCommand.h
 Command.h
 /home/shiraz/CLionProjects/ex3/Command.h
 thread
 -
 chrono
 -
-Var.cpp
-/home/shiraz/CLionProjects/ex3/Var.cpp
+Var.h
+/home/shiraz/CLionProjects/ex3/Var.h
 
 /home/shiraz/CLionProjects/ex3/Var.cpp
+Var.h
+/home/shiraz/CLionProjects/ex3/Var.h
+
+/home/shiraz/CLionProjects/ex3/Var.h
 Singleton.h
 /home/shiraz/CLionProjects/ex3/Singleton.h
 ex1.h
@@ -147,6 +191,6 @@ string
 -
 queue
 -
-FlightSimulator.cpp
-/home/shiraz/CLionProjects/ex3/FlightSimulator.cpp
+FlightSimulator.h
+/home/shiraz/CLionProjects/ex3/FlightSimulator.h
 

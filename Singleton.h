@@ -10,12 +10,13 @@
 class Singleton {
  private:
   static Singleton *instance;
-  static unordered_map<string, Command *> commands;
-  static unordered_map<string, float> var_values;
-  static queue<string> messages;
-  static unordered_map<string, Command *> symbol_table_program;
-  static unordered_map<string, Command *> symbol_table_simulator;
-  static unordered_map<int, string> index;
+   bool is_done = false;
+   unordered_map<string, Command *> commands;
+   unordered_map<string, float> var_values;
+   queue<string> messages;
+   unordered_map<string, Command *> symbol_table_program;
+   unordered_map<string, Command *> symbol_table_simulator;
+   unordered_map<int, string> index;
   Singleton(){};
  public:
   static mutex mutex_lock;
@@ -33,6 +34,8 @@ class Singleton {
   void updateSymbolTableProgram(string name, Command *command);
   void updateVarValues(string var_name, float value);
   void insertToCommands(string name_of_command, Command *command);
+  void setIsDone(bool state);
+  bool getIsDone();
   virtual ~Singleton();
 };
 #endif //EX3__SINGLETON_H_

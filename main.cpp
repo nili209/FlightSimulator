@@ -1,6 +1,6 @@
 #include <string>
 #include <queue>
-#include "FlightSimulator.cpp"
+#include "FlightSimulator.h"
 int main(int argc, char *argv[]) {
   if(argc > 1) {
     char *file_name = argv[1];

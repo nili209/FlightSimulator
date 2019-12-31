@@ -83,19 +83,169 @@ CMakeFiles/ex3.dir/Singleton.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/Singleton.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/Singleton.cpp -o CMakeFiles/ex3.dir/Singleton.cpp.s
 
+CMakeFiles/ex3.dir/SleepCommand.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/SleepCommand.cpp.o: ../SleepCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ex3.dir/SleepCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/SleepCommand.cpp.o -c /home/shiraz/CLionProjects/ex3/SleepCommand.cpp
+
+CMakeFiles/ex3.dir/SleepCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/SleepCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/SleepCommand.cpp > CMakeFiles/ex3.dir/SleepCommand.cpp.i
+
+CMakeFiles/ex3.dir/SleepCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/SleepCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/SleepCommand.cpp -o CMakeFiles/ex3.dir/SleepCommand.cpp.s
+
+CMakeFiles/ex3.dir/PrintCommand.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/PrintCommand.cpp.o: ../PrintCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ex3.dir/PrintCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/PrintCommand.cpp.o -c /home/shiraz/CLionProjects/ex3/PrintCommand.cpp
+
+CMakeFiles/ex3.dir/PrintCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/PrintCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/PrintCommand.cpp > CMakeFiles/ex3.dir/PrintCommand.cpp.i
+
+CMakeFiles/ex3.dir/PrintCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/PrintCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/PrintCommand.cpp -o CMakeFiles/ex3.dir/PrintCommand.cpp.s
+
+CMakeFiles/ex3.dir/Var.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/Var.cpp.o: ../Var.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ex3.dir/Var.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/Var.cpp.o -c /home/shiraz/CLionProjects/ex3/Var.cpp
+
+CMakeFiles/ex3.dir/Var.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/Var.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/Var.cpp > CMakeFiles/ex3.dir/Var.cpp.i
+
+CMakeFiles/ex3.dir/Var.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/Var.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/Var.cpp -o CMakeFiles/ex3.dir/Var.cpp.s
+
+CMakeFiles/ex3.dir/OpenServerCommand.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/OpenServerCommand.cpp.o: ../OpenServerCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ex3.dir/OpenServerCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/OpenServerCommand.cpp.o -c /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp
+
+CMakeFiles/ex3.dir/OpenServerCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/OpenServerCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp > CMakeFiles/ex3.dir/OpenServerCommand.cpp.i
+
+CMakeFiles/ex3.dir/OpenServerCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/OpenServerCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/OpenServerCommand.cpp -o CMakeFiles/ex3.dir/OpenServerCommand.cpp.s
+
+CMakeFiles/ex3.dir/LoopCommand.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/LoopCommand.cpp.o: ../LoopCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ex3.dir/LoopCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/LoopCommand.cpp.o -c /home/shiraz/CLionProjects/ex3/LoopCommand.cpp
+
+CMakeFiles/ex3.dir/LoopCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/LoopCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/LoopCommand.cpp > CMakeFiles/ex3.dir/LoopCommand.cpp.i
+
+CMakeFiles/ex3.dir/LoopCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/LoopCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/LoopCommand.cpp -o CMakeFiles/ex3.dir/LoopCommand.cpp.s
+
+CMakeFiles/ex3.dir/IfCommand.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/IfCommand.cpp.o: ../IfCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ex3.dir/IfCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/IfCommand.cpp.o -c /home/shiraz/CLionProjects/ex3/IfCommand.cpp
+
+CMakeFiles/ex3.dir/IfCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/IfCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/IfCommand.cpp > CMakeFiles/ex3.dir/IfCommand.cpp.i
+
+CMakeFiles/ex3.dir/IfCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/IfCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/IfCommand.cpp -o CMakeFiles/ex3.dir/IfCommand.cpp.s
+
+CMakeFiles/ex3.dir/DefineVarCommand.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/DefineVarCommand.cpp.o: ../DefineVarCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ex3.dir/DefineVarCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/DefineVarCommand.cpp.o -c /home/shiraz/CLionProjects/ex3/DefineVarCommand.cpp
+
+CMakeFiles/ex3.dir/DefineVarCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/DefineVarCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/DefineVarCommand.cpp > CMakeFiles/ex3.dir/DefineVarCommand.cpp.i
+
+CMakeFiles/ex3.dir/DefineVarCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/DefineVarCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/DefineVarCommand.cpp -o CMakeFiles/ex3.dir/DefineVarCommand.cpp.s
+
+CMakeFiles/ex3.dir/ConnectCommand.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/ConnectCommand.cpp.o: ../ConnectCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ex3.dir/ConnectCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/ConnectCommand.cpp.o -c /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp
+
+CMakeFiles/ex3.dir/ConnectCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/ConnectCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp > CMakeFiles/ex3.dir/ConnectCommand.cpp.i
+
+CMakeFiles/ex3.dir/ConnectCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/ConnectCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/ConnectCommand.cpp -o CMakeFiles/ex3.dir/ConnectCommand.cpp.s
+
+CMakeFiles/ex3.dir/ConditionParser.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/ConditionParser.cpp.o: ../ConditionParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ex3.dir/ConditionParser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/ConditionParser.cpp.o -c /home/shiraz/CLionProjects/ex3/ConditionParser.cpp
+
+CMakeFiles/ex3.dir/ConditionParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/ConditionParser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/ConditionParser.cpp > CMakeFiles/ex3.dir/ConditionParser.cpp.i
+
+CMakeFiles/ex3.dir/ConditionParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/ConditionParser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/ConditionParser.cpp -o CMakeFiles/ex3.dir/ConditionParser.cpp.s
+
+CMakeFiles/ex3.dir/FlightSimulator.cpp.o: CMakeFiles/ex3.dir/flags.make
+CMakeFiles/ex3.dir/FlightSimulator.cpp.o: ../FlightSimulator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ex3.dir/FlightSimulator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex3.dir/FlightSimulator.cpp.o -c /home/shiraz/CLionProjects/ex3/FlightSimulator.cpp
+
+CMakeFiles/ex3.dir/FlightSimulator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex3.dir/FlightSimulator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shiraz/CLionProjects/ex3/FlightSimulator.cpp > CMakeFiles/ex3.dir/FlightSimulator.cpp.i
+
+CMakeFiles/ex3.dir/FlightSimulator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex3.dir/FlightSimulator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shiraz/CLionProjects/ex3/FlightSimulator.cpp -o CMakeFiles/ex3.dir/FlightSimulator.cpp.s
+
 # Object files for target ex3
 ex3_OBJECTS = \
 "CMakeFiles/ex3.dir/main.cpp.o" \
-"CMakeFiles/ex3.dir/Singleton.cpp.o"
+"CMakeFiles/ex3.dir/Singleton.cpp.o" \
+"CMakeFiles/ex3.dir/SleepCommand.cpp.o" \
+"CMakeFiles/ex3.dir/PrintCommand.cpp.o" \
+"CMakeFiles/ex3.dir/Var.cpp.o" \
+"CMakeFiles/ex3.dir/OpenServerCommand.cpp.o" \
+"CMakeFiles/ex3.dir/LoopCommand.cpp.o" \
+"CMakeFiles/ex3.dir/IfCommand.cpp.o" \
+"CMakeFiles/ex3.dir/DefineVarCommand.cpp.o" \
+"CMakeFiles/ex3.dir/ConnectCommand.cpp.o" \
+"CMakeFiles/ex3.dir/ConditionParser.cpp.o" \
+"CMakeFiles/ex3.dir/FlightSimulator.cpp.o"
 
 # External object files for target ex3
 ex3_EXTERNAL_OBJECTS =
 
 ex3: CMakeFiles/ex3.dir/main.cpp.o
 ex3: CMakeFiles/ex3.dir/Singleton.cpp.o
+ex3: CMakeFiles/ex3.dir/SleepCommand.cpp.o
+ex3: CMakeFiles/ex3.dir/PrintCommand.cpp.o
+ex3: CMakeFiles/ex3.dir/Var.cpp.o
+ex3: CMakeFiles/ex3.dir/OpenServerCommand.cpp.o
+ex3: CMakeFiles/ex3.dir/LoopCommand.cpp.o
+ex3: CMakeFiles/ex3.dir/IfCommand.cpp.o
+ex3: CMakeFiles/ex3.dir/DefineVarCommand.cpp.o
+ex3: CMakeFiles/ex3.dir/ConnectCommand.cpp.o
+ex3: CMakeFiles/ex3.dir/ConditionParser.cpp.o
+ex3: CMakeFiles/ex3.dir/FlightSimulator.cpp.o
 ex3: CMakeFiles/ex3.dir/build.make
 ex3: CMakeFiles/ex3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ex3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/shiraz/CLionProjects/ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable ex3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ex3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

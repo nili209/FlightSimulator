@@ -123,6 +123,222 @@ ex3/fast:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/build
 .PHONY : ex3/fast
 
+ConditionParser.o: ConditionParser.cpp.o
+
+.PHONY : ConditionParser.o
+
+# target to build an object file
+ConditionParser.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ConditionParser.cpp.o
+.PHONY : ConditionParser.cpp.o
+
+ConditionParser.i: ConditionParser.cpp.i
+
+.PHONY : ConditionParser.i
+
+# target to preprocess a source file
+ConditionParser.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ConditionParser.cpp.i
+.PHONY : ConditionParser.cpp.i
+
+ConditionParser.s: ConditionParser.cpp.s
+
+.PHONY : ConditionParser.s
+
+# target to generate assembly for a file
+ConditionParser.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ConditionParser.cpp.s
+.PHONY : ConditionParser.cpp.s
+
+ConnectCommand.o: ConnectCommand.cpp.o
+
+.PHONY : ConnectCommand.o
+
+# target to build an object file
+ConnectCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ConnectCommand.cpp.o
+.PHONY : ConnectCommand.cpp.o
+
+ConnectCommand.i: ConnectCommand.cpp.i
+
+.PHONY : ConnectCommand.i
+
+# target to preprocess a source file
+ConnectCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ConnectCommand.cpp.i
+.PHONY : ConnectCommand.cpp.i
+
+ConnectCommand.s: ConnectCommand.cpp.s
+
+.PHONY : ConnectCommand.s
+
+# target to generate assembly for a file
+ConnectCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/ConnectCommand.cpp.s
+.PHONY : ConnectCommand.cpp.s
+
+DefineVarCommand.o: DefineVarCommand.cpp.o
+
+.PHONY : DefineVarCommand.o
+
+# target to build an object file
+DefineVarCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/DefineVarCommand.cpp.o
+.PHONY : DefineVarCommand.cpp.o
+
+DefineVarCommand.i: DefineVarCommand.cpp.i
+
+.PHONY : DefineVarCommand.i
+
+# target to preprocess a source file
+DefineVarCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/DefineVarCommand.cpp.i
+.PHONY : DefineVarCommand.cpp.i
+
+DefineVarCommand.s: DefineVarCommand.cpp.s
+
+.PHONY : DefineVarCommand.s
+
+# target to generate assembly for a file
+DefineVarCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/DefineVarCommand.cpp.s
+.PHONY : DefineVarCommand.cpp.s
+
+FlightSimulator.o: FlightSimulator.cpp.o
+
+.PHONY : FlightSimulator.o
+
+# target to build an object file
+FlightSimulator.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/FlightSimulator.cpp.o
+.PHONY : FlightSimulator.cpp.o
+
+FlightSimulator.i: FlightSimulator.cpp.i
+
+.PHONY : FlightSimulator.i
+
+# target to preprocess a source file
+FlightSimulator.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/FlightSimulator.cpp.i
+.PHONY : FlightSimulator.cpp.i
+
+FlightSimulator.s: FlightSimulator.cpp.s
+
+.PHONY : FlightSimulator.s
+
+# target to generate assembly for a file
+FlightSimulator.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/FlightSimulator.cpp.s
+.PHONY : FlightSimulator.cpp.s
+
+IfCommand.o: IfCommand.cpp.o
+
+.PHONY : IfCommand.o
+
+# target to build an object file
+IfCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/IfCommand.cpp.o
+.PHONY : IfCommand.cpp.o
+
+IfCommand.i: IfCommand.cpp.i
+
+.PHONY : IfCommand.i
+
+# target to preprocess a source file
+IfCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/IfCommand.cpp.i
+.PHONY : IfCommand.cpp.i
+
+IfCommand.s: IfCommand.cpp.s
+
+.PHONY : IfCommand.s
+
+# target to generate assembly for a file
+IfCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/IfCommand.cpp.s
+.PHONY : IfCommand.cpp.s
+
+LoopCommand.o: LoopCommand.cpp.o
+
+.PHONY : LoopCommand.o
+
+# target to build an object file
+LoopCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/LoopCommand.cpp.o
+.PHONY : LoopCommand.cpp.o
+
+LoopCommand.i: LoopCommand.cpp.i
+
+.PHONY : LoopCommand.i
+
+# target to preprocess a source file
+LoopCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/LoopCommand.cpp.i
+.PHONY : LoopCommand.cpp.i
+
+LoopCommand.s: LoopCommand.cpp.s
+
+.PHONY : LoopCommand.s
+
+# target to generate assembly for a file
+LoopCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/LoopCommand.cpp.s
+.PHONY : LoopCommand.cpp.s
+
+OpenServerCommand.o: OpenServerCommand.cpp.o
+
+.PHONY : OpenServerCommand.o
+
+# target to build an object file
+OpenServerCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/OpenServerCommand.cpp.o
+.PHONY : OpenServerCommand.cpp.o
+
+OpenServerCommand.i: OpenServerCommand.cpp.i
+
+.PHONY : OpenServerCommand.i
+
+# target to preprocess a source file
+OpenServerCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/OpenServerCommand.cpp.i
+.PHONY : OpenServerCommand.cpp.i
+
+OpenServerCommand.s: OpenServerCommand.cpp.s
+
+.PHONY : OpenServerCommand.s
+
+# target to generate assembly for a file
+OpenServerCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/OpenServerCommand.cpp.s
+.PHONY : OpenServerCommand.cpp.s
+
+PrintCommand.o: PrintCommand.cpp.o
+
+.PHONY : PrintCommand.o
+
+# target to build an object file
+PrintCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/PrintCommand.cpp.o
+.PHONY : PrintCommand.cpp.o
+
+PrintCommand.i: PrintCommand.cpp.i
+
+.PHONY : PrintCommand.i
+
+# target to preprocess a source file
+PrintCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/PrintCommand.cpp.i
+.PHONY : PrintCommand.cpp.i
+
+PrintCommand.s: PrintCommand.cpp.s
+
+.PHONY : PrintCommand.s
+
+# target to generate assembly for a file
+PrintCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/PrintCommand.cpp.s
+.PHONY : PrintCommand.cpp.s
+
 Singleton.o: Singleton.cpp.o
 
 .PHONY : Singleton.o
@@ -149,6 +365,60 @@ Singleton.s: Singleton.cpp.s
 Singleton.cpp.s:
 	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Singleton.cpp.s
 .PHONY : Singleton.cpp.s
+
+SleepCommand.o: SleepCommand.cpp.o
+
+.PHONY : SleepCommand.o
+
+# target to build an object file
+SleepCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/SleepCommand.cpp.o
+.PHONY : SleepCommand.cpp.o
+
+SleepCommand.i: SleepCommand.cpp.i
+
+.PHONY : SleepCommand.i
+
+# target to preprocess a source file
+SleepCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/SleepCommand.cpp.i
+.PHONY : SleepCommand.cpp.i
+
+SleepCommand.s: SleepCommand.cpp.s
+
+.PHONY : SleepCommand.s
+
+# target to generate assembly for a file
+SleepCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/SleepCommand.cpp.s
+.PHONY : SleepCommand.cpp.s
+
+Var.o: Var.cpp.o
+
+.PHONY : Var.o
+
+# target to build an object file
+Var.cpp.o:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Var.cpp.o
+.PHONY : Var.cpp.o
+
+Var.i: Var.cpp.i
+
+.PHONY : Var.i
+
+# target to preprocess a source file
+Var.cpp.i:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Var.cpp.i
+.PHONY : Var.cpp.i
+
+Var.s: Var.cpp.s
+
+.PHONY : Var.s
+
+# target to generate assembly for a file
+Var.cpp.s:
+	$(MAKE) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/Var.cpp.s
+.PHONY : Var.cpp.s
 
 main.o: main.cpp.o
 
@@ -186,9 +456,39 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ex3"
 	@echo "... edit_cache"
+	@echo "... ConditionParser.o"
+	@echo "... ConditionParser.i"
+	@echo "... ConditionParser.s"
+	@echo "... ConnectCommand.o"
+	@echo "... ConnectCommand.i"
+	@echo "... ConnectCommand.s"
+	@echo "... DefineVarCommand.o"
+	@echo "... DefineVarCommand.i"
+	@echo "... DefineVarCommand.s"
+	@echo "... FlightSimulator.o"
+	@echo "... FlightSimulator.i"
+	@echo "... FlightSimulator.s"
+	@echo "... IfCommand.o"
+	@echo "... IfCommand.i"
+	@echo "... IfCommand.s"
+	@echo "... LoopCommand.o"
+	@echo "... LoopCommand.i"
+	@echo "... LoopCommand.s"
+	@echo "... OpenServerCommand.o"
+	@echo "... OpenServerCommand.i"
+	@echo "... OpenServerCommand.s"
+	@echo "... PrintCommand.o"
+	@echo "... PrintCommand.i"
+	@echo "... PrintCommand.s"
 	@echo "... Singleton.o"
 	@echo "... Singleton.i"
 	@echo "... Singleton.s"
+	@echo "... SleepCommand.o"
+	@echo "... SleepCommand.i"
+	@echo "... SleepCommand.s"
+	@echo "... Var.o"
+	@echo "... Var.i"
+	@echo "... Var.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

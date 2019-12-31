@@ -1,91 +1,104 @@
 //
 // Created by shiraz and nili on 12.12.2019.
 //
-//
-// Created by shiraz and nili on 25.12.2019.
-//
-
-#ifndef EX3__VAR_H_
-#define EX3__VAR_H_
-#include "Singleton.h"
-#include "ex1.h"
-class Var : public Command {
- private:
-  Singleton *singleton = Singleton::getSingleton();
-  string sim, direction, name;
-  float value;
- public:
-  Var(string sim1, string direction1, string name1) : sim(sim1), direction(direction1), name(name1) {};
-  static void updateSymbolTableProg(string sim, float value) {
-    string otherSim = "";
-    Singleton *singelton1 = Singleton::getSingleton();
-    singelton1->mutex_lock.lock();
-    for (auto &it: *singelton1->getSymbolTableProgram()) {
-      Var *v = (Var *) it.second;
-      otherSim = v->getSim();
-      if (sim.compare(otherSim) == 0) {
-        string name = it.first;
-        singelton1->updateVarValues(name, value);
-        break;
-      }
+#include "Var.h"
+/*
+* The function updates the symbol table of the program.
+*/
+ void Var::updateSymbolTableProg(string sim, float value) {
+  string otherSim = "";
+  Singleton *singelton1 = Singleton::getSingleton();
+  singelton1->mutex_lock.lock();
+  for (auto &it: *singelton1->getSymbolTableProgram()) {
+    Var *v = (Var *) it.second;
+    otherSim = v->getSim();
+    if (sim.compare(otherSim) == 0) {
+      string name = it.first;
+      singelton1->updateVarValues(name, value);
+      break;
     }
-    singelton1->mutex_lock.unlock();
   }
-  void setDirection(string direct) {
-    this->direction = direct;
-  }
-  string getDirection() {
-    return direction;
-  }
-  string getSim() {
-    return this->sim;
-  }
-  void setSim(string sim1) {
-    this->sim = sim1;
-  }
-  float getValue() {
-    return this->value;
-  }
-  void setName(string name1) {
-    this->name = name1;
-  }
-  void setValue(float num){
-    singleton->mutex_lock.lock();
-    this->value = num;
-    singleton->updateVarValues(name, num);
-    singleton->mutex_lock.unlock();
-    updateSymbolTableProg(sim, num);
-  }
-  virtual void execute(queue<string> &token) {
-    //name of var
-    string var_name = token.front();
-    token.pop();
-    //"="
-    token.pop();
-    string expression = token.front();
-    //Command *other_var = NULL;
-    float value1 = ex1::cal(expression, *singleton->getVarValues());
-    setValue(value1);
-    //simulator needed to be changed
-    string tempSim = sim;
-    singleton->mutex_lock.lock();
-    if (direction.compare("->") == 0) {
-      if (sim[0] == '"') {
-        tempSim = sim.substr(1, sim.length() - 2);
-        if (tempSim[0] == '/') {
-          tempSim = tempSim.substr(1, tempSim.length() - 1);
-        }
-      } else if (tempSim[0] == '/') {
+  singelton1->mutex_lock.unlock();
+}
+/*
+* The function sets the direction.
+*/
+void Var::setDirection(string direct) {
+  this->direction = direct;
+}
+/*
+* The function returns the direction.
+*/
+string Var::getDirection() {
+  return direction;
+}
+/*
+* The function returns the sim.
+*/
+string Var::getSim() {
+  return this->sim;
+}
+/*
+* The function sets the sim.
+*/
+void Var::setSim(string sim1) {
+  this->sim = sim1;
+}
+/*
+* The function returns the value.
+*/
+float Var::getValue() {
+  return this->value;
+}
+/*
+* The function sets the name.
+*/
+void Var::setName(string name1) {
+  this->name = name1;
+}
+/*
+* The function sets the value.
+*/
+void Var::setValue(float num) {
+  singleton->mutex_lock.lock();
+  this->value = num;
+  singleton->updateVarValues(name, num);
+  singleton->mutex_lock.unlock();
+  updateSymbolTableProg(sim, num);
+}
+/*
+* The function updates the value of the var and adds a message if needed.
+*/
+void Var::execute(queue<string> &token) {
+  //name of var
+  string var_name = token.front();
+  token.pop();
+  //"="
+  token.pop();
+  string expression = token.front();
+  float value1 = ex1::cal(expression, *singleton->getVarValues());
+  setValue(value1);
+  //simulator needed to be changed
+  string tempSim = sim;
+  singleton->mutex_lock.lock();
+  if (direction.compare("->") == 0) {
+    if (sim[0] == '"') {
+      tempSim = sim.substr(1, sim.length() - 2);
+      if (tempSim[0] == '/') {
         tempSim = tempSim.substr(1, tempSim.length() - 1);
       }
-      string message = "set " + tempSim + " " + to_string(value) + "\r\n";
-      singleton->setMessages(message);
-      singleton->mutex_lock.unlock();
+    } else if (tempSim[0] == '/') {
+      tempSim = tempSim.substr(1, tempSim.length() - 1);
     }
-    token.pop();
+    string message = "set " + tempSim + " " + to_string(value) + "\r\n";
+    singleton->setMessages(message);
+    singleton->mutex_lock.unlock();
   }
-  virtual ~Var(){};
-};
+  token.pop();
+}
+/*
+* Destructor.
+*/
+Var::~Var() {}
 
-#endif //EX3__VAR_H_
 

@@ -31,11 +31,6 @@
 #define LOOP "while"
 
 using namespace std;
-
-//Todo
-//1. check more cases of shunting yard
-//2. check cases of space before and after " and ( and ) and {
-//3. check shunting yard in every class possible
 class Command {
  public:
   virtual void execute(queue<string> &token) = 0;
