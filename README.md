@@ -1,4 +1,4 @@
-# ex3---Flight-Simulator
+# Flight_Simulator
 The program reads a text file with instructions, and operates as a compiler,
  meaning it's interprets the instructions into commands and operate them. 
  The instructions given in the text file are suppose to make an airplain fly by operating both as client and server,
@@ -39,7 +39,7 @@ _g++ -std=c++14 *.cpp -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -o a.o
 _./a.out file_name.txt_
 
 When "Server is now listenting..." appears on the screen, open the flight gear simulator and press the button 'fly'.  
-If connection has been made successfully, "Client is now connected" will appear on the screen.  
+If connection has been made successfully, "Client is now connected to server" will appear on the screen.  
 Now, all you have to do is just sit down and enjoy seeing the plain fly :)  
 
 #### Authors
