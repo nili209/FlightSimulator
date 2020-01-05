@@ -42,7 +42,7 @@ When "Server is now listenting..." appears on the screen, open the flight gear s
 If connection has been made successfully, "Client is now connected to server" will appear on the screen.  
 Now, all you have to do is just sit down and enjoy seeing the plain fly :)  
 
-### Versioning  
+#### Versioning  
 We used [Github](https://github.com/shiraz318/Flight_Simulator) for version control
 
 #### Authors
