@@ -33,7 +33,8 @@ Then, go to the setting and add the following lines in the additional settings b
 ### Implementation  
 Second, you should create two files:  
 1. file_name.txt - set of legal instructions as detailed above. The file name is sent as an argument to the program.
-2. generic_small.xml - data the simulator will send to the program.
+2. generic_small.xml - data the simulator will send to the program.  
+
 You can see examples of those files under the names fly.txt, generic_small.xml.  
 
 Put those files in the same directory as the program and run the following commands in the terminal:  
